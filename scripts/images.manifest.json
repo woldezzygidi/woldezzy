@@ -3,101 +3,472 @@
     "slug": "wole-oduwole-portrait",
     "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-is-the-best-SEO-Expert-from-Nigeria-Africa.png",
     "file": "Wole-Oduwole-is-the-best-SEO-Expert-from-Nigeria-Africa.png",
-    "widths": [640, 960, 1200],
-    "formats": ["avif", "webp", "jpg"],
+    "widths": [
+      640,
+      960,
+      1200
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
     "alt": "Portrait of 'Wole Oduwole, SEO consultant and growth marketer"
   },
   {
     "slug": "wole-oduwole-seogidi",
     "src": "https://woldezzy.xyz/wp-content/uploads/2024/07/Wole-Oduwole-SEOGidi-founder.jpg",
     "file": "Wole-Oduwole-SEOGidi-founder.jpg",
-    "widths": [640, 960, 1200],
-    "formats": ["avif", "webp", "jpg"],
+    "widths": [
+      640,
+      960,
+      1200
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
     "alt": "'Wole Oduwole, founder and CMO of SEOGidi"
   },
   {
     "slug": "wole-oduwole-techpreneur",
     "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-Nigerian-born-Tech-Entrepreneur-1.png",
     "file": "Wole-Oduwole-Nigerian-born-Tech-Entrepreneur-1.png",
-    "widths": [640, 960, 1200],
-    "formats": ["avif", "webp", "jpg"],
+    "widths": [
+      640,
+      960,
+      1200
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
     "alt": "'Wole Oduwole, Nigerian-born tech entrepreneur"
   },
   {
     "slug": "youtube-music-launch",
     "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-at-YouTube-Music-launch-in-Africa.png",
     "file": "Wole-Oduwole-at-YouTube-Music-launch-in-Africa.png",
-    "widths": [960, 1600],
-    "formats": ["avif", "webp", "jpg"],
+    "widths": [
+      960,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
     "alt": "'Wole Oduwole at the YouTube Music launch in Africa"
   },
   {
     "slug": "ogun-summer-camp",
     "src": "https://woldezzy.xyz/wp-content/uploads/2021/01/20863432_10213874546568050_8760485601962197040_o.jpg",
     "file": "20863432_10213874546568050_8760485601962197040_o.jpg",
-    "widths": [960, 1600],
-    "formats": ["avif", "webp", "jpg"],
+    "widths": [
+      960,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
     "alt": "'Wole Oduwole recognised by the Ogun State Government at the Ogun Summer Camp"
   },
   {
     "slug": "digital-training",
     "src": "https://woldezzy.xyz/wp-content/uploads/2018/06/Digi.jpg",
     "file": "Digi.jpg",
-    "widths": [960, 1600],
-    "formats": ["avif", "webp", "jpg"],
+    "widths": [
+      960,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
     "alt": "'Wole Oduwole delivering digital marketing training"
   },
   {
     "slug": "training-marketers",
     "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-training-Digital-Marketers-on-SEO.png",
     "file": "Wole-Oduwole-training-Digital-Marketers-on-SEO.png",
-    "widths": [960, 1600],
-    "formats": ["avif", "webp", "jpg"],
+    "widths": [
+      960,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
     "alt": "'Wole Oduwole training digital marketers on SEO"
   },
   {
     "slug": "west-midlands",
     "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-is-the-best-SEO-Specialist-in-Nigeria.png",
     "file": "Wole-Oduwole-is-the-best-SEO-Specialist-in-Nigeria.png",
-    "widths": [960],
-    "formats": ["avif", "webp", "jpg"],
+    "widths": [
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
     "alt": "'Wole Oduwole, SEO specialist"
   },
   {
     "slug": "driving-school-seo",
     "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/SEO-for-Driving-School.png",
     "file": "SEO-for-Driving-School.png",
-    "widths": [960],
-    "formats": ["avif", "webp", "jpg"],
+    "widths": [
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
     "alt": "Olu K Driving School ranking first on Google"
   },
   {
     "slug": "driving-school-surulere",
     "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Driving-School-SEO-service.png",
     "file": "Driving-School-SEO-service.png",
-    "widths": [658, 988],
-    "formats": ["avif", "webp", "png"],
+    "widths": [
+      658,
+      988
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "png"
+    ],
     "alt": "Google search result: Olu K Driving School ranked first for driving school in Surulere"
   },
   {
     "slug": "driving-school-ijebu-ode",
     "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/SEO-Service-for-a-Driving-School.png",
     "file": "SEO-Service-for-a-Driving-School.png",
-    "widths": [658, 988],
-    "formats": ["avif", "webp", "png"],
+    "widths": [
+      658,
+      988
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "png"
+    ],
     "alt": "Google search result: Olu K Driving School ranked first for driving school in Ijebu-Ode"
   },
   {
     "slug": "research-cover",
     "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-is-the-best-SEO-Expert-in-Nigeria-Africa.png",
     "file": "Wole-Oduwole-is-the-best-SEO-Expert-in-Nigeria-Africa.png",
-    "widths": [960],
-    "formats": ["avif", "webp", "jpg"],
+    "widths": [
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
     "alt": "Research paper cover"
   },
-  { "slug": "logo-google-nigeria", "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Google-Nigeria.png", "file": "Google-Nigeria.png", "widths": [], "formats": [], "single": { "height": 96 } },
-  { "slug": "logo-samsung",        "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Samsung.png",        "file": "Samsung.png",        "widths": [], "formats": [], "single": { "height": 96 } },
-  { "slug": "logo-ogun-state",     "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Ogun-State-Government.png", "file": "Ogun-State-Government.png", "widths": [], "formats": [], "single": { "height": 96 } },
-  { "slug": "logo-slot",           "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Slot.ng_.png",       "file": "Slot.ng_.png",       "widths": [], "formats": [], "single": { "height": 96 } },
-  { "slug": "logo-1xbet",          "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/1Xbet.png",          "file": "1Xbet.png",          "widths": [], "formats": [], "single": { "height": 96 } }
+  {
+    "slug": "logo-google-nigeria",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Google-Nigeria.png",
+    "file": "Google-Nigeria.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 96
+    }
+  },
+  {
+    "slug": "logo-samsung",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Samsung.png",
+    "file": "Samsung.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 96
+    }
+  },
+  {
+    "slug": "logo-ogun-state",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Ogun-State-Government.png",
+    "file": "Ogun-State-Government.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 96
+    }
+  },
+  {
+    "slug": "logo-slot",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Slot.ng_.png",
+    "file": "Slot.ng_.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 96
+    }
+  },
+  {
+    "slug": "logo-1xbet",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/1Xbet.png",
+    "file": "1Xbet.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 96
+    }
+  },
+  {
+    "slug": "posts/introducing-accelerated-mobile-pages-amp-and-effects-on-seo/get-benefited-e1480266955972.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2016/11/get-benefited-e1480266955972.jpg",
+    "file": "introducing-accelerated-mobile-pages-amp-and-effects-on-seo__get-benefited-e1480266955972.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/why-you-should-move-to-https-today/https-for-website.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2017/01/https-for-website.jpg",
+    "file": "why-you-should-move-to-https-today__https-for-website.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame/images-1.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2017/02/images-1.jpg",
+    "file": "iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame__images-1.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame/images-2.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2017/02/images-2.jpg",
+    "file": "iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame__images-2.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/Outbound-Links-and-SEO.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2018/06/Outbound-Links-and-SEO.jpg",
+    "file": "should-i-use-outbound-link-open-link-in-new-tab-in-my-post__Outbound-Links-and-SEO.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/how-to-reduce-bounce-rate-on-your-website/Bounce-Rate-in-Google-Analytics-1.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2019/08/Bounce-Rate-in-Google-Analytics-1.jpg",
+    "file": "how-to-reduce-bounce-rate-on-your-website__Bounce-Rate-in-Google-Analytics-1.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/how-to-reduce-bounce-rate-on-your-website/Interative-media-in-post-sample.jpeg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2019/08/Interative-media-in-post-sample.jpeg",
+    "file": "how-to-reduce-bounce-rate-on-your-website__Interative-media-in-post-sample.jpeg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/how-to-reduce-bounce-rate-on-your-website/In-line-related.-1.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2019/08/In-line-related.-1.jpg",
+    "file": "how-to-reduce-bounce-rate-on-your-website__In-line-related.-1.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/DIY-posts-out-perform-all-existing-posts-within-the-first-day-of-publication.png",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2020/04/DIY-posts-out-perform-all-existing-posts-within-the-first-day-of-publication.png",
+    "file": "do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this__DIY-posts-out-perform-all-existing-posts-within-the-first-day-of-publication.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/Ubi-Franklin-of-TripleMG-goes-live-on-Instagram-interviewing-successful-peole-and-making-them-share-their-stories.png",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2020/04/Ubi-Franklin-of-TripleMG-goes-live-on-Instagram-interviewing-successful-peole-and-making-them-share-their-stories.png",
+    "file": "do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this__Ubi-Franklin-of-TripleMG-goes-live-on-Instagram-interviewing-successful-peole-and-making-them-share-their-stories.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/804Xd1587657849.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2020/04/804Xd1587657849.jpg",
+    "file": "do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this__804Xd1587657849.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/One-on-one-interview.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2020/04/One-on-one-interview.jpg",
+    "file": "do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this__One-on-one-interview.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/nM4MX1587659343.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2020/04/nM4MX1587659343.jpg",
+    "file": "do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this__nM4MX1587659343.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/5-ways-you-can-use-google-analytics-for-conversion/A-snapshot-of-Google-Analytics-real-time.png",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2022/05/A-snapshot-of-Google-Analytics-real-time.png",
+    "file": "5-ways-you-can-use-google-analytics-for-conversion__A-snapshot-of-Google-Analytics-real-time.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/5-ways-you-can-use-google-analytics-for-conversion/Screenshot-2022-05-05-at-1.47.49-AM.png",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2022/05/Screenshot-2022-05-05-at-1.47.49-AM.png",
+    "file": "5-ways-you-can-use-google-analytics-for-conversion__Screenshot-2022-05-05-at-1.47.49-AM.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/basic-seo-techniques-all-you-need-to-know/Basic-SEO-Techniques-for-beginners.png",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2022/06/Basic-SEO-Techniques-for-beginners.png",
+    "file": "basic-seo-techniques-all-you-need-to-know__Basic-SEO-Techniques-for-beginners.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/basic-seo-techniques-all-you-need-to-know/Keyword-Research-in-SEO.png",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2022/06/Keyword-Research-in-SEO.png",
+    "file": "basic-seo-techniques-all-you-need-to-know__Keyword-Research-in-SEO.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/basic-seo-techniques-all-you-need-to-know/On-Page-and-Off-page-SEO.png",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2022/06/On-Page-and-Off-page-SEO.png",
+    "file": "basic-seo-techniques-all-you-need-to-know__On-Page-and-Off-page-SEO.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/is-google-going-too-far-with-serp-features-and-stealing-clicks/Google-SERP.png",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2022/06/Google-SERP.png",
+    "file": "is-google-going-too-far-with-serp-features-and-stealing-clicks__Google-SERP.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/is-google-going-too-far-with-serp-features-and-stealing-clicks/Google-Featured-Snippet.png",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2022/06/Google-Featured-Snippet.png",
+    "file": "is-google-going-too-far-with-serp-features-and-stealing-clicks__Google-Featured-Snippet.png",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/basic-seo-techniques-your-ultimate-guide-to-getting-started/Basic-SEO-techniques.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/05/Basic-SEO-techniques.jpg",
+    "file": "basic-seo-techniques-your-ultimate-guide-to-getting-started__Basic-SEO-techniques.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  },
+  {
+    "slug": "posts/basic-seo-techniques-your-ultimate-guide-to-getting-started/Fundamental-SEO.jpg",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/05/Fundamental-SEO.jpg",
+    "file": "basic-seo-techniques-your-ultimate-guide-to-getting-started__Fundamental-SEO.jpg",
+    "widths": [],
+    "formats": [],
+    "single": {
+      "height": 1200
+    },
+    "inline": true
+  }
 ]

@@ -26,7 +26,7 @@ const write = (p, s) => {
 };
 
 /* ──────── 1. CSS ──────── */
-const cssOrder = ['tokens', 'fonts', 'base', 'components', 'home', 'content', 'regional'];
+const cssOrder = ['tokens', 'fonts', 'base', 'components', 'home', 'content', 'regional', 'journal'];
 const css = cssOrder.map((n) => `/* ${n}.css */\n` + read(`css/${n}.css`)).join('\n\n');
 write('css/main.css', css);
 

@@ -1,0 +1,496 @@
+[
+  {
+    "slug": "entities-not-keywords-ai-recognition",
+    "title": "Entities, Not Keywords: How to Become a Thing AI Can Actually Recognize",
+    "date": "2026-05-19",
+    "cat": "SEO",
+    "tier": "featured",
+    "words": 2563,
+    "mins": 12,
+    "desc": "Your competitor is smaller, less funded, and objectively worse — and ChatGPT recommends them seven times out of ten. The reason is not your content. It is…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "the-dark-funnel-why-your-traffic-charts-started-lying-to-you",
+    "title": "The Dark Funnel: Why Your Traffic Charts Started Lying to You",
+    "date": "2026-05-11",
+    "cat": "SEO",
+    "tier": "featured",
+    "words": 2630,
+    "mins": 12,
+    "desc": "Your organic traffic is down. Your revenue is flat. The gap between them is the dark funnel — the channel built by ChatGPT, Claude, and Perplexity that your…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "how-to-start-a-career-in-product-marketing-in-the-uk-part-3",
+    "title": "How to Start a Career in Product Marketing in the UK – Part 3",
+    "date": "2026-05-08",
+    "cat": "Product Marketing",
+    "tier": "featured",
+    "words": 3256,
+    "mins": 15,
+    "desc": "If you have read the first two parts of this series, the rest of this piece will make sense. If you haven't, bookmark it and come back. Part 3 is not a…",
+    "series": "Product Marketing Career Series",
+    "seriesNo": 3,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "starting-a-career-in-ppm-part-2",
+    "title": "How to Start a Career in Product Marketing in the UK – Part 2",
+    "date": "2026-04-18",
+    "cat": "Product Marketing",
+    "tier": "featured",
+    "words": 3172,
+    "mins": 14,
+    "desc": "A few months after that accidental meeting in Part 1, Emma was no longer the quiet one in the room. She had read the books, built her first plan, and even…",
+    "series": "Product Marketing Career Series",
+    "seriesNo": 2,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "governance-privacy-and-risk-in-ai-marketing-what-digital-managers-must-know",
+    "title": "Governance, Privacy, and Risk in AI Marketing: What Digital Managers Must Know",
+    "date": "2025-09-06",
+    "cat": "AI & Governance",
+    "tier": "featured",
+    "words": 2132,
+    "mins": 10,
+    "desc": "Learn how digital marketing managers can handle AI governance, data privacy, and legal risks. Practical steps to build trust, stay compliant, and protect…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "how-to-start-a-career-in-product-marketing-in-the-uk-part-1",
+    "title": "How to Start a Career in Product Marketing in the UK - Part 1",
+    "date": "2025-08-29",
+    "cat": "Product Marketing",
+    "tier": "featured",
+    "words": 4428,
+    "mins": 20,
+    "desc": "Part 1 of a practical UK guide to Product Marketing. Learn what the role really involves, why it matters in the British market, and how to start thinking…",
+    "series": "Product Marketing Career Series",
+    "seriesNo": 1,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "paying-for-seo-tools-smart-investment-or-monthly-money-drain",
+    "title": "Paying for SEO Tools: Smart Investment or Monthly Money Drain?",
+    "date": "2024-06-10",
+    "cat": "SEO",
+    "tier": "featured",
+    "words": 1146,
+    "mins": 5,
+    "desc": "Are pricey SEO tools like Ahrefs and SEMrush really worth it, or just dashboard decoration? Discover the hype, the hidden truth, and how to avoid wasting…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "social-media-marketing-building-an-engaged-online-community",
+    "title": "Social Media Marketing: Building an Engaged Online Community",
+    "date": "2024-05-18",
+    "cat": "Social Media",
+    "tier": "featured",
+    "words": 4994,
+    "mins": 23,
+    "desc": "Struggling with low engagement, weak growth, or content burnout? Learn step-by-step how to build an engaged online community on social media, work with…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "learn-how-to-scale-your-business-with-seo",
+    "title": "Learn How to Scale Your Business with SEO",
+    "date": "2023-09-18",
+    "cat": "SEO",
+    "tier": "featured",
+    "words": 1985,
+    "mins": 9,
+    "desc": "You’ve got the product. You’ve got the service. You’ve even got a few loyal customers who swear by you. But when you check your analytics, your traffic…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "basic-seo-techniques-your-ultimate-guide-to-getting-started",
+    "title": "Basic SEO Techniques: Your Ultimate Guide to Getting Started",
+    "date": "2023-05-18",
+    "cat": "SEO",
+    "tier": "featured",
+    "words": 756,
+    "mins": 3,
+    "desc": "Search Engine Optimization (SEO) can seem daunting, but it’s essential for improving your website's visibility on search engines like Google. Whether you're…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [
+      "/public/images/posts/basic-seo-techniques-your-ultimate-guide-to-getting-started/Basic-SEO-techniques.jpg",
+      "/public/images/posts/basic-seo-techniques-your-ultimate-guide-to-getting-started/Fundamental-SEO.jpg"
+    ],
+    "tags": []
+  },
+  {
+    "slug": "how-to-build-organic-presence-for-free-a-comprehensive-guide",
+    "title": "How to Build Organic Presence for Free: A Comprehensive Guide",
+    "date": "2023-02-21",
+    "cat": "SEO",
+    "tier": "featured",
+    "words": 935,
+    "mins": 4,
+    "desc": "Organic presence is a vital aspect of any business, as it ensures that customers can easily find your products or services online without you having to pay…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "how-to-grow-on-social-media-strategies-and-real-world-examples",
+    "title": "How to Grow on Social Media: Strategies and Real-World Examples",
+    "date": "2022-06-08",
+    "cat": "Social Media",
+    "tier": "featured",
+    "words": 656,
+    "mins": 3,
+    "desc": "Nowadays, social media serves a much broader purpose than merely connecting with pals and posting selfies. It's a potent resource for people and companies…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "gain-organic-traffic-at-zero-cost-strategies-and-insights-from-wole-oduwole",
+    "title": "Gain Organic Traffic at Zero Cost: Strategies and Insights from Wole Oduwole",
+    "date": "2022-06-02",
+    "cat": "Content",
+    "tier": "featured",
+    "words": 540,
+    "mins": 2,
+    "desc": "Many people and companies in the digital world aim to increase their website's organic traffic without breaking the bank on advertisements. An SEO expert…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "is-google-going-too-far-with-serp-features-and-stealing-clicks",
+    "title": "\"Is Google going too far with SERP features and stealing clicks?\"",
+    "date": "2022-06-02",
+    "cat": "SEO",
+    "tier": "featured",
+    "words": 268,
+    "mins": 1,
+    "desc": "That was the exact title of a Twitter Space hosted yesterday by Semrush with Aleyda Solís as a Co-Speaker. I was really impressed with the open-mindedness…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [
+      "/public/images/posts/is-google-going-too-far-with-serp-features-and-stealing-clicks/Google-SERP.png",
+      "/public/images/posts/is-google-going-too-far-with-serp-features-and-stealing-clicks/Google-Featured-Snippet.png"
+    ],
+    "tags": [
+      "Aleyda Solis",
+      "Google",
+      "Semrush"
+    ]
+  },
+  {
+    "slug": "basic-seo-techniques-all-you-need-to-know",
+    "title": "Basic SEO Techniques: All You Need To Know",
+    "date": "2022-06-02",
+    "cat": "SEO",
+    "tier": "featured",
+    "words": 1143,
+    "mins": 5,
+    "desc": "This article will give you a full insight into all you need to know about basic SEO techniques. Learn more about search visibility and Google search presence.",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [
+      "/public/images/posts/basic-seo-techniques-all-you-need-to-know/Basic-SEO-Techniques-for-beginners.png",
+      "/public/images/posts/basic-seo-techniques-all-you-need-to-know/Keyword-Research-in-SEO.png",
+      "/public/images/posts/basic-seo-techniques-all-you-need-to-know/On-Page-and-Off-page-SEO.png"
+    ],
+    "tags": [
+      "Google Analytics",
+      "Guest Posting",
+      "Keyword Research",
+      "Off-Page SEO",
+      "On-Page SEO"
+    ]
+  },
+  {
+    "slug": "basic-seo-techniques-a-beginners-guide",
+    "title": "Basic SEO Techniques: A Beginner's Guide",
+    "date": "2022-05-27",
+    "cat": "Content",
+    "tier": "featured",
+    "words": 632,
+    "mins": 3,
+    "desc": "To increase your website's visibility in search engines such as Google, Bing, and Yahoo!, you need to employ search engine optimization (SEO). Because more…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": []
+  },
+  {
+    "slug": "5-ways-you-can-use-google-analytics-for-conversion",
+    "title": "5 Ways You Can Use Google Analytics For Conversion",
+    "date": "2022-05-05",
+    "cat": "Analytics",
+    "tier": "featured",
+    "words": 973,
+    "mins": 4,
+    "desc": "Google Analytics is an integral part of any website or blog. It tells you how your site is doing and where there might be problems. However, Google…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [
+      "/public/images/posts/5-ways-you-can-use-google-analytics-for-conversion/A-snapshot-of-Google-Analytics-real-time.png",
+      "/public/images/posts/5-ways-you-can-use-google-analytics-for-conversion/Screenshot-2022-05-05-at-1.47.49-AM.png"
+    ],
+    "tags": [
+      "e-commerce",
+      "Google Analytics"
+    ]
+  },
+  {
+    "slug": "do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this",
+    "title": "Do You Have Content Ideas For The COVID-19 Lockdown? If Not, Check This",
+    "date": "2020-04-23",
+    "cat": "Content",
+    "tier": "featured",
+    "words": 491,
+    "mins": 2,
+    "desc": "If you don't know this, the lockdown will do a lot of good to content writers and bloggers as there are vast audiences ready to feed on your content, so are…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [
+      "/public/images/posts/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/DIY-posts-out-perform-all-existing-posts-within-the-first-day-of-publication.png",
+      "/public/images/posts/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/Ubi-Franklin-of-TripleMG-goes-live-on-Instagram-interviewing-successful-peole-and-making-them-share-their-stories.png",
+      "/public/images/posts/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/804Xd1587657849.jpg",
+      "/public/images/posts/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/One-on-one-interview.jpg",
+      "/public/images/posts/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/nM4MX1587659343.jpg"
+    ],
+    "tags": [
+      "lockdown content ideas"
+    ]
+  },
+  {
+    "slug": "how-to-reduce-bounce-rate-on-your-website",
+    "title": "How To Reduce Bounce Rate On Your Website",
+    "date": "2019-08-20",
+    "cat": "SEO",
+    "tier": "featured",
+    "words": 720,
+    "mins": 3,
+    "desc": "For starters wondering what Bounce Rate is. it is actually the rate at which visitors exit your website returning back to the source that brought them. In…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [
+      "/public/images/posts/how-to-reduce-bounce-rate-on-your-website/Bounce-Rate-in-Google-Analytics-1.jpg",
+      "/public/images/posts/how-to-reduce-bounce-rate-on-your-website/Interative-media-in-post-sample.jpeg",
+      "/public/images/posts/how-to-reduce-bounce-rate-on-your-website/In-line-related.-1.jpg"
+    ],
+    "tags": [
+      "Bounce Rate",
+      "Google Analytics",
+      "WordPress"
+    ]
+  },
+  {
+    "slug": "google-algorithm-update-june-2018-google-gives-more-attention-to-video-content",
+    "title": "Google Algorithm Update June 2018: Google Gives More Attention To Video Content",
+    "date": "2018-06-16",
+    "cat": "SEO",
+    "tier": "archive",
+    "words": 173,
+    "mins": 1,
+    "desc": "Google Search has rolled out a new update this June in its algorithm and it appears to favour video contents . The Search Giant has come to the…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": [
+      "google search update june 2018"
+    ]
+  },
+  {
+    "slug": "should-i-use-outbound-link-open-link-in-new-tab-in-my-post",
+    "title": "Should I Use Outbound Link (Open Link In New Tab) In My Post?",
+    "date": "2018-06-16",
+    "cat": "SEO",
+    "tier": "featured",
+    "words": 488,
+    "mins": 2,
+    "desc": "This is one major challenge for many bloggers and content curators out there - understanding the idea of linking in posts. The question is - does outbound…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [
+      "/public/images/posts/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/Outbound-Links-and-SEO.jpg"
+    ],
+    "tags": [
+      "outbound link and seo"
+    ]
+  },
+  {
+    "slug": "seo-masterclass",
+    "title": "SEO Masterclass Online",
+    "date": "2017-06-14",
+    "cat": "Analytics",
+    "tier": "archive",
+    "words": 110,
+    "mins": 1,
+    "desc": "SEO Masterclass enrollment for bloggers, content writers and website owners. This is a free online class for all interested persons It'll commence on 2nd…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": [
+      "learn seo for free online"
+    ]
+  },
+  {
+    "slug": "starter-pack-simple-seo-techniques-for-blogs-1",
+    "title": "Starter Pack: Simple SEO Techniques For Blogs 1",
+    "date": "2017-02-17",
+    "cat": "SEO",
+    "tier": "archive",
+    "words": 245,
+    "mins": 1,
+    "desc": "Yesterday was actually another moment of explosion as my twitter handle @woldezzy blew up with lots of notifications after my series of tweets on Web…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": [
+      "Google Analytics",
+      "Google seo",
+      "google verification",
+      "SEO for wordpress"
+    ]
+  },
+  {
+    "slug": "iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame",
+    "title": "iPhone 8 Is The Newest Magic With Wireless Charging And Glass Frame",
+    "date": "2017-02-12",
+    "cat": "Mobile",
+    "tier": "archive",
+    "words": 456,
+    "mins": 2,
+    "desc": "As expectations are getting high on the unveiling of the newest iPhones, no one has predicted the full features of the products. However, all three iPhones…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [
+      "/public/images/posts/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame/images-1.jpg",
+      "/public/images/posts/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame/images-2.jpg"
+    ],
+    "tags": [
+      "IPhone 8",
+      "IPhone 8 features",
+      "IPhone 8 pictures",
+      "IPhone 8 review"
+    ]
+  },
+  {
+    "slug": "why-you-should-move-to-https-today",
+    "title": "Why You Should Move To HTTPS Today!",
+    "date": "2017-01-17",
+    "cat": "Analytics",
+    "tier": "featured",
+    "words": 320,
+    "mins": 1,
+    "desc": "I created a website for a company and the manager contacted me some weeks after saying people are having difficulties in accessing the site. Quickly, i ran…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [
+      "/public/images/posts/why-you-should-move-to-https-today/https-for-website.jpg"
+    ],
+    "tags": [
+      "how to enable https for website",
+      "https for website",
+      "https for wordpress",
+      "https redirect",
+      "wordpress enable ssl"
+    ]
+  },
+  {
+    "slug": "mtn-to-increase-data-tariff-blames-it-on-ncc-regulations",
+    "title": "MTN To Increase Data Tariff, Blames It On NCC Regulations",
+    "date": "2016-11-28",
+    "cat": "Mobile",
+    "tier": "archive",
+    "words": 109,
+    "mins": 1,
+    "desc": "MTN Nigeria is set to increase its data tariff just when we thought we paying too much for internet. This development according to the network provider was…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": [
+      "mtn data",
+      "mtn data tariff"
+    ]
+  },
+  {
+    "slug": "how-to-make-video-call-on-whatsapp",
+    "title": "How To Make Video Call On Whatsapp",
+    "date": "2016-11-27",
+    "cat": "Mobile",
+    "tier": "archive",
+    "words": 126,
+    "mins": 1,
+    "desc": "Following the acquisition of the largest chat network, Whatsapp by Facebook founder, Mark Zuckerberg, there has been a whole lot of improvisation and the…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": [
+      "whatsapp",
+      "whatsapp video call"
+    ]
+  },
+  {
+    "slug": "whats-life-without-data-airtel-fires-shots-at-glo-others",
+    "title": "'What's Life Without Data?' - Airtel Fires Shots At Glo, Others",
+    "date": "2016-11-27",
+    "cat": "Mobile",
+    "tier": "archive",
+    "words": 219,
+    "mins": 1,
+    "desc": "If you've not seen the Airtel recent video advert, you might not know what I'm talking about. The one-minute video has got many talking on the social media.…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [],
+    "tags": [
+      "airtel advert",
+      "airtel data",
+      "best browsing network",
+      "best network for internet"
+    ]
+  },
+  {
+    "slug": "introducing-accelerated-mobile-pages-amp-and-effects-on-seo",
+    "title": "Introducing: Accelerated Mobile Pages (AMP) And Effects On SEO",
+    "date": "2016-11-27",
+    "cat": "SEO",
+    "tier": "archive",
+    "words": 130,
+    "mins": 1,
+    "desc": "It's no longer news that blog and content sites are not tapping into the new Google optimized mobile display known as \" Accelerated Mobile Pages \" (AMP). By…",
+    "series": null,
+    "seriesNo": null,
+    "imgRefs": [
+      "/public/images/posts/introducing-accelerated-mobile-pages-amp-and-effects-on-seo/get-benefited-e1480266955972.jpg"
+    ],
+    "tags": [
+      "amp for websites",
+      "install amp",
+      "wordpress amp"
+    ]
+  }
+]

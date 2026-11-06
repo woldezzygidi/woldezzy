@@ -1,0 +1,101 @@
+/* ============================================================
+   Journal — post page + index grid with cover thumbnails
+   ============================================================ */
+
+/* Post hero: tighter than page-hero, no bottom rule (cover follows) */
+.post__hero { border-bottom: 0; padding-bottom: var(--s-7); }
+.post__title { max-width: 22ch; }
+
+/* Cover band */
+.post__cover { margin: 0 0 var(--s-9); }
+.post__cover picture, .post__cover img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  object-fit: cover;
+  background: var(--bg-mute);
+}
+
+/* Body */
+.post__body { margin-bottom: var(--s-9); }
+.post__body img { border-radius: 4px; background: var(--bg-mute); }
+.post__body figure { margin-block: var(--s-7); }
+.post__body h2 { scroll-margin-top: calc(var(--header-h) + var(--s-4)); }
+.post__body ol, .post__body ul { padding-inline-start: var(--s-6); }
+.post__body code { word-break: break-word; }
+
+/* Series aside */
+.series {
+  margin-block: var(--s-7);
+  padding: var(--s-5) var(--s-6);
+  border: 1px solid var(--rule-strong);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+  background: var(--bg-elev);
+}
+.series__title {
+  font-size: var(--t-xs);
+  font-weight: var(--w-label);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--fg-mute);
+  margin-bottom: var(--s-3);
+}
+.series__list { padding-inline-start: 1.4em; list-style: decimal; }
+.series__list li { font-size: var(--t-sm); color: var(--fg-mute); }
+.series__list li + li { margin-top: var(--s-2); }
+.series__list a { color: var(--fg); border-bottom: 1px solid var(--rule-strong); }
+.series__list a:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Byline footer */
+.post__footer {
+  padding-top: var(--s-7);
+  border-top: 1px solid var(--rule);
+}
+.post__byline {
+  margin-top: var(--s-3);
+  font-size: var(--t-md);
+  color: var(--fg-mute);
+  max-width: 48ch;
+}
+
+/* Index grid: cover thumb above each card */
+.journal-grid--index { gap: var(--s-8) var(--s-6); }
+.post-card__thumb {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--bg-mute);
+  border: 1px solid var(--rule);
+}
+.post-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-slow) var(--ease);
+}
+.post-card:hover .post-card__thumb img { transform: scale(1.03); }
+.post-card__meta {
+  font-size: var(--t-xs);
+  font-weight: var(--w-label);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+/* First featured card spans full width on desktop: lead story */
+@media (min-width: 1024px) {
+  .journal-grid--index > .post-card:first-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--s-7);
+    align-items: center;
+  }
+  .journal-grid--index > .post-card:first-child .post-card__thumb { grid-row: 1 / span 4; }
+  .journal-grid--index > .post-card:first-child .post-card__title { font-size: var(--t-2xl); }
+  .journal-grid--index > .post-card:first-child .post-card__excerpt { font-size: var(--t-base); max-width: 48ch; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .post-card:hover .post-card__thumb img { transform: none; }
+}

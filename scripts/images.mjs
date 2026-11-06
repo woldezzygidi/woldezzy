@@ -54,9 +54,20 @@ async function emit(entry, srcPath) {
   }
   // Single-size passthrough (logos): keep aspect, cap height, emit png + no ladder
   if (entry.single) {
-    const out = join(OUT, `${entry.slug}.png`);
-    if (!existsSync(out)) {
-      tasks.push(base.clone().resize({ height: entry.single.height, withoutEnlargement: true }).png({ compressionLevel: 9 }).toFile(out).then(() => out));
+    if (entry.inline) {
+      // Inline post images: keep original filename+ext, cap height, re-encode in place.
+      const out = join(OUT, entry.slug);
+      mkdirSync(dirname(out), { recursive: true });
+      if (!existsSync(out)) {
+        let p = base.clone().resize({ height: entry.single.height, withoutEnlargement: true });
+        p = /\.png$/i.test(out) ? p.png({ compressionLevel: 9, palette: true }) : p.jpeg({ quality: 82, mozjpeg: true, progressive: true });
+        tasks.push(p.toFile(out).then(() => out));
+      }
+    } else {
+      const out = join(OUT, `${entry.slug}.png`);
+      if (!existsSync(out)) {
+        tasks.push(base.clone().resize({ height: entry.single.height, withoutEnlargement: true }).png({ compressionLevel: 9 }).toFile(out).then(() => out));
+      }
     }
   }
   return Promise.all(tasks);

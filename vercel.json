@@ -10,48 +10,443 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+        }
       ]
     },
     {
       "source": "/public/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/css/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/js/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/(.*)\\.html",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/sitemap.xml",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
     }
   ],
   "redirects": [
-    { "source": "/blog", "destination": "/journal/", "permanent": true },
-    { "source": "/blog/:path*", "destination": "/journal/", "permanent": true },
-    { "source": "/feed", "destination": "/journal/", "permanent": true },
-    { "source": "/feed/:path*", "destination": "/journal/", "permanent": true },
-    { "source": "/west-midlands-seo", "destination": "/wolverhampton-birmingham-seo/", "permanent": true },
-    { "source": "/wp-content/uploads/2025/07/UK_FMCG_Tech_Growth_Research_Oduwole_2025.pdf", "destination": "/public/papers/UK_FMCG_Tech_Growth_Research_Oduwole_2025.pdf", "permanent": true },
-    { "source": "/wp-admin/:path*", "destination": "/", "permanent": true },
-    { "source": "/wp-login.php", "destination": "/", "permanent": true },
-    { "source": "/xmlrpc.php", "destination": "/", "permanent": true },
-    { "source": "/wp-json/:path*", "destination": "/", "permanent": true },
-    { "source": "/category/:path*", "destination": "/journal/", "permanent": true },
-    { "source": "/tag/:path*", "destination": "/journal/", "permanent": true },
-    { "source": "/author/:path*", "destination": "/about/", "permanent": true }
+    {
+      "source": "/blog",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/feed/:path*",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/west-midlands-seo",
+      "destination": "/wolverhampton-birmingham-seo/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2025/07/UK_FMCG_Tech_Growth_Research_Oduwole_2025.pdf",
+      "destination": "/public/papers/UK_FMCG_Tech_Growth_Research_Oduwole_2025.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-admin/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-login.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/xmlrpc.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-json/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/category/:path*",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/tag/:path*",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/author/:path*",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/entities-not-keywords-ai-recognition",
+      "destination": "/journal/entities-not-keywords-ai-recognition/",
+      "permanent": true
+    },
+    {
+      "source": "/entities-not-keywords-ai-recognition/",
+      "destination": "/journal/entities-not-keywords-ai-recognition/",
+      "permanent": true
+    },
+    {
+      "source": "/the-dark-funnel-why-your-traffic-charts-started-lying-to-you",
+      "destination": "/journal/the-dark-funnel-why-your-traffic-charts-started-lying-to-you/",
+      "permanent": true
+    },
+    {
+      "source": "/the-dark-funnel-why-your-traffic-charts-started-lying-to-you/",
+      "destination": "/journal/the-dark-funnel-why-your-traffic-charts-started-lying-to-you/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-start-a-career-in-product-marketing-in-the-uk-part-3",
+      "destination": "/journal/how-to-start-a-career-in-product-marketing-in-the-uk-part-3/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-start-a-career-in-product-marketing-in-the-uk-part-3/",
+      "destination": "/journal/how-to-start-a-career-in-product-marketing-in-the-uk-part-3/",
+      "permanent": true
+    },
+    {
+      "source": "/starting-a-career-in-ppm-part-2",
+      "destination": "/journal/starting-a-career-in-ppm-part-2/",
+      "permanent": true
+    },
+    {
+      "source": "/starting-a-career-in-ppm-part-2/",
+      "destination": "/journal/starting-a-career-in-ppm-part-2/",
+      "permanent": true
+    },
+    {
+      "source": "/governance-privacy-and-risk-in-ai-marketing-what-digital-managers-must-know",
+      "destination": "/journal/governance-privacy-and-risk-in-ai-marketing-what-digital-managers-must-know/",
+      "permanent": true
+    },
+    {
+      "source": "/governance-privacy-and-risk-in-ai-marketing-what-digital-managers-must-know/",
+      "destination": "/journal/governance-privacy-and-risk-in-ai-marketing-what-digital-managers-must-know/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-start-a-career-in-product-marketing-in-the-uk-part-1",
+      "destination": "/journal/how-to-start-a-career-in-product-marketing-in-the-uk-part-1/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-start-a-career-in-product-marketing-in-the-uk-part-1/",
+      "destination": "/journal/how-to-start-a-career-in-product-marketing-in-the-uk-part-1/",
+      "permanent": true
+    },
+    {
+      "source": "/paying-for-seo-tools-smart-investment-or-monthly-money-drain",
+      "destination": "/journal/paying-for-seo-tools-smart-investment-or-monthly-money-drain/",
+      "permanent": true
+    },
+    {
+      "source": "/paying-for-seo-tools-smart-investment-or-monthly-money-drain/",
+      "destination": "/journal/paying-for-seo-tools-smart-investment-or-monthly-money-drain/",
+      "permanent": true
+    },
+    {
+      "source": "/social-media-marketing-building-an-engaged-online-community",
+      "destination": "/journal/social-media-marketing-building-an-engaged-online-community/",
+      "permanent": true
+    },
+    {
+      "source": "/social-media-marketing-building-an-engaged-online-community/",
+      "destination": "/journal/social-media-marketing-building-an-engaged-online-community/",
+      "permanent": true
+    },
+    {
+      "source": "/learn-how-to-scale-your-business-with-seo",
+      "destination": "/journal/learn-how-to-scale-your-business-with-seo/",
+      "permanent": true
+    },
+    {
+      "source": "/learn-how-to-scale-your-business-with-seo/",
+      "destination": "/journal/learn-how-to-scale-your-business-with-seo/",
+      "permanent": true
+    },
+    {
+      "source": "/basic-seo-techniques-your-ultimate-guide-to-getting-started",
+      "destination": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
+      "permanent": true
+    },
+    {
+      "source": "/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
+      "destination": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-build-organic-presence-for-free-a-comprehensive-guide",
+      "destination": "/journal/how-to-build-organic-presence-for-free-a-comprehensive-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-build-organic-presence-for-free-a-comprehensive-guide/",
+      "destination": "/journal/how-to-build-organic-presence-for-free-a-comprehensive-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-grow-on-social-media-strategies-and-real-world-examples",
+      "destination": "/journal/how-to-grow-on-social-media-strategies-and-real-world-examples/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-grow-on-social-media-strategies-and-real-world-examples/",
+      "destination": "/journal/how-to-grow-on-social-media-strategies-and-real-world-examples/",
+      "permanent": true
+    },
+    {
+      "source": "/gain-organic-traffic-at-zero-cost-strategies-and-insights-from-wole-oduwole",
+      "destination": "/journal/gain-organic-traffic-at-zero-cost-strategies-and-insights-from-wole-oduwole/",
+      "permanent": true
+    },
+    {
+      "source": "/gain-organic-traffic-at-zero-cost-strategies-and-insights-from-wole-oduwole/",
+      "destination": "/journal/gain-organic-traffic-at-zero-cost-strategies-and-insights-from-wole-oduwole/",
+      "permanent": true
+    },
+    {
+      "source": "/is-google-going-too-far-with-serp-features-and-stealing-clicks",
+      "destination": "/journal/is-google-going-too-far-with-serp-features-and-stealing-clicks/",
+      "permanent": true
+    },
+    {
+      "source": "/is-google-going-too-far-with-serp-features-and-stealing-clicks/",
+      "destination": "/journal/is-google-going-too-far-with-serp-features-and-stealing-clicks/",
+      "permanent": true
+    },
+    {
+      "source": "/basic-seo-techniques-all-you-need-to-know",
+      "destination": "/journal/basic-seo-techniques-all-you-need-to-know/",
+      "permanent": true
+    },
+    {
+      "source": "/basic-seo-techniques-all-you-need-to-know/",
+      "destination": "/journal/basic-seo-techniques-all-you-need-to-know/",
+      "permanent": true
+    },
+    {
+      "source": "/basic-seo-techniques-a-beginners-guide",
+      "destination": "/journal/basic-seo-techniques-a-beginners-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/basic-seo-techniques-a-beginners-guide/",
+      "destination": "/journal/basic-seo-techniques-a-beginners-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/5-ways-you-can-use-google-analytics-for-conversion",
+      "destination": "/journal/5-ways-you-can-use-google-analytics-for-conversion/",
+      "permanent": true
+    },
+    {
+      "source": "/5-ways-you-can-use-google-analytics-for-conversion/",
+      "destination": "/journal/5-ways-you-can-use-google-analytics-for-conversion/",
+      "permanent": true
+    },
+    {
+      "source": "/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this",
+      "destination": "/journal/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/",
+      "permanent": true
+    },
+    {
+      "source": "/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/",
+      "destination": "/journal/do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-reduce-bounce-rate-on-your-website",
+      "destination": "/journal/how-to-reduce-bounce-rate-on-your-website/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-reduce-bounce-rate-on-your-website/",
+      "destination": "/journal/how-to-reduce-bounce-rate-on-your-website/",
+      "permanent": true
+    },
+    {
+      "source": "/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content",
+      "destination": "/journal/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content/",
+      "permanent": true
+    },
+    {
+      "source": "/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content/",
+      "destination": "/journal/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content/",
+      "permanent": true
+    },
+    {
+      "source": "/should-i-use-outbound-link-open-link-in-new-tab-in-my-post",
+      "destination": "/journal/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/",
+      "permanent": true
+    },
+    {
+      "source": "/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/",
+      "destination": "/journal/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/",
+      "permanent": true
+    },
+    {
+      "source": "/seo-masterclass",
+      "destination": "/journal/seo-masterclass/",
+      "permanent": true
+    },
+    {
+      "source": "/seo-masterclass/",
+      "destination": "/journal/seo-masterclass/",
+      "permanent": true
+    },
+    {
+      "source": "/starter-pack-simple-seo-techniques-for-blogs-1",
+      "destination": "/journal/starter-pack-simple-seo-techniques-for-blogs-1/",
+      "permanent": true
+    },
+    {
+      "source": "/starter-pack-simple-seo-techniques-for-blogs-1/",
+      "destination": "/journal/starter-pack-simple-seo-techniques-for-blogs-1/",
+      "permanent": true
+    },
+    {
+      "source": "/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame",
+      "destination": "/journal/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame/",
+      "permanent": true
+    },
+    {
+      "source": "/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame/",
+      "destination": "/journal/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame/",
+      "permanent": true
+    },
+    {
+      "source": "/why-you-should-move-to-https-today",
+      "destination": "/journal/why-you-should-move-to-https-today/",
+      "permanent": true
+    },
+    {
+      "source": "/why-you-should-move-to-https-today/",
+      "destination": "/journal/why-you-should-move-to-https-today/",
+      "permanent": true
+    },
+    {
+      "source": "/mtn-to-increase-data-tariff-blames-it-on-ncc-regulations",
+      "destination": "/journal/mtn-to-increase-data-tariff-blames-it-on-ncc-regulations/",
+      "permanent": true
+    },
+    {
+      "source": "/mtn-to-increase-data-tariff-blames-it-on-ncc-regulations/",
+      "destination": "/journal/mtn-to-increase-data-tariff-blames-it-on-ncc-regulations/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-make-video-call-on-whatsapp",
+      "destination": "/journal/how-to-make-video-call-on-whatsapp/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-make-video-call-on-whatsapp/",
+      "destination": "/journal/how-to-make-video-call-on-whatsapp/",
+      "permanent": true
+    },
+    {
+      "source": "/whats-life-without-data-airtel-fires-shots-at-glo-others",
+      "destination": "/journal/whats-life-without-data-airtel-fires-shots-at-glo-others/",
+      "permanent": true
+    },
+    {
+      "source": "/whats-life-without-data-airtel-fires-shots-at-glo-others/",
+      "destination": "/journal/whats-life-without-data-airtel-fires-shots-at-glo-others/",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-accelerated-mobile-pages-amp-and-effects-on-seo",
+      "destination": "/journal/introducing-accelerated-mobile-pages-amp-and-effects-on-seo/",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-accelerated-mobile-pages-amp-and-effects-on-seo/",
+      "destination": "/journal/introducing-accelerated-mobile-pages-amp-and-effects-on-seo/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-start-a-career-in-product-marketing-in-the-uk-part-2",
+      "destination": "/journal/starting-a-career-in-ppm-part-2/",
+      "permanent": true
+    },
+    {
+      "source": "/journal/how-to-start-a-career-in-product-marketing-in-the-uk-part-2/",
+      "destination": "/journal/starting-a-career-in-ppm-part-2/",
+      "permanent": true
+    }
   ]
 }
