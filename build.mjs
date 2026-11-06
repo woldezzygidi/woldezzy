@@ -104,7 +104,7 @@ urls.unshift({ loc: SITE + '/', priority: '1.0' });
 /* ──────── 4. Static assets ──────── */
 cpSync(join(ROOT, 'public'), join(DIST, 'public'), { recursive: true });
 cpSync(join(ROOT, 'js'), join(DIST, 'js'), { recursive: true });
-for (const f of ['favicon.svg', 'apple-touch-icon.png']) {
+for (const f of ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'site.webmanifest']) {
   if (existsSync(join(ROOT, f))) cpSync(join(ROOT, f), join(DIST, f));
 }
 

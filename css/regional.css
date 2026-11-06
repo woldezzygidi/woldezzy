@@ -205,5 +205,6 @@ html:not([data-theme]) .proof__item:hover img { filter: invert(1) brightness(1.4
 }
 .crumbs a { color: var(--fg-mute); transition: color var(--t-fast) var(--ease); }
 .crumbs a:hover { color: var(--fg); }
+.crumbs__current { display: inline-block; max-width: 28ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: bottom; }
 .crumbs li + li::before { content: "/"; margin-inline-end: var(--s-2); color: var(--fg-dim); }
 .crumbs [aria-current] { color: var(--fg); }

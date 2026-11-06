@@ -259,6 +259,15 @@ const relCard = (q) => `        <a href="/journal/${q.slug}/" class="post-card">
           <h3 class="post-card__title">${q.title}</h3>
         </a>`;
 
+const SEO_TITLE = {
+  '5-ways-you-can-use-google-analytics-for-conversion': 'Five ways to use Google Analytics for conversion',
+  'do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this': 'Content ideas for the COVID-19 lockdown',
+  'entities-not-keywords-ai-recognition': 'Entities, not keywords: how AI search recognises you',
+  'gain-organic-traffic-at-zero-cost-strategies-and-insights-from-wole-oduwole': 'How to gain organic traffic at zero cost',
+  'google-algorithm-update-june-2018-google-gives-more-attention-to-video-content': 'Google June 2018 update: more weight on video content',
+  'governance-privacy-and-risk-in-ai-marketing-what-digital-managers-must-know': 'Governance, privacy and risk in AI marketing',
+  'iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame': 'iPhone 8: wireless charging and a glass frame',
+};
 const out = [];
 for (const p of posts) {
   const body = clean(p.raw, p.slug);
@@ -273,7 +282,7 @@ for (const p of posts) {
   const imgRefs = [...body.matchAll(/\/public\/images\/posts\/[^"]+/g)].map((m) => m[0]);
 
   const meta = {
-    title: `${p.title} · 'Wole Oduwole`,
+    title: SEO_TITLE[p.slug] || (p.title.length <= 52 ? `${p.title} · 'Wole Oduwole` : p.title),
     desc: d,
     path: `/journal/${p.slug}/`,
     ogType: 'article',
@@ -282,7 +291,9 @@ for (const p of posts) {
     noindex: tier === 'archive',
     schema: {
       '@context': 'https://schema.org',
+      '@graph': [{
       '@type': 'BlogPosting',
+      '@id': `https://woldezzy.xyz/journal/${p.slug}/#article`,
       headline: p.title,
       description: d,
       datePublished: p.date,
@@ -297,12 +308,7 @@ for (const p of posts) {
         image: 'https://woldezzy.xyz/public/images/wole-oduwole-seogidi-960.jpg',
         sameAs: ['https://www.linkedin.com/in/woldezzy/', 'https://x.com/woldezzy', 'https://orcid.org/0009-0001-9302-3329'],
       },
-      publisher: {
-        '@type': 'Person',
-        '@id': 'https://woldezzy.xyz/#person',
-        name: "'Wole Oduwole",
-        url: 'https://woldezzy.xyz/',
-      },
+      publisher: { '@id': 'https://woldezzy.xyz/#person' },
       image: `https://woldezzy.xyz/public/images/covers/${p.slug}.jpg`,
       url: `https://woldezzy.xyz/journal/${p.slug}/`,
       mainEntityOfPage: `https://woldezzy.xyz/journal/${p.slug}/`,
@@ -311,6 +317,14 @@ for (const p of posts) {
       wordCount: n,
       inLanguage: 'en-GB',
       isPartOf: { '@id': 'https://woldezzy.xyz/journal/#blog' },
+      }, {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://woldezzy.xyz/' },
+          { '@type': 'ListItem', position: 2, name: 'Journal', item: 'https://woldezzy.xyz/journal/' },
+          { '@type': 'ListItem', position: 3, name: p.title, item: `https://woldezzy.xyz/journal/${p.slug}/` },
+        ],
+      }],
     },
   };
 
@@ -332,7 +346,7 @@ ${JSON.stringify(meta, null, 2)}
         <ol class="crumbs">
           <li><a href="/">Home</a></li>
           <li><a href="/journal/">Journal</a></li>
-          <li><span aria-current="page">${cat}</span></li>
+          <li><span aria-current="page" class="crumbs__current">${p.title}</span></li>
         </ol>
       </nav>
       <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">${cat}</span> <time datetime="${p.date}">${fmtDate(p.date)}</time> · ${readMins(n)} min read${tier === 'archive' ? ' · Archive' : ''}</p>
@@ -432,7 +446,7 @@ const archive = out.filter((p) => p.tier === 'archive');
 
 const index = `<!--meta
 {
-  "title": "Journal · Writing by 'Wole Oduwole on SEO, growth and African tech",
+  "title": "Journal · 'Wole Oduwole on SEO, growth and African tech",
   "desc": "${featured.length} essays by 'Wole Oduwole on SEO strategy, growth marketing, product marketing and building tech companies in Africa and the UK. 2016 to ${out[0].date.slice(0, 4)}.",
   "path": "/journal/",
   "ogType": "website",
@@ -446,7 +460,7 @@ const index = `<!--meta
     "author": { "@id": "https://woldezzy.xyz/#person" },
     "publisher": { "@id": "https://woldezzy.xyz/#person" },
     "inLanguage": "en-GB",
-    "blogPost": ${JSON.stringify(featured.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: `https://woldezzy.xyz/journal/${p.slug}/`, datePublished: p.date })))}
+    "hasPart": ${JSON.stringify(featured.map((p) => ({ '@type': 'BlogPosting', '@id': `https://woldezzy.xyz/journal/${p.slug}/#article`, headline: p.title, url: `https://woldezzy.xyz/journal/${p.slug}/`, datePublished: p.date, image: `https://woldezzy.xyz/public/images/covers/${p.slug}.jpg`, author: { '@id': 'https://woldezzy.xyz/#person' } })))}
   }
 }
 -->
