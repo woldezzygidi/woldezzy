@@ -34,8 +34,8 @@
 
 .brand {
   display: inline-flex;
-  align-items: baseline;
-  gap: 2px;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-display);
   font-size: var(--t-md);
   font-weight: var(--w-heading);
@@ -43,6 +43,9 @@
   letter-spacing: var(--tracking-snug);
   line-height: 1;
 }
+.brand__avatar { display: block; width: 32px; height: 32px; flex: none; border-radius: 50%; overflow: hidden; background: var(--bg-mute); outline: 1px solid var(--rule); outline-offset: -1px; }
+.brand__avatar img { display: block; width: 32px; height: 32px; }
+.brand__name { display: inline-flex; align-items: baseline; gap: 2px; }
 .brand__dot {
   width: 6px;
   height: 6px;
@@ -139,7 +142,7 @@ html[data-theme="light"] .theme-toggle__sun  { display: block; }
   }
   .brand { grid-area: brand; }
   .header__end { grid-area: end; }
-  .header__inner { grid-auto-rows: 0; }
+  .header__inner { grid-template-rows: var(--header-h); grid-auto-rows: 0; }
   .nav-toggle { display: inline-block; }
 
   /* Take the nav out of the header grid entirely; it's a full-screen drawer. */
@@ -318,6 +321,8 @@ html[data-theme="light"] .theme-toggle__sun  { display: block; }
   }
 }
 
+.footer__lead { display: grid; gap: var(--s-4); }
+.footer__avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--bg-mute); outline: 1px solid var(--rule); outline-offset: -1px; }
 .footer__mark {
   font-family: var(--font-display);
   font-size: var(--t-xl);

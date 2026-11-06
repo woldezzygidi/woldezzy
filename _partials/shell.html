@@ -47,7 +47,7 @@
 <header class="header" data-header>
   <div class="header__inner">
     <a href="/" class="brand" aria-label="'Wole Oduwole, home">
-      'Wole Oduwole<span class="brand__dot" aria-hidden="true"></span>
+      <picture class="brand__avatar"><source type="image/webp" srcset="/public/brand/avatar-48.webp 1x, /public/brand/avatar-96.webp 2x"><img src="/public/brand/avatar-48.png" srcset="/public/brand/avatar-48.png 1x, /public/brand/avatar-96.png 2x" width="48" height="48" alt="" decoding="async" fetchpriority="low"></picture><span class="brand__name">'Wole Oduwole<span class="brand__dot" aria-hidden="true"></span></span>
     </a>
 
     <nav class="nav" data-nav id="primary-nav" aria-label="Primary">
@@ -75,7 +75,8 @@
 
 <footer class="footer">
   <div class="footer__inner">
-    <div>
+    <div class="footer__lead">
+      <img class="footer__avatar" src="/public/brand/avatar-96.png" srcset="/public/brand/avatar-96.png 1x, /public/brand/avatar-192.png 2x" width="64" height="64" alt="" loading="lazy" decoding="async">
       <p class="footer__mark">Growth, SEO and product marketing, <em>quietly</em> practiced.</p>
     </div>
     <div>
