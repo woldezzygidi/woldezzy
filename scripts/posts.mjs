@@ -62,6 +62,14 @@ function clean(html, slug) {
   h = h.replace(/\[\/?[a-z_]+[^\]]*\]/g, '');
   h = h.replace(/<div[^>]*class="wp-block-yoast-seo-table-of-contents[\s\S]*?<\/div>/gi, '');
   h = h.replace(/\sclass="[^"]*"/g, '').replace(/\sstyle="[^"]*"/g, '').replace(/\sid="[^"]*"/g, '');
+  // LinkedIn / editor paste residue on anchors (tracking + hovercard attrs).
+  h = h.replace(/\sdata-[a-z-]+="[^"]*"/g, '');
+  // External anchors: open in new tab safely. Internal (/…) left alone.
+  h = h.replace(/<a\s+href="(https?:\/\/[^"]+)"([^>]*)>/g, (m, url, rest) => {
+    if (/woldezzy\.xyz/.test(url)) return m;
+    const hasRel = /\srel=/.test(rest);
+    return `<a href="${url}"${rest}${hasRel ? '' : ' rel="noopener"'} target="_blank">`;
+  });
   h = h.replace(/<(p|li|h[1-6])>\s*(&nbsp;|\s)*<\/\1>/g, '');          // empty blocks
   h = h.replace(/<br\s*\/?>\s*<br\s*\/?>/g, '</p><p>');
   // Normalise heading levels: the shallowest level used becomes h2, deeper levels shift up by the same amount.
@@ -87,6 +95,23 @@ function clean(html, slug) {
     return `<img src="/public/images/posts/${slug}/${file}" width="${w}" height="${ht}" alt="${alt}" loading="lazy" decoding="async">`;
   });
   h = h.replace(/<figure>\s*<img/g, '<figure><img');
+
+  // Autolink. Operates on text nodes only: split on tags, never touch anything inside <a>…</a>,
+  // and only link real-looking hosts (excludes placeholder domains used as prose examples).
+  const PLACEHOLDER = /^(https?:\/\/)?(www\.)?(mysite|example|yoursite|yourdomain|domain|site)\.(com|org|net)/i;
+  const parts = h.split(/(<a\b[\s\S]*?<\/a>|<[^>]+>)/g);
+  for (let i = 0; i < parts.length; i++) {
+    const seg = parts[i];
+    if (!seg || seg.startsWith('<')) continue;           // tag or anchor block
+    let out = seg;
+    // bare URLs
+    out = out.replace(/(^|[\s(>])(https?:\/\/[^\s<)"']+[^\s<)"'.,;:!?])/g, (m, pre, url) =>
+      PLACEHOLDER.test(url) ? m : `${pre}<a href="${url}" rel="noopener" target="_blank">${url}</a>`);
+    // @handles → X profile (only the author's own handle; others are ambiguous across networks)
+    out = out.replace(/(^|[\s(])@woldezzy\b/g, '$1<a href="https://x.com/woldezzy" rel="noopener me" target="_blank">@woldezzy</a>');
+    parts[i] = out;
+  }
+  h = parts.join('');
   h = h.replace(/\n{3,}/g, '\n\n').trim();
   return h;
 }
