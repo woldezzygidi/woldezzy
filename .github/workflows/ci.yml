@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Build
+        run: node build.mjs
+
+      - name: Validate output
+        run: node scripts/check.mjs
+
+      - name: Size budget
+        run: |
+          css=$(stat -c%s dist/css/main.css); js=$(stat -c%s dist/js/main.js)
+          echo "css=${css}B js=${js}B"
+          test "$css" -lt 80000 || { echo "CSS over 80KB budget"; exit 1; }
+          test "$js"  -lt 30000 || { echo "JS over 30KB budget";  exit 1; }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 7

@@ -1,0 +1,19 @@
+{
+  "name": "woldezzy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "images": "node scripts/images.mjs",
+    "tiles": "node scripts/tiles.mjs",
+    "serve": "python3 -m http.server 4173 --directory dist",
+    "check": "node scripts/check.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

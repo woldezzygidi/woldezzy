@@ -1,0 +1,152 @@
+/* ============================================================
+   Base — reset, element defaults, utilities
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  font-synthesis: none;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--t-base);
+  line-height: var(--lh-relaxed);
+  font-feature-settings: "ss01", "cv11";
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Headings — base specs; per-page overrides refine */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: var(--w-heading);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--lh-snug);
+  color: var(--fg);
+}
+
+/* Emphasis = colour + italic. Italic Inter Tight is a true italic cut, legible at display sizes. */
+em {
+  font-style: italic;
+  font-weight: inherit;
+}
+
+p {
+  max-width: 62ch;
+}
+
+strong {
+  font-weight: var(--w-strong);
+}
+
+/* Skip link */
+.skip {
+  position: absolute;
+  inset-inline-start: var(--s-4);
+  inset-block-start: var(--s-4);
+  background: var(--fg);
+  color: var(--bg);
+  padding: var(--s-3) var(--s-5);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: var(--w-label);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  z-index: 100;
+  transform: translateY(-200%);
+  transition: transform var(--t-fast) var(--ease);
+}
+.skip:focus {
+  transform: translateY(0);
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.container--narrow { max-width: calc(var(--container-narrow) + var(--gutter) * 2); }
+.container--wide   { max-width: var(--container-wide); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

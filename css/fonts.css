@@ -1,0 +1,55 @@
+/* ============================================================
+   Fonts — one family. Inter Tight, variable (wght 100–900),
+   latin subset, self-hosted, OFL-1.1.
+
+   Single family = single preload, single swap event, single
+   fallback override. Metric overrides below are computed from
+   the font's hhea/OS2 tables against Arial (Liberation Sans on
+   Linux shares Arial's metrics), so the swap is near-zero CLS.
+   ============================================================ */
+
+@font-face {
+  font-family: "Inter Tight";
+  src: url("/public/fonts/inter-tight.woff2") format("woff2-variations"),
+       url("/public/fonts/inter-tight.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: optional;
+}
+@font-face {
+  font-family: "Inter Tight";
+  src: url("/public/fonts/inter-tight-italic.woff2") format("woff2-variations"),
+       url("/public/fonts/inter-tight-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: optional;
+}
+
+/* Metric-matched fallbacks. Inter Tight: asc .969 desc .241
+   Two fallback faces because Arial has no 500: display text (wght 500) is
+   wider per glyph than body (wght 400), so each gets its own size-adjust.
+   Values validated empirically under Slow-4G swap (see scripts/cwv). */
+@font-face {
+  font-family: "Inter Tight Fallback";
+  src: local("Arial"), local("Liberation Sans"), local("Helvetica Neue"), local("Helvetica");
+  font-weight: 100 450;
+  size-adjust: 114%;
+  ascent-override: 85%;
+  descent-override: 21.2%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Inter Tight Fallback";
+  src: local("Arial Bold"), local("Arial"), local("Liberation Sans Bold"), local("Liberation Sans"), local("Helvetica Neue Bold"), local("Helvetica Bold");
+  font-weight: 451 900;
+  size-adjust: 109%;
+  ascent-override: 88.9%;
+  descent-override: 22.1%;
+  line-gap-override: 0%;
+}
+
+:root {
+  --font-display: "Inter Tight", "Inter Tight Fallback", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-body:    "Inter Tight", "Inter Tight Fallback", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono:    "Inter Tight", "Inter Tight Fallback", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}

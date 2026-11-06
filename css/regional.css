@@ -1,0 +1,209 @@
+/* ============================================================
+   Regional landing — West Midlands SEO
+   City grid, trust strip, FAQ accordion, proof row.
+   ============================================================ */
+
+/* Trust strip under hero */
+.trust {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-5);
+  padding-block: var(--s-7);
+  border-bottom: 1px solid var(--rule);
+}
+@media (min-width: 720px) {
+  .trust { grid-template-columns: repeat(3, 1fr); gap: var(--s-6); }
+}
+.trust__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-4);
+  align-items: start;
+}
+.trust__icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: 50%;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.trust__icon svg { width: 16px; height: 16px; }
+.trust__label {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: var(--w-label);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-bottom: var(--s-1);
+}
+.trust__value {
+  font-size: var(--t-base);
+  color: var(--fg);
+  line-height: var(--lh-normal);
+}
+
+/* City grid */
+.cities {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--rule-strong);
+}
+@media (min-width: 720px)  { .cities { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .cities { grid-template-columns: repeat(3, 1fr); } }
+
+.city {
+  padding: var(--s-6) var(--s-5) var(--s-6) 0;
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+}
+@media (min-width: 720px) {
+  .city { padding-inline-end: var(--s-7); }
+}
+.city__name {
+  font-family: var(--font-display);
+  font-size: var(--t-xl);
+  font-weight: var(--w-heading);
+  color: var(--fg);
+  letter-spacing: var(--tracking-snug);
+  line-height: var(--lh-snug);
+}
+.city__name em {
+  color: var(--accent);
+}
+.city__meta {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: var(--w-label);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+.city__body {
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-mute);
+  max-width: 40ch;
+}
+.city__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+.city__tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: var(--w-label);
+  letter-spacing: var(--tracking-wide);
+  color: var(--fg-mute);
+  padding: 4px 8px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+}
+
+/* Proof row (clients) */
+.proof {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-5);
+  padding-block: var(--s-7);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+@media (min-width: 720px) { .proof { grid-template-columns: repeat(5, 1fr); } }
+.proof__item {
+  display: grid;
+  place-items: center;
+  min-height: 56px;
+  opacity: 0.55;
+  filter: grayscale(1);
+  transition: opacity var(--t-fast) var(--ease), filter var(--t-fast) var(--ease);
+}
+.proof__item:hover { opacity: 1; filter: none; }
+.proof__item img {
+  max-height: 36px;
+  width: auto;
+}
+html[data-theme="dark"] .proof__item img,
+html:not([data-theme]) .proof__item img { filter: invert(1) brightness(1.4); }
+html[data-theme="dark"] .proof__item:hover img,
+html:not([data-theme]) .proof__item:hover img { filter: invert(1) brightness(1.4); }
+.proof__label {
+  grid-column: 1 / -1;
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: var(--w-label);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  text-align: center;
+  margin-bottom: var(--s-3);
+}
+
+/* FAQ — native details */
+.faq {
+  border-top: 1px solid var(--rule-strong);
+}
+.faq__item {
+  border-bottom: 1px solid var(--rule);
+}
+.faq__q {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s-5);
+  align-items: baseline;
+  padding-block: var(--s-5);
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: var(--w-heading);
+  color: var(--fg);
+  letter-spacing: var(--tracking-snug);
+  line-height: var(--lh-snug);
+  cursor: pointer;
+  list-style: none;
+  transition: color var(--t-fast) var(--ease);
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q:hover { color: var(--accent); }
+.faq__q::after {
+  content: "+";
+  font-family: var(--font-mono);
+  font-size: var(--t-md);
+  font-weight: var(--w-label);
+  color: var(--accent);
+  transition: transform var(--t-base) var(--ease);
+}
+.faq__item[open] .faq__q::after { transform: rotate(45deg); }
+.faq__a {
+  padding-bottom: var(--s-6);
+  font-size: var(--t-base);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-mute);
+  max-width: 64ch;
+}
+.faq__a p + p { margin-top: var(--s-4); }
+
+/* Breadcrumb */
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: var(--w-label);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-bottom: var(--s-6);
+}
+.crumbs a { color: var(--fg-mute); transition: color var(--t-fast) var(--ease); }
+.crumbs a:hover { color: var(--fg); }
+.crumbs li + li::before { content: "/"; margin-inline-end: var(--s-2); color: var(--fg-dim); }
+.crumbs [aria-current] { color: var(--fg); }

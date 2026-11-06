@@ -1,0 +1,103 @@
+[
+  {
+    "slug": "wole-oduwole-portrait",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-is-the-best-SEO-Expert-from-Nigeria-Africa.png",
+    "file": "Wole-Oduwole-is-the-best-SEO-Expert-from-Nigeria-Africa.png",
+    "widths": [640, 960, 1200],
+    "formats": ["avif", "webp", "jpg"],
+    "alt": "Portrait of 'Wole Oduwole, SEO consultant and growth marketer"
+  },
+  {
+    "slug": "wole-oduwole-seogidi",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/07/Wole-Oduwole-SEOGidi-founder.jpg",
+    "file": "Wole-Oduwole-SEOGidi-founder.jpg",
+    "widths": [640, 960, 1200],
+    "formats": ["avif", "webp", "jpg"],
+    "alt": "'Wole Oduwole, founder and CMO of SEOGidi"
+  },
+  {
+    "slug": "wole-oduwole-techpreneur",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-Nigerian-born-Tech-Entrepreneur-1.png",
+    "file": "Wole-Oduwole-Nigerian-born-Tech-Entrepreneur-1.png",
+    "widths": [640, 960, 1200],
+    "formats": ["avif", "webp", "jpg"],
+    "alt": "'Wole Oduwole, Nigerian-born tech entrepreneur"
+  },
+  {
+    "slug": "youtube-music-launch",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-at-YouTube-Music-launch-in-Africa.png",
+    "file": "Wole-Oduwole-at-YouTube-Music-launch-in-Africa.png",
+    "widths": [960, 1600],
+    "formats": ["avif", "webp", "jpg"],
+    "alt": "'Wole Oduwole at the YouTube Music launch in Africa"
+  },
+  {
+    "slug": "ogun-summer-camp",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2021/01/20863432_10213874546568050_8760485601962197040_o.jpg",
+    "file": "20863432_10213874546568050_8760485601962197040_o.jpg",
+    "widths": [960, 1600],
+    "formats": ["avif", "webp", "jpg"],
+    "alt": "'Wole Oduwole recognised by the Ogun State Government at the Ogun Summer Camp"
+  },
+  {
+    "slug": "digital-training",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2018/06/Digi.jpg",
+    "file": "Digi.jpg",
+    "widths": [960, 1600],
+    "formats": ["avif", "webp", "jpg"],
+    "alt": "'Wole Oduwole delivering digital marketing training"
+  },
+  {
+    "slug": "training-marketers",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-training-Digital-Marketers-on-SEO.png",
+    "file": "Wole-Oduwole-training-Digital-Marketers-on-SEO.png",
+    "widths": [960, 1600],
+    "formats": ["avif", "webp", "jpg"],
+    "alt": "'Wole Oduwole training digital marketers on SEO"
+  },
+  {
+    "slug": "west-midlands",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-is-the-best-SEO-Specialist-in-Nigeria.png",
+    "file": "Wole-Oduwole-is-the-best-SEO-Specialist-in-Nigeria.png",
+    "widths": [960],
+    "formats": ["avif", "webp", "jpg"],
+    "alt": "'Wole Oduwole, SEO specialist"
+  },
+  {
+    "slug": "driving-school-seo",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/SEO-for-Driving-School.png",
+    "file": "SEO-for-Driving-School.png",
+    "widths": [960],
+    "formats": ["avif", "webp", "jpg"],
+    "alt": "Olu K Driving School ranking first on Google"
+  },
+  {
+    "slug": "driving-school-surulere",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Driving-School-SEO-service.png",
+    "file": "Driving-School-SEO-service.png",
+    "widths": [658, 988],
+    "formats": ["avif", "webp", "png"],
+    "alt": "Google search result: Olu K Driving School ranked first for driving school in Surulere"
+  },
+  {
+    "slug": "driving-school-ijebu-ode",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/SEO-Service-for-a-Driving-School.png",
+    "file": "SEO-Service-for-a-Driving-School.png",
+    "widths": [658, 988],
+    "formats": ["avif", "webp", "png"],
+    "alt": "Google search result: Olu K Driving School ranked first for driving school in Ijebu-Ode"
+  },
+  {
+    "slug": "research-cover",
+    "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Wole-Oduwole-is-the-best-SEO-Expert-in-Nigeria-Africa.png",
+    "file": "Wole-Oduwole-is-the-best-SEO-Expert-in-Nigeria-Africa.png",
+    "widths": [960],
+    "formats": ["avif", "webp", "jpg"],
+    "alt": "Research paper cover"
+  },
+  { "slug": "logo-google-nigeria", "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Google-Nigeria.png", "file": "Google-Nigeria.png", "widths": [], "formats": [], "single": { "height": 96 } },
+  { "slug": "logo-samsung",        "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Samsung.png",        "file": "Samsung.png",        "widths": [], "formats": [], "single": { "height": 96 } },
+  { "slug": "logo-ogun-state",     "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Ogun-State-Government.png", "file": "Ogun-State-Government.png", "widths": [], "formats": [], "single": { "height": 96 } },
+  { "slug": "logo-slot",           "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/Slot.ng_.png",       "file": "Slot.ng_.png",       "widths": [], "formats": [], "single": { "height": 96 } },
+  { "slug": "logo-1xbet",          "src": "https://woldezzy.xyz/wp-content/uploads/2024/06/1Xbet.png",          "file": "1Xbet.png",          "widths": [], "formats": [], "single": { "height": 96 } }
+]
