@@ -26,7 +26,14 @@ const xml = readFileSync(SRC, 'utf8');
 /* ── minimal WXR item parser (no deps) ───────────────────── */
 const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => m[1]);
 const tag = (s, t) => { const m = s.match(new RegExp(`<${t}[^>]*>(?:<!\\[CDATA\\[)?([\\s\\S]*?)(?:\\]\\]>)?<\\/${t}>`)); return m ? m[1] : ''; };
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const unesc = (s) => s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&#8217;/g, '’').replace(/&#8216;/g, '‘').replace(/&#8220;/g, '“').replace(/&#8221;/g, '”').replace(/&#8211;/g, '–').replace(/&#8230;/g, '…');
+
+/* Consolidated: near-duplicate posts folded into one canonical. Dropped from output; 301 in vercel.json. */
+const CONSOLIDATE = {
+  'basic-seo-techniques-all-you-need-to-know': 'basic-seo-techniques-your-ultimate-guide-to-getting-started',
+  'basic-seo-techniques-a-beginners-guide':    'basic-seo-techniques-your-ultimate-guide-to-getting-started',
+};
 
 const posts = items
   .filter((s) => tag(s, 'wp:post_type') === 'post' && tag(s, 'wp:status') === 'publish')
@@ -36,7 +43,7 @@ const posts = items
     const metaDesc = (s.match(/<wp:meta_key>(?:<!\[CDATA\[)?_yoast_wpseo_metadesc(?:\]\]>)?<\/wp:meta_key>\s*<wp:meta_value>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/wp:meta_value>/) || [])[1] || '';
     return {
       slug: tag(s, 'wp:post_name'),
-      title: unesc(tag(s, 'title')).trim(),
+      title: unesc(tag(s, 'title')).trim().replace(/\s+[–—-]\s+(Part \d)/i, ': $1').replace(/\s+[–—]\s+/g, ': '),
       date: tag(s, 'wp:post_date').slice(0, 10),
       modified: tag(s, 'wp:post_modified').slice(0, 10),
       excerpt: unesc(tag(s, 'excerpt:encoded')).replace(/<[^>]+>/g, '').trim(),
@@ -46,6 +53,7 @@ const posts = items
       raw: tag(s, 'content:encoded'),
     };
   })
+  .filter((p) => !CONSOLIDATE[p.slug])
   .sort((a, b) => (a.date < b.date ? 1 : -1));
 
 /* ── Gutenberg/classic → clean HTML ───────────────────────── */
@@ -67,8 +75,8 @@ function clean(html, slug) {
   // External anchors: open in new tab safely. Internal (/…) left alone.
   h = h.replace(/<a\s+href="(https?:\/\/[^"]+)"([^>]*)>/g, (m, url, rest) => {
     if (/woldezzy\.xyz/.test(url)) return m;
-    const hasRel = /\srel=/.test(rest);
-    return `<a href="${url}"${rest}${hasRel ? '' : ' rel="noopener"'} target="_blank">`;
+    const hasRel = /\srel=/.test(rest), hasTarget = /\starget=/.test(rest);
+    return `<a href="${url}"${rest}${hasRel ? '' : ' rel="noopener"'}${hasTarget ? '' : ' target="_blank"'}>`;
   });
   h = h.replace(/<(p|li|h[1-6])>\s*(&nbsp;|\s)*<\/\1>/g, '');          // empty blocks
   h = h.replace(/<br\s*\/?>\s*<br\s*\/?>/g, '</p><p>');
@@ -95,6 +103,98 @@ function clean(html, slug) {
     return `<img src="/public/images/posts/${slug}/${file}" width="${w}" height="${ht}" alt="${alt}" loading="lazy" decoding="async">`;
   });
   h = h.replace(/<figure>\s*<img/g, '<figure><img');
+
+  /* ── House style ─────────────────────────────────────────────
+     1. "Label – description" inside <li> or <p> → <strong>Label.</strong> description
+     2. Remaining en/em dashes: parenthetical aside → commas; trailing clause → full stop;
+        before a list/explanation → colon. Decided by what follows the dash.
+     3. Known AI-pattern phrases → plain alternatives (word-level; voice untouched).
+     ──────────────────────────────────────────────────────────── */
+  h = h.replace(/<(li|p)>\s*(<strong>)?([A-Z][^<–—:-]{2,60}?)(<\/strong>)?\s+[–—-]\s+/g, (m, tag, so, label, sc) => `<${tag}><strong>${label.trim().replace(/\.$/, '')}.</strong> `);
+  h = h.replace(/<(h[2-4])>([^<]*?)\s+[–—]\s+([^<]*?)<\/\1>/g, '<$1>$2: $3</$1>');         // "The Modern Job – What Stays" → "The Modern Job: What Stays"
+  // paired dashes = aside → commas
+  h = h.replace(/\s+[–—]\s+([^–—<.!?]{3,80}?)\s+[–—]\s+/g, ', $1, ');
+  // dash followed by lowercase continuation that reads as a list/explanation → colon
+  h = h.replace(/\s*[–—]\s+(?=(?:[a-z][^.!?<]*,\s*[a-z][^.!?<]*(?:,|\s+and\s+)))/g, ': ');
+  // dash before a capitalised or clause-initial word → full stop
+  h = h.replace(/([a-z0-9\u2019'")])\s*[–—]\s+([A-Z])/g, '$1. $2');
+  // anything left → comma (shortest safe fallback)
+  h = h.replace(/\s*[–—]\s*/g, ', ');
+  // spaced hyphen used as a dash: "x - y" (never "Mon-Thu", "$200/month", "e-mail")
+  h = h.replace(/([a-z0-9\u2019'")])\s+-\s+([A-Z])/g, '$1. $2');
+  h = h.replace(/(\w)\s+-\s+(\w)/g, '$1, $2');
+  h = h.replace(/,\s*,/g, ',').replace(/\.\s*\./g, '.').replace(/:\s*:/g, ':');
+
+  const AI = [
+    [/\bleverag(e|es|ing|ed)\b/gi, (m, t) => ({e:'use',es:'uses',ing:'using',ed:'used'})[t.toLowerCase()]],
+    [/\bdelve(s|d)? (into|deeper)\b/gi, 'look at'],
+    [/\bdive(s|d)? (deep|deeper) into\b/gi, 'go into'],
+    [/\bin today['\u2019]s (fast-paced |rapidly changing |ever-evolving |digital )?(world|landscape|era|age|economy)\b/gi, 'today'],
+    [/\bthe (digital |marketing |seo |business )?landscape\b/gi, 'the market'],
+    [/\bgame[- ]changer\b/gi, 'a big shift'],
+    [/\bseamless(ly)?\b/gi, (m, ly) => ly ? 'smoothly' : 'smooth'],
+    [/\bunlock(s|ed|ing)? (the )?(full |true |real )?potential\b/gi, 'get more out of it'],
+    [/\bnavigat(e|ing) the\b/gi, (m, t) => t === 'e' ? 'work through the' : 'working through the'],
+    [/\bit['\u2019]s (important|crucial|essential|vital) to (note|remember|understand) that\b/gi, 'Note that'],
+    [/\bin conclusion,?\s*/gi, ''],
+    [/\bfurthermore,?\s*/gi, ''],
+    [/\bmoreover,?\s*/gi, ''],
+    [/\badditionally,?\s*/gi, ''],
+    [/\bultimately,?\s*/gi, ''],
+    [/\bembark(s|ed|ing)? on\b/gi, 'start'],
+    [/\brobust\b/gi, 'strong'],
+    [/\bholistic(ally)?\b/gi, (m, ly) => ly ? 'as a whole' : 'whole'],
+    [/\bsynerg(y|ies|istic)\b/gi, 'fit'],
+    [/\bcutting[- ]edge\b/gi, 'new'],
+    [/\bever[- ]evolving\b/gi, 'changing'],
+    [/\bfuture[- ]proof(ing)?\b/gi, 'durable'],
+    [/\bstay ahead of the curve\b/gi, 'keep up'],
+    [/\bat the end of the day,?\s*/gi, ''],
+    [/\bwhether you['\u2019]re a [^,.]+? or a [^,.]+?,\s*/gi, ''],
+    [/\bthe (digital )?(economy|age|era)\b/gi, 'now'],
+    [/\btapestry\b/gi, 'mix'],
+    [/\bparadigm shift\b/gi, 'big change'],
+    [/\bsupercharge\b/gi, 'boost'],
+    [/\bskyrocket(s|ed|ing)?\b/gi, (m, t) => ({'':'jump',s:'jumps',ed:'jumped',ing:'jumping'})[t||'']],
+  ];
+  for (const [re, rep] of AI) h = h.replace(re, rep);
+  h = h.replace(/\bTwitter\b(?![^<]*<\/a>)/g, 'X (formerly Twitter)').replace(/X \(formerly Twitter\)([^.]*?)X \(formerly Twitter\)/g, 'X (formerly Twitter)$1X');
+
+  /* Per-post editorial fixes. Dated statistics are anchored to their year rather than
+     presented as current; a handful of sentences that the generic rules left awkward are rewritten. */
+  const EDITS = {
+    'social-media-marketing-building-an-engaged-online-community': [
+      ['Engagement is down across many platforms this year.', 'Engagement fell across most platforms in 2024, and the trend has not reversed.'],
+      ['One trusted report says Instagram engagement fell', 'Rival IQ\u2019s 2024 benchmark report put Instagram engagement down'],
+      ['Rival IQ\u2019s 2024 median was 0.43%, which many still use as a target.', 'Rival IQ\u2019s 2024 median was 0.43%. Treat it as a floor, not a target.'],
+      ['Example: on Instagram this year, carousels often win.', 'Example: on Instagram, carousels have outperformed Reels for engagement since 2024.'],
+      ['Try more carousels on IG.', 'Try more carousels on Instagram.'],
+      ['Here\u2019s the thing: community is not about', 'Community is not about'],
+    ],
+    'learn-how-to-scale-your-business-with-seo': [
+      ['looks like it\u2019s on life support, flat, barely twitching.', 'looks like it is on life support. Flat. Barely twitching.'],
+      ['I\u2019ll show you exactly how to use SEO as a growth engine, step-by-step, no fluff, so you can', 'I will show you how to use SEO as a growth engine, step by step, so you can'],
+      ['you\u2019re not just getting random clicks, you\u2019re putting', 'you are not getting random clicks. You are putting'],
+      ['That\u2019s warm traffic. That\u2019s money-in-the-bank traffic.', 'That is warm traffic.'],
+      ['Scaling SEO without a solid foundation is like pouring water into a basket, effort wasted.', 'Scaling SEO without a solid foundation is pouring water into a basket.'],
+      ['you\u2019ll burn out faster than a cheap generator in Lagos', 'you will burn out faster than a cheap generator in Lagos'],
+      ['Scaling SEO isn\u2019t about working more hours, it\u2019s about building systems', 'Scaling SEO is not about working more hours. It is about building systems'],
+      ['That bait-and-switch didn\u2019t just kill conversions, it dented the brand\u2019s', 'That bait-and-switch killed conversions and dented the brand\u2019s'],
+    ],
+    'governance-privacy-and-risk-in-ai-marketing-what-digital-managers-must-know': [
+      ['A global survey in 2024 showed that about 70 out of every 100 companies', 'McKinsey\u2019s 2024 State of AI survey found that about 70 out of every 100 companies'],
+      ['Research found that nearly 6 in 10 Google searches end without a click', 'SparkToro\u2019s 2024 study found that nearly 6 in 10 Google searches end without a click'],
+      ['Don\u2019t expect them to be perfect, treat them as raw material.', 'Do not expect them to be perfect. Treat them as raw material.'],
+      ['leaned heavily on attribution models, \u201cthis click led to that sale.\u201d', 'leaned heavily on attribution models: \u201cthis click led to that sale.\u201d'],
+      ['A good digital marketing manager doesn\u2019t just push growth, they protect the company too.', 'A good digital marketing manager does not just push growth. They protect the company too.'],
+    ],
+    'paying-for-seo-tools-smart-investment-or-monthly-money-drain': [
+      ['Omo, I wouldn\u2019t lie, it\u2019s a tussle between', 'I will not lie, it is a tussle between'],
+    ],
+  };
+  for (const [a, b] of (EDITS[slug] || [])) h = h.split(a).join(b);
+  // Capitalise sentence starts that lost their opener ("Furthermore, the X" → "the X")
+  h = h.replace(/(<p>|[.!?]\s+)([a-z])/g, (m, pre, c) => pre + c.toUpperCase());
 
   // Autolink. Operates on text nodes only: split on tags, never touch anything inside <a>…</a>,
   // and only link real-looking hosts (excludes placeholder domains used as prose examples).
@@ -129,11 +229,36 @@ function desc(p, body) {
     // No usable meta: take body prose until ~160 chars, across paragraphs.
     cand = body.replace(/<(h[1-6]|aside|figure)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ');
   }
-  const t = cand.replace(/\s+/g, ' ').trim();
+  let t = cand.replace(/\s+/g, ' ').trim();
+  t = t.replace(/([a-z0-9\u2019'")])\s*[–—]\s+([A-Z])/g, '$1. $2').replace(/\s*[–—]\s*/g, ', ').replace(/,\s*,/g, ',');
   return t.length > 160 ? t.slice(0, 157).replace(/\s\S*$/, '') + '…' : t;
 }
 
 mkdirSync(join(ROOT, 'pages', 'journal'), { recursive: true });
+
+/* Pre-compute tiering + category for every post so related-post selection can see the whole set. */
+const ARCHIVE_FORCE_PRE = new Set(['iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame']);
+const pre = posts.map((p) => {
+  const body = clean(p.raw, p.slug);
+  const n = words(body);
+  return { ...p, body, n, cat: primaryCat(p), tier: (ARCHIVE_FORCE_PRE.has(p.slug) || (n < 300 && p.date < '2021-01-01')) ? 'archive' : 'featured',
+    series: /product-marketing|starting-a-career-in-ppm/.test(p.slug) ? 'pmm' : null };
+});
+function related(self, k = 3) {
+  const pool = pre.filter((q) => q.slug !== self.slug && q.tier === 'featured');
+  const score = (q) => (self.series && q.series === self.series ? 100 : 0) + (q.cat === self.cat ? 10 : 0) - Math.abs(new Date(q.date) - new Date(self.date)) / 3.15e10;
+  return pool.sort((a, b) => score(b) - score(a)).slice(0, k);
+}
+const relCard = (q) => `        <a href="/journal/${q.slug}/" class="post-card">
+          <span class="post-card__date"><time datetime="${q.date}">${fmtDate(q.date)}</time> · ${q.cat}</span>
+          <div class="post-card__thumb"><picture>
+            <source type="image/avif" srcset="/public/images/covers/${q.slug}-960.avif">
+            <source type="image/webp" srcset="/public/images/covers/${q.slug}-960.webp">
+            <img src="/public/images/covers/${q.slug}.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+          </picture></div>
+          <h3 class="post-card__title">${q.title}</h3>
+        </a>`;
+
 const out = [];
 for (const p of posts) {
   const body = clean(p.raw, p.slug);
@@ -162,8 +287,22 @@ for (const p of posts) {
       description: d,
       datePublished: p.date,
       dateModified: p.modified || p.date,
-      author: { '@id': 'https://woldezzy.xyz/#person' },
-      publisher: { '@id': 'https://woldezzy.xyz/#person' },
+      author: {
+        '@type': 'Person',
+        '@id': 'https://woldezzy.xyz/#person',
+        name: "'Wole Oduwole",
+        alternateName: 'Adewole Oduwole',
+        url: 'https://woldezzy.xyz/about/',
+        jobTitle: 'SEO Consultant and Growth Marketing Executive',
+        image: 'https://woldezzy.xyz/public/images/wole-oduwole-seogidi-960.jpg',
+        sameAs: ['https://www.linkedin.com/in/woldezzy/', 'https://x.com/woldezzy', 'https://orcid.org/0009-0001-9302-3329'],
+      },
+      publisher: {
+        '@type': 'Person',
+        '@id': 'https://woldezzy.xyz/#person',
+        name: "'Wole Oduwole",
+        url: 'https://woldezzy.xyz/',
+      },
       image: `https://woldezzy.xyz/public/images/covers/${p.slug}.jpg`,
       url: `https://woldezzy.xyz/journal/${p.slug}/`,
       mainEntityOfPage: `https://woldezzy.xyz/journal/${p.slug}/`,
@@ -174,6 +313,14 @@ for (const p of posts) {
       isPartOf: { '@id': 'https://woldezzy.xyz/journal/#blog' },
     },
   };
+
+  const NOTES = {
+    'how-to-reduce-bounce-rate-on-your-website': 'This piece was written in 2019 against Universal Analytics. GA4 retired bounce rate in favour of engagement rate in 2023. The behavioural advice still holds; the metric names do not.',
+    'do-you-have-content-ideas-for-the-covid-19-lockdown-if-not-check-this': 'Written in April 2020, during the first UK and Nigerian lockdowns. Kept as a record of how content strategy adapted that month.',
+    'why-you-should-move-to-https-today': 'Written in 2017, when HTTPS was still a choice. It is now a baseline. The reasoning is kept for the record.',
+    'should-i-use-outbound-link-open-link-in-new-tab-in-my-post': 'Written in 2018. The accessibility argument against forcing new tabs has strengthened since; the SEO argument is unchanged.',
+  };
+  const note = NOTES[p.slug] ? `<aside class="note" role="note"><p><strong>Editor\u2019s note, 2026.</strong> ${NOTES[p.slug]}</p></aside>\n` : '';
 
   const fragment = `<!--meta
 ${JSON.stringify(meta, null, 2)}
@@ -190,6 +337,7 @@ ${JSON.stringify(meta, null, 2)}
       </nav>
       <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">${cat}</span> <time datetime="${p.date}">${fmtDate(p.date)}</time> · ${readMins(n)} min read${tier === 'archive' ? ' · Archive' : ''}</p>
       <h1 class="page-hero__title post__title" itemprop="headline">${p.title}</h1>
+      <p class="post__byline-top">By <a href="/about/" rel="author" itemprop="author">'Wole Oduwole</a></p>
     </div>
   </header>
 
@@ -205,14 +353,59 @@ ${JSON.stringify(meta, null, 2)}
 
   <div class="container container--narrow">
     <div class="prose post__body" itemprop="articleBody">
-${body}
+${note}${body}
     </div>
 
     <footer class="post__footer">
-      <p class="eyebrow">Written by</p>
-      <p class="post__byline">'Wole Oduwole, marketing executive and techpreneur. <a href="/about/" class="ulink">About</a> · <a href="/contact/" class="ulink">Contact</a></p>
+      <aside class="author" aria-label="About the author">
+        <a href="/about/" class="author__photo" rel="author" tabindex="-1" aria-hidden="true">
+          <picture>
+            <source type="image/avif" srcset="/public/images/wole-oduwole-seogidi-640.avif">
+            <source type="image/webp" srcset="/public/images/wole-oduwole-seogidi-640.webp">
+            <img src="/public/images/wole-oduwole-seogidi-640.jpg" width="96" height="128" alt="" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        <div class="author__body">
+          <p class="eyebrow">Written by</p>
+          <p class="author__name"><a href="/about/" rel="author">'Wole Oduwole</a></p>
+          <p class="author__bio">SEO consultant and growth marketing executive. Twelve years across search, growth and product marketing for tech companies in Africa and the UK. Founder and CMO of SEOGidi. Innovator Founder, endorsed by Innovator International. MRes, University of Wolverhampton.</p>
+          <ul class="author__links">
+            <li><a href="https://www.linkedin.com/in/woldezzy/" rel="me noopener" target="_blank">LinkedIn</a></li>
+            <li><a href="https://x.com/woldezzy" rel="me noopener" target="_blank">X</a></li>
+            <li><a href="https://orcid.org/0009-0001-9302-3329" rel="me noopener" target="_blank">ORCID</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="share" data-share data-title="${esc(p.title)}" data-url="https://woldezzy.xyz/journal/${p.slug}/">
+        <p class="eyebrow">Share</p>
+        <ul class="share__list">
+          <li><button type="button" class="share__btn" data-share-native hidden>Share…</button></li>
+          <li><a class="share__btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://woldezzy.xyz/journal/${p.slug}/`)}" rel="noopener" target="_blank">LinkedIn</a></li>
+          <li><a class="share__btn" href="https://x.com/intent/post?text=${encodeURIComponent(p.title)}&url=${encodeURIComponent(`https://woldezzy.xyz/journal/${p.slug}/`)}&via=woldezzy" rel="noopener" target="_blank">X</a></li>
+          <li><a class="share__btn" href="https://wa.me/?text=${encodeURIComponent(p.title + ' https://woldezzy.xyz/journal/' + p.slug + '/')}" rel="noopener" target="_blank">WhatsApp</a></li>
+          <li><a class="share__btn" href="mailto:?subject=${encodeURIComponent(p.title)}&body=${encodeURIComponent('https://woldezzy.xyz/journal/' + p.slug + '/')}">Email</a></li>
+          <li><button type="button" class="share__btn" data-share-copy>Copy link</button></li>
+        </ul>
+        <p class="share__status" role="status" aria-live="polite"></p>
+      </div>
     </footer>
   </div>
+
+  <section class="related" aria-labelledby="related-title">
+    <div class="container container--wide">
+      <div class="chapter">
+        <span class="chapter__num">§</span>
+        <span class="chapter__title">Keep reading</span>
+        <a href="/journal/" class="chapter__action">All essays →</a>
+      </div>
+      <h2 class="statement" id="related-title" style="font-size: var(--t-2xl)">Related <em>essays</em>.</h2>
+      <div class="journal-grid">
+${related(pre.find((q) => q.slug === p.slug)).map(relCard).join('\n')}
+      </div>
+    </div>
+  </section>
 </article>
 `;
   writeFileSync(join(ROOT, 'pages', 'journal', `${p.slug}.html`), fragment);

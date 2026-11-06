@@ -289,26 +289,6 @@
       "permanent": true
     },
     {
-      "source": "/basic-seo-techniques-all-you-need-to-know",
-      "destination": "/journal/basic-seo-techniques-all-you-need-to-know/",
-      "permanent": true
-    },
-    {
-      "source": "/basic-seo-techniques-all-you-need-to-know/",
-      "destination": "/journal/basic-seo-techniques-all-you-need-to-know/",
-      "permanent": true
-    },
-    {
-      "source": "/basic-seo-techniques-a-beginners-guide",
-      "destination": "/journal/basic-seo-techniques-a-beginners-guide/",
-      "permanent": true
-    },
-    {
-      "source": "/basic-seo-techniques-a-beginners-guide/",
-      "destination": "/journal/basic-seo-techniques-a-beginners-guide/",
-      "permanent": true
-    },
-    {
       "source": "/5-ways-you-can-use-google-analytics-for-conversion",
       "destination": "/journal/5-ways-you-can-use-google-analytics-for-conversion/",
       "permanent": true
@@ -446,6 +426,46 @@
     {
       "source": "/journal/how-to-start-a-career-in-product-marketing-in-the-uk-part-2/",
       "destination": "/journal/starting-a-career-in-ppm-part-2/",
+      "permanent": true
+    },
+    {
+      "source": "/basic-seo-techniques-all-you-need-to-know",
+      "destination": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
+      "permanent": true
+    },
+    {
+      "source": "/basic-seo-techniques-all-you-need-to-know/",
+      "destination": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
+      "permanent": true
+    },
+    {
+      "source": "/journal/basic-seo-techniques-all-you-need-to-know",
+      "destination": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
+      "permanent": true
+    },
+    {
+      "source": "/journal/basic-seo-techniques-all-you-need-to-know/",
+      "destination": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
+      "permanent": true
+    },
+    {
+      "source": "/basic-seo-techniques-a-beginners-guide",
+      "destination": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
+      "permanent": true
+    },
+    {
+      "source": "/basic-seo-techniques-a-beginners-guide/",
+      "destination": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
+      "permanent": true
+    },
+    {
+      "source": "/journal/basic-seo-techniques-a-beginners-guide",
+      "destination": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
+      "permanent": true
+    },
+    {
+      "source": "/journal/basic-seo-techniques-a-beginners-guide/",
+      "destination": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
       "permanent": true
     }
   ]

@@ -202,6 +202,33 @@ function initParallax() {
 }
 
 /* ──────────────────────────────────────────
+   SHARE — native Web Share when available, else the link list; copy-to-clipboard.
+   ────────────────────────────────────────── */
+function initShare() {
+  const root = document.querySelector('[data-share]');
+  if (!root) return () => {};
+  const title = root.dataset.title, url = root.dataset.url;
+  const status = root.querySelector('.share__status');
+  const say = (msg) => { if (status) { status.textContent = msg; setTimeout(() => { status.textContent = ''; }, 2400); } };
+
+  const nativeBtn = root.querySelector('[data-share-native]');
+  const onNative = async () => { try { await navigator.share({ title, url }); } catch (_) { /* user cancelled */ } };
+  if (nativeBtn && navigator.share && navigator.canShare?.({ title, url })) {
+    nativeBtn.hidden = false;
+    nativeBtn.addEventListener('click', onNative);
+  }
+
+  const copyBtn = root.querySelector('[data-share-copy]');
+  const onCopy = async () => {
+    try { await navigator.clipboard.writeText(url); say('Link copied'); }
+    catch (_) { say('Copy failed. Select the address bar instead.'); }
+  };
+  copyBtn && copyBtn.addEventListener('click', onCopy);
+
+  return () => { nativeBtn && nativeBtn.removeEventListener('click', onNative); copyBtn && copyBtn.removeEventListener('click', onCopy); };
+}
+
+/* ──────────────────────────────────────────
    FOOTER YEAR
    ────────────────────────────────────────── */
 function initYear() {
@@ -216,7 +243,7 @@ const cleanups = [];
 
 function boot() {
   initYear();
-  cleanups.push(initTheme(), initHeader(), initNav(), initReveal(), initParallax());
+  cleanups.push(initTheme(), initHeader(), initNav(), initReveal(), initParallax(), initShare());
 }
 
 if (document.readyState === 'loading') {
