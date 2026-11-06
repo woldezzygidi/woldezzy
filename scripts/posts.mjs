@@ -396,10 +396,10 @@ ${note}${body}
         <p class="eyebrow">Share</p>
         <ul class="share__list">
           <li><button type="button" class="share__btn" data-share-native hidden>Share…</button></li>
-          <li><a class="share__btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://woldezzy.xyz/journal/${p.slug}/`)}" rel="noopener" target="_blank">LinkedIn</a></li>
-          <li><a class="share__btn" href="https://x.com/intent/post?text=${encodeURIComponent(p.title)}&url=${encodeURIComponent(`https://woldezzy.xyz/journal/${p.slug}/`)}&via=woldezzy" rel="noopener" target="_blank">X</a></li>
-          <li><a class="share__btn" href="https://wa.me/?text=${encodeURIComponent(p.title + ' https://woldezzy.xyz/journal/' + p.slug + '/')}" rel="noopener" target="_blank">WhatsApp</a></li>
-          <li><a class="share__btn" href="mailto:?subject=${encodeURIComponent(p.title)}&body=${encodeURIComponent('https://woldezzy.xyz/journal/' + p.slug + '/')}">Email</a></li>
+          <li><a class="share__btn" data-share-network="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://woldezzy.xyz/journal/${p.slug}/`)}" rel="noopener" target="_blank">LinkedIn</a></li>
+          <li><a class="share__btn" data-share-network="x" href="https://x.com/intent/post?text=${encodeURIComponent(p.title)}&url=${encodeURIComponent(`https://woldezzy.xyz/journal/${p.slug}/`)}&via=woldezzy" rel="noopener" target="_blank">X</a></li>
+          <li><a class="share__btn" data-share-network="whatsapp" href="https://wa.me/?text=${encodeURIComponent(p.title + ' https://woldezzy.xyz/journal/' + p.slug + '/')}" rel="noopener" target="_blank">WhatsApp</a></li>
+          <li><a class="share__btn" data-share-network="email" href="mailto:?subject=${encodeURIComponent(p.title)}&body=${encodeURIComponent('https://woldezzy.xyz/journal/' + p.slug + '/')}">Email</a></li>
           <li><button type="button" class="share__btn" data-share-copy>Copy link</button></li>
         </ul>
         <p class="share__status" role="status" aria-live="polite"></p>
