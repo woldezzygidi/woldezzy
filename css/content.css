@@ -101,6 +101,7 @@
   width: 100%;
   border-radius: 2px;
 }
+.prose .figure--portrait { max-width: 420px; }
 .prose figcaption {
   font-family: var(--font-mono);
   font-size: var(--t-xs);

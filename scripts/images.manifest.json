@@ -650,5 +650,35 @@
       "jpg"
     ],
     "alt": "'Wole Oduwole at work in Lagos"
+  },
+  {
+    "slug": "elevatech-hall",
+    "src": "local://elevatech-hall.jpg",
+    "file": "elevatech-hall.jpg",
+    "widths": [
+      960,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "The hall at ElevaTech Summit, London, during the afternoon panel"
+  },
+  {
+    "slug": "elevatech-notes",
+    "src": "local://elevatech-notes.jpg",
+    "file": "elevatech-notes.jpg",
+    "widths": [
+      640,
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole taking notes on a tablet in the audience at ElevaTech Summit"
   }
 ]

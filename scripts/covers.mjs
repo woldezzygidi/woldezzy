@@ -68,6 +68,13 @@ const M = {
     ${nodes.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="16" fill="${INK}" stroke="${PAPER}" stroke-width="3"/>`).join('')}
     <path d="M330 40 L300 170 L350 250 L305 360 L345 440 L315 600" fill="none" stroke="${ACC}" stroke-width="5" stroke-linejoin="round"/>`;
   },
+  // Ownership: three stacked tiers (beliefs, actions, outcomes) carried on one vertical stroke
+  ownership: () => `
+    <rect x="120" y="120" width="400" height="90" rx="4" fill="none" stroke="${PAPER}" stroke-width="4" opacity=".9"/>
+    <rect x="160" y="270" width="320" height="90" rx="4" fill="none" stroke="${PAPER}" stroke-width="4" opacity=".7"/>
+    <rect x="200" y="420" width="240" height="90" rx="4" fill="${ACC}" opacity=".95"/>
+    <line x1="320" y1="40" x2="320" y2="600" stroke="${ACC}" stroke-width="5"/>
+    <circle cx="320" cy="40" r="12" fill="${ACC}"/>`,
   // Dark funnel: funnel whose lower half dissolves into unmeasured noise
   darkfunnel: () => {
     let dots = '';
@@ -208,6 +215,7 @@ const M = {
 const MOTIF = {
   'entities-not-keywords-ai-recognition': M.entities,
   'fault-lines-ai-search-platforms-llms-txt': M.faultlines,
+  'state-of-ownership-elevatech-summit-london': M.ownership,
   'the-dark-funnel-why-your-traffic-charts-started-lying-to-you': M.darkfunnel,
   'how-to-start-a-career-in-product-marketing-in-the-uk-part-1': () => M.series(1),
   'starting-a-career-in-ppm-part-2': () => M.series(2),

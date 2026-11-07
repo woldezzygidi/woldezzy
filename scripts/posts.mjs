@@ -63,6 +63,7 @@ if (existsSync(NATIVE_DIR)) {
     const m = src.match(/^<!--meta\s*([\s\S]*?)-->/);
     if (!m) continue;
     const meta = JSON.parse(m[1]);
+    if (meta.draft && !process.argv.includes('--drafts')) continue;
     posts.push({
       slug: f.replace(/\.html$/, ''),
       title: meta.title,
@@ -95,7 +96,7 @@ function clean(html, slug) {
   });
   h = h.replace(/\[\/?[a-z_]+[^\]]*\]/g, '');
   h = h.replace(/<div[^>]*class="wp-block-yoast-seo-table-of-contents[\s\S]*?<\/div>/gi, '');
-  h = h.replace(/\sclass="[^"]*"/g, '').replace(/\sstyle="[^"]*"/g, '').replace(/\sid="[^"]*"/g, '');
+  h = h.replace(/\sclass="(?!figure--)[^"]*"/g, '').replace(/\sstyle="[^"]*"/g, '').replace(/\sid="[^"]*"/g, '');
   // LinkedIn / editor paste residue on anchors (tracking + hovercard attrs).
   h = h.replace(/\sdata-[a-z-]+="[^"]*"/g, '');
   // External anchors: open in new tab safely. Internal (/…) left alone.
@@ -122,6 +123,7 @@ function clean(html, slug) {
   h = h.replace(/<div>\s*<p><strong>📘 Product Marketing Career Series<\/strong><\/p>\s*<ul>([\s\S]*?)<\/ul>\s*<\/div>/, '<aside class="series" aria-label="Series navigation"><p class="series__title">Product Marketing Career Series</p><ol class="series__list">$1</ol></aside>');
   // images: rewrite to local, strip size suffix, add lazy
   h = h.replace(/<img([^>]*?)src="([^"]+)"([^>]*)>/g, (m, a, src, b) => {
+    if (src.startsWith('/public/images/')) return m; // native post: already a local ladder
     const file = src.split('/').pop().replace(/-\d+x\d+(?=\.\w+$)/, '');
     const w = (m.match(/width="(\d+)"/) || [])[1] || '1200';
     const ht = (m.match(/height="(\d+)"/) || [])[1] || '800';
@@ -542,3 +544,25 @@ writeFileSync(join(ROOT, 'scripts', 'posts.json'), JSON.stringify(out, null, 2))
 
 console.log(`${out.length} posts → pages/journal/  (${featured.length} featured, ${archive.length} archive)`);
 console.log(`${out.reduce((a, p) => a + p.imgRefs.length, 0)} inline image refs`);
+
+/* ── Homepage: latest three featured posts into index.html[data-journal-latest] ── */
+{
+  const idx = join(ROOT, 'index.html');
+  let html = readFileSync(idx, 'utf8');
+  const latest = out.filter((p) => p.tier === 'featured').sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
+  const card = (p) => `        <a href="/journal/${p.slug}/" class="post-card reveal">
+          <span class="post-card__date"><time datetime="${p.date}">${fmtDate(p.date)}</time> · ${p.cat}</span>
+          <div class="post-card__thumb">
+            <picture>
+              <source type="image/avif" srcset="/public/images/covers/${p.slug}-960.avif">
+              <source type="image/webp" srcset="/public/images/covers/${p.slug}-960.webp">
+              <img src="/public/images/covers/${p.slug}.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <h3 class="post-card__title">${p.title}</h3>
+          <p class="post-card__excerpt">${p.desc}</p>
+        </a>`;
+  const block = `<div class="journal-grid reveal-group" data-journal-latest>\n${latest.map(card).join('\n\n')}\n      </div>`;
+  const next = html.replace(/<div class="journal-grid reveal-group" data-journal-latest>[\s\S]*?\n      <\/div>/, block);
+  if (next !== html) { writeFileSync(idx, next); console.log('homepage: latest three refreshed'); }
+}
