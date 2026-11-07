@@ -496,7 +496,7 @@ html.theme-transition * {
 /* Consent banner ---------------------------------------------------------- */
 .consent {
   position: fixed;
-  z-index: 60;
+  z-index: 40; /* below header (50) and nav drawer (49) so the open menu is always tappable */
   inset-inline: var(--gutter);
   bottom: calc(var(--gutter) + env(safe-area-inset-bottom));
   max-width: 560px;
@@ -520,3 +520,5 @@ html.theme-transition * {
 .consent__btn { min-height: 44px; }
 @media (min-width: 720px) { .consent { right: var(--gutter); left: auto; margin-inline: 0; } }
 @media (prefers-reduced-motion: reduce) { .consent { transition: none; } }
+
+html.nav-open .consent { visibility: hidden; }

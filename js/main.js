@@ -93,6 +93,7 @@ function initNav() {
     nav.setAttribute('data-open', String(open));
     toggle.setAttribute('aria-expanded', String(open));
     document.body.style.overflow = open ? 'hidden' : '';
+    document.documentElement.classList.toggle('nav-open', open);
     if (open) {
       const first = nav.querySelector('a');
       first && first.focus({ preventScroll: true });
