@@ -133,6 +133,8 @@
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background: linear-gradient(
     180deg,
     rgba(0,0,0,0) 65%,
@@ -145,10 +147,23 @@
   height: 100%;
   object-fit: cover;
   object-position: center 12%;
-  transition: transform var(--t-slow) var(--ease);
 }
-.hero__portrait:hover img {
-  transform: scale(1.02);
+/* Ambient frames: stacked pictures, one visible at a time; a slow push-in on the active one. */
+.hero__frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1400ms var(--ease);
+  will-change: opacity;
+}
+.hero__frame.is-active { opacity: 1; }
+.hero__frame.is-active img { animation: heroPush 8s linear both; }
+@keyframes heroPush { from { transform: scale(1); } to { transform: scale(1.06); } }
+.hero__portrait__caption [data-frame-label] { transition: opacity var(--t-base) var(--ease); }
+.hero__portrait__caption [data-frame-label].is-swapping { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .hero__frame.is-active img { animation: none; }
+  .hero__frame { transition: none; }
 }
 .hero__portrait__caption {
   position: absolute;

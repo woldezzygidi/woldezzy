@@ -590,5 +590,65 @@
       "jpg"
     ],
     "alt": "'Wole Oduwole working at his Lagos home office, two monitors and a painted portrait on the wall"
+  },
+  {
+    "slug": "hero-suit",
+    "src": "local://hero-suit.jpg",
+    "file": "hero-suit.jpg",
+    "widths": [
+      640,
+      768
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole, portrait"
+  },
+  {
+    "slug": "hero-wolverhampton",
+    "src": "local://hero-wolverhampton.jpg",
+    "file": "hero-wolverhampton.jpg",
+    "widths": [
+      640,
+      768
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole at his desk in Wolverhampton"
+  },
+  {
+    "slug": "hero-lagos-office",
+    "src": "local://hero-lagos-office.jpg",
+    "file": "hero-lagos-office.jpg",
+    "widths": [
+      640,
+      768
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole at his Lagos home office"
+  },
+  {
+    "slug": "hero-early-office",
+    "src": "local://hero-early-office.jpg",
+    "file": "hero-early-office.jpg",
+    "widths": [
+      640,
+      768
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole at work in Lagos"
   }
 ]

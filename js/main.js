@@ -204,6 +204,131 @@ function initParallax() {
 /* ──────────────────────────────────────────
    SHARE — native Web Share when available, else the link list; copy-to-clipboard.
    ────────────────────────────────────────── */
+/* Homepage hero: ambient frames. Extra frames are only fetched after the page has loaded,
+   so the LCP image is never contested. Crossfade every 6s; pauses when the tab is hidden. */
+function initHeroFrames() {
+  const fig = document.querySelector('.hero__portrait[data-frames]');
+  if (!fig || REDUCED_MOTION.matches) return () => {};
+  let frames;
+  try { frames = JSON.parse(fig.dataset.frames); } catch (_) { return () => {}; }
+  if (!Array.isArray(frames) || !frames.length) return () => {};
+
+  const first = fig.querySelector('.hero__frame');
+  const label = fig.querySelector('[data-frame-label]');
+  const firstLabel = label ? label.textContent : '';
+  const pics = [first];
+  let i = 0, timer = 0, started = false;
+
+  const build = (f) => {
+    const pic = document.createElement('picture');
+    pic.className = 'hero__frame';
+    pic.setAttribute('aria-hidden', 'true');
+    pic.innerHTML = `<source type="image/avif" srcset="${f.avif}" sizes="(min-width: 1024px) 460px, 90vw"><source type="image/webp" srcset="${f.webp}" sizes="(min-width: 1024px) 460px, 90vw"><img src="${f.jpg}" width="768" height="1024" alt="" loading="lazy" decoding="async">`;
+    pic.dataset.label = f.label;
+    return pic;
+  };
+
+  const setLabel = (text) => {
+    if (!label) return;
+    label.classList.add('is-swapping');
+    setTimeout(() => { label.textContent = text; label.classList.remove('is-swapping'); }, 280);
+  };
+
+  const advance = () => {
+    const next = (i + 1) % pics.length;
+    pics[i].classList.remove('is-active');
+    pics[next].classList.add('is-active');
+    i = next;
+    setLabel(i === 0 ? firstLabel : pics[i].dataset.label);
+  };
+
+  const start = () => {
+    if (started) return;
+    started = true;
+    frames.forEach((f) => { const p = build(f); fig.insertBefore(p, fig.querySelector('figcaption')); pics.push(p); });
+    timer = setInterval(() => { if (!document.hidden) advance(); }, 6000);
+  };
+
+  // Wait for load + idle so the hero never competes with LCP.
+  const onLoad = () => ('requestIdleCallback' in window ? requestIdleCallback(start, { timeout: 3000 }) : setTimeout(start, 1500));
+  if (document.readyState === 'complete') onLoad(); else window.addEventListener('load', onLoad, { once: true });
+
+  return () => { clearInterval(timer); window.removeEventListener('load', onLoad); };
+}
+
+/* About: horizontal film strip. Native scroll-snap does the work; JS adds the counter, buttons and drag. */
+function initStrip() {
+  const track = document.querySelector('[data-strip]');
+  if (!track) return () => {};
+  const items = [...track.querySelectorAll('[data-strip-item]')];
+  const ui = document.querySelector('[data-strip-ui]');
+  const idx = ui?.querySelector('[data-strip-index]');
+  const prev = ui?.querySelector('[data-strip-prev]');
+  const next = ui?.querySelector('[data-strip-next]');
+  if (!items.length) return () => {};
+
+  let current = 0;
+  const setCurrent = (n) => {
+    current = n;
+    items.forEach((el, k) => el.classList.toggle('is-current', k === n));
+    if (idx) idx.textContent = String(n + 1).padStart(2, '0');
+    if (prev) prev.disabled = n === 0;
+    if (next) next.disabled = n === items.length - 1;
+  };
+
+  // The current item is the one whose left edge is nearest the track's scroll-padding start.
+  const pad = () => parseFloat(getComputedStyle(track).scrollPaddingInlineStart) || 0;
+  let raf = 0;
+  const onScroll = () => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      const x = track.scrollLeft + pad();
+      let best = 0, bestD = Infinity;
+      items.forEach((el, k) => { const d = Math.abs(el.offsetLeft - x); if (d < bestD) { bestD = d; best = k; } });
+      if (best !== current) setCurrent(best);
+    });
+  };
+  const go = (n) => {
+    n = Math.max(0, Math.min(items.length - 1, n));
+    track.scrollTo({ left: items[n].offsetLeft - pad(), behavior: REDUCED_MOTION.matches ? 'auto' : 'smooth' });
+  };
+  const onPrev = () => go(current - 1);
+  const onNext = () => go(current + 1);
+  const onKey = (e) => { if (e.key === 'ArrowRight') { e.preventDefault(); onNext(); } else if (e.key === 'ArrowLeft') { e.preventDefault(); onPrev(); } };
+
+  // Pointer drag for mouse users (touch already scrolls natively).
+  let dragging = false, startX = 0, startLeft = 0, moved = false;
+  const onDown = (e) => { if (e.pointerType !== 'mouse') return; dragging = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft; track.classList.add('is-dragging'); track.setPointerCapture(e.pointerId); };
+  const onMove = (e) => { if (!dragging) return; const dx = e.clientX - startX; if (Math.abs(dx) > 4) moved = true; track.scrollLeft = startLeft - dx; };
+  const onUp = (e) => { if (!dragging) return; dragging = false; track.classList.remove('is-dragging'); try { track.releasePointerCapture(e.pointerId); } catch (_) {} if (moved) go(current); };
+  const onClick = (e) => { if (moved) { e.preventDefault(); moved = false; } };
+
+  track.addEventListener('scroll', onScroll, { passive: true });
+  track.addEventListener('keydown', onKey);
+  track.addEventListener('pointerdown', onDown);
+  track.addEventListener('pointermove', onMove);
+  track.addEventListener('pointerup', onUp);
+  track.addEventListener('pointercancel', onUp);
+  track.addEventListener('click', onClick, true);
+  prev?.addEventListener('click', onPrev);
+  next?.addEventListener('click', onNext);
+  setCurrent(0);
+
+  return () => {
+    track.removeEventListener('scroll', onScroll);
+    track.removeEventListener('keydown', onKey);
+    track.removeEventListener('pointerdown', onDown);
+    track.removeEventListener('pointermove', onMove);
+    track.removeEventListener('pointerup', onUp);
+    track.removeEventListener('pointercancel', onUp);
+    track.removeEventListener('click', onClick, true);
+    prev?.removeEventListener('click', onPrev);
+    next?.removeEventListener('click', onNext);
+    if (raf) cancelAnimationFrame(raf);
+  };
+}
+
 function initShare() {
   const root = document.querySelector('[data-share]');
   if (!root) return () => {};
@@ -243,7 +368,7 @@ const cleanups = [];
 
 function boot() {
   initYear();
-  cleanups.push(initTheme(), initHeader(), initNav(), initReveal(), initParallax(), initShare());
+  cleanups.push(initTheme(), initHeader(), initNav(), initReveal(), initParallax(), initShare(), initHeroFrames(), initStrip());
 }
 
 if (document.readyState === 'loading') {
