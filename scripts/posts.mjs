@@ -13,7 +13,7 @@
  *
  * Usage: node scripts/posts.mjs path/to/export.xml
  */
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -53,8 +53,34 @@ const posts = items
       raw: tag(s, 'content:encoded'),
     };
   })
-  .filter((p) => !CONSOLIDATE[p.slug])
-  .sort((a, b) => (a.date < b.date ? 1 : -1));
+  .filter((p) => !CONSOLIDATE[p.slug]);
+
+/* Native posts: content/journal/<slug>.html with a <!--meta {json} --> header and plain HTML body. */
+const NATIVE_DIR = join(ROOT, 'content', 'journal');
+if (existsSync(NATIVE_DIR)) {
+  for (const f of readdirSync(NATIVE_DIR).filter((f) => f.endsWith('.html'))) {
+    const src = readFileSync(join(NATIVE_DIR, f), 'utf8');
+    const m = src.match(/^<!--meta\s*([\s\S]*?)-->/);
+    if (!m) continue;
+    const meta = JSON.parse(m[1]);
+    posts.push({
+      slug: f.replace(/\.html$/, ''),
+      title: meta.title,
+      date: meta.date,
+      modified: meta.modified || meta.date,
+      excerpt: '',
+      metaDesc: meta.metaDesc || '',
+      categories: meta.categories || ['SEO'],
+      tags: meta.tags || [],
+      raw: src.slice(m[0].length).trim(),
+      native: true,
+      seoTitle: meta.seoTitle || null,
+      seriesName: meta.series || null,
+      seriesNo: meta.seriesNo || null,
+    });
+  }
+}
+posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 
 /* ── Gutenberg/classic → clean HTML ───────────────────────── */
 function clean(html, slug) {
@@ -163,6 +189,9 @@ function clean(html, slug) {
   /* Per-post editorial fixes. Dated statistics are anchored to their year rather than
      presented as current; a handful of sentences that the generic rules left awkward are rewritten. */
   const EDITS = {
+    'entities-not-keywords-ai-recognition': [
+      ['<p>I will see you there.</p>', '<p>That post is now live: <a href="/journal/fault-lines-ai-search-platforms-llms-txt/">The Fault Lines: where AI search platforms disagree, and what llms.txt actually does</a>.</p>'],
+    ],
     'social-media-marketing-building-an-engaged-online-community': [
       ['Engagement is down across many platforms this year.', 'Engagement fell across most platforms in 2024, and the trend has not reversed.'],
       ['One trusted report says Instagram engagement fell', 'Rival IQ\u2019s 2024 benchmark report put Instagram engagement down'],
@@ -237,12 +266,16 @@ function desc(p, body) {
 mkdirSync(join(ROOT, 'pages', 'journal'), { recursive: true });
 
 /* Pre-compute tiering + category for every post so related-post selection can see the whole set. */
+const SERIES_MAP = {
+  'entities-not-keywords-ai-recognition': ['Becoming an Entity', 1],
+};
+const seriesKey = (p) => (p.seriesName || SERIES_MAP[p.slug]?.[0] || (/product-marketing|starting-a-career-in-ppm/.test(p.slug) ? 'pmm' : null));
 const ARCHIVE_FORCE_PRE = new Set(['iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame']);
 const pre = posts.map((p) => {
   const body = clean(p.raw, p.slug);
   const n = words(body);
   return { ...p, body, n, cat: primaryCat(p), tier: (ARCHIVE_FORCE_PRE.has(p.slug) || (n < 300 && p.date < '2021-01-01')) ? 'archive' : 'featured',
-    series: /product-marketing|starting-a-career-in-ppm/.test(p.slug) ? 'pmm' : null };
+    series: seriesKey(p) };
 });
 function related(self, k = 3) {
   const pool = pre.filter((q) => q.slug !== self.slug && q.tier === 'featured');
@@ -279,12 +312,13 @@ for (const p of posts) {
   const tier = (ARCHIVE_FORCE.has(p.slug) || (n < 300 && p.date < '2021-01-01')) ? 'archive' : 'featured';
   const cat = primaryCat(p);
   const d = desc(p, body);
-  const series = /product-marketing|starting-a-career-in-ppm/.test(p.slug) ? 'Product Marketing Career Series' : null;
-  const seriesNo = series ? (p.slug.includes('part-1') ? 1 : p.slug.includes('part-2') ? 2 : 3) : null;
+  const pmm = /product-marketing|starting-a-career-in-ppm/.test(p.slug);
+  const series = p.seriesName || SERIES_MAP[p.slug]?.[0] || (pmm ? 'Product Marketing Career Series' : null);
+  const seriesNo = p.seriesNo || SERIES_MAP[p.slug]?.[1] || (pmm ? (p.slug.includes('part-1') ? 1 : p.slug.includes('part-2') ? 2 : 3) : null);
   const imgRefs = [...body.matchAll(/\/public\/images\/posts\/[^"]+/g)].map((m) => m[0]);
 
   const meta = {
-    title: SEO_TITLE[p.slug] || (p.title.length <= 52 ? `${p.title} · 'Wole Oduwole` : p.title),
+    title: p.seoTitle || SEO_TITLE[p.slug] || (p.title.length <= 52 ? `${p.title} · 'Wole Oduwole` : p.title),
     desc: d,
     path: `/journal/${p.slug}/`,
     ogType: 'article',

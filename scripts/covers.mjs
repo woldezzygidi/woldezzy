@@ -57,6 +57,17 @@ const M = {
     <g opacity=".35" stroke="${PAPER}" stroke-width="3"><line x1="20" y1="80" x2="110" y2="80"/><line x1="20" y1="110" x2="90" y2="110"/><line x1="20" y1="140" x2="120" y2="140"/><line x1="20" y1="170" x2="80" y2="170"/></g>
     <line x1="10" y1="70" x2="130" y2="180" stroke="${ACC}" stroke-width="4"/>`;
   },
+  // Fault lines: the entity graph again, split by a crack; four readers, four libraries
+  faultlines: () => {
+    const nodes = [[150, 140], [110, 330], [250, 470], [470, 150], [540, 330], [420, 480]];
+    const edges = [[0, 1], [1, 2], [0, 2], [3, 4], [4, 5], [3, 5]];
+    return `
+    ${edges.map(([a, b]) => `<line x1="${nodes[a][0]}" y1="${nodes[a][1]}" x2="${nodes[b][0]}" y2="${nodes[b][1]}" stroke="${MUTE}" stroke-width="2.5" opacity=".55"/>`).join('')}
+    <line x1="250" y1="470" x2="420" y2="480" stroke="${MUTE}" stroke-width="2.5" opacity=".25" stroke-dasharray="6 10"/>
+    <line x1="150" y1="140" x2="470" y2="150" stroke="${MUTE}" stroke-width="2.5" opacity=".25" stroke-dasharray="6 10"/>
+    ${nodes.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="16" fill="${INK}" stroke="${PAPER}" stroke-width="3"/>`).join('')}
+    <path d="M330 40 L300 170 L350 250 L305 360 L345 440 L315 600" fill="none" stroke="${ACC}" stroke-width="5" stroke-linejoin="round"/>`;
+  },
   // Dark funnel: funnel whose lower half dissolves into unmeasured noise
   darkfunnel: () => {
     let dots = '';
@@ -196,6 +207,7 @@ const M = {
 /* slug → motif */
 const MOTIF = {
   'entities-not-keywords-ai-recognition': M.entities,
+  'fault-lines-ai-search-platforms-llms-txt': M.faultlines,
   'the-dark-funnel-why-your-traffic-charts-started-lying-to-you': M.darkfunnel,
   'how-to-start-a-career-in-product-marketing-in-the-uk-part-1': () => M.series(1),
   'starting-a-career-in-ppm-part-2': () => M.series(2),

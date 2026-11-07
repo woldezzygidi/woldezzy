@@ -1,15 +1,36 @@
 [
   {
+    "slug": "fault-lines-ai-search-platforms-llms-txt",
+    "title": "The Fault Lines: Where AI Search Platforms Disagree, and What llms.txt Actually Does",
+    "date": "2026-11-07",
+    "cat": "SEO",
+    "tier": "featured",
+    "words": 2498,
+    "mins": 11,
+    "desc": "ChatGPT, Perplexity, Google AI Overviews and Claude read different parts of the web. Part 2 of the entity series: which platform to build for, and whether…",
+    "series": "Becoming an Entity",
+    "seriesNo": 2,
+    "imgRefs": [],
+    "tags": [
+      "AI search",
+      "GEO",
+      "llms.txt",
+      "entity SEO",
+      "Perplexity",
+      "AI Overviews"
+    ]
+  },
+  {
     "slug": "entities-not-keywords-ai-recognition",
     "title": "Entities, Not Keywords: How to Become a Thing AI Can Actually Recognize",
     "date": "2026-05-19",
     "cat": "SEO",
     "tier": "featured",
-    "words": 2563,
+    "words": 2577,
     "mins": 12,
     "desc": "Your competitor is smaller, less funded, and objectively worse, and ChatGPT recommends them seven times out of ten. The reason is not your content. It is…",
-    "series": null,
-    "seriesNo": null,
+    "series": "Becoming an Entity",
+    "seriesNo": 1,
     "imgRefs": [],
     "tags": []
   },

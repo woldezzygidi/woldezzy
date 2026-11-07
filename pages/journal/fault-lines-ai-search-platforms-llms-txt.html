@@ -1,0 +1,280 @@
+<!--meta
+{
+  "title": "AI search fault lines: platforms, Reddit, llms.txt",
+  "desc": "ChatGPT, Perplexity, Google AI Overviews and Claude read different parts of the web. Part 2 of the entity series: which platform to build for, and whether…",
+  "path": "/journal/fault-lines-ai-search-platforms-llms-txt/",
+  "ogType": "article",
+  "ogImage": "https://woldezzy.xyz/public/images/covers/fault-lines-ai-search-platforms-llms-txt.jpg",
+  "priority": "0.7",
+  "noindex": false,
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://woldezzy.xyz/journal/fault-lines-ai-search-platforms-llms-txt/#article",
+        "headline": "The Fault Lines: Where AI Search Platforms Disagree, and What llms.txt Actually Does",
+        "description": "ChatGPT, Perplexity, Google AI Overviews and Claude read different parts of the web. Part 2 of the entity series: which platform to build for, and whether…",
+        "datePublished": "2026-11-07",
+        "dateModified": "2026-11-07",
+        "author": {
+          "@type": "Person",
+          "@id": "https://woldezzy.xyz/#person",
+          "name": "'Wole Oduwole",
+          "alternateName": "Adewole Oduwole",
+          "url": "https://woldezzy.xyz/about/",
+          "jobTitle": "SEO Professional",
+          "image": "https://woldezzy.xyz/public/images/wole-oduwole-seogidi-960.jpg",
+          "sameAs": [
+            "https://www.linkedin.com/in/woldezzy/",
+            "https://x.com/woldezzy",
+            "https://orcid.org/0009-0001-9302-3329"
+          ]
+        },
+        "publisher": {
+          "@id": "https://woldezzy.xyz/#person"
+        },
+        "image": "https://woldezzy.xyz/public/images/covers/fault-lines-ai-search-platforms-llms-txt.jpg",
+        "url": "https://woldezzy.xyz/journal/fault-lines-ai-search-platforms-llms-txt/",
+        "mainEntityOfPage": "https://woldezzy.xyz/journal/fault-lines-ai-search-platforms-llms-txt/",
+        "articleSection": "SEO",
+        "keywords": "AI search, GEO, llms.txt, entity SEO, Perplexity, AI Overviews",
+        "wordCount": 2498,
+        "inLanguage": "en-GB",
+        "isPartOf": {
+          "@id": "https://woldezzy.xyz/journal/#blog"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://woldezzy.xyz/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Journal",
+            "item": "https://woldezzy.xyz/journal/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "The Fault Lines: Where AI Search Platforms Disagree, and What llms.txt Actually Does",
+            "item": "https://woldezzy.xyz/journal/fault-lines-ai-search-platforms-llms-txt/"
+          }
+        ]
+      }
+    ]
+  }
+}
+-->
+<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="page-hero post__hero">
+    <div class="container container--wide">
+      <nav aria-label="Breadcrumb">
+        <ol class="crumbs">
+          <li><a href="/">Home</a></li>
+          <li><a href="/journal/">Journal</a></li>
+          <li><span aria-current="page" class="crumbs__current">The Fault Lines: Where AI Search Platforms Disagree, and What llms.txt Actually Does</span></li>
+        </ol>
+      </nav>
+      <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">SEO</span> <time datetime="2026-11-07">7 Nov 2026</time> · 11 min read</p>
+      <h1 class="page-hero__title post__title" itemprop="headline">The Fault Lines: Where AI Search Platforms Disagree, and What llms.txt Actually Does</h1>
+      <p class="post__byline-top">By <a href="/about/" rel="author" itemprop="author">'Wole Oduwole</a></p>
+    </div>
+  </header>
+
+  <figure class="post__cover">
+    <div class="container container--wide">
+      <picture>
+        <source type="image/avif" srcset="/public/images/covers/fault-lines-ai-search-platforms-llms-txt-960.avif 960w, /public/images/covers/fault-lines-ai-search-platforms-llms-txt-1600.avif 1600w" sizes="(min-width: 1280px) 1280px, 100vw">
+        <source type="image/webp" srcset="/public/images/covers/fault-lines-ai-search-platforms-llms-txt-960.webp 960w, /public/images/covers/fault-lines-ai-search-platforms-llms-txt-1600.webp 1600w" sizes="(min-width: 1280px) 1280px, 100vw">
+        <img src="/public/images/covers/fault-lines-ai-search-platforms-llms-txt.jpg" width="1600" height="900" alt="" decoding="async" itemprop="image">
+      </picture>
+    </div>
+  </figure>
+
+  <div class="container container--narrow">
+    <div class="prose post__body" itemprop="articleBody">
+<p>At the end of the <a href="/journal/entities-not-keywords-ai-recognition/">last post</a> I left you with a tension. The five layers of entity existence are real, and the fintech founder's numbers proved it. But the same work gives you different results on different platforms, because each platform is reading a different slice of the web. I promised to map those differences and to settle the llms.txt argument as far as it can be settled. That is this post.</p>
+
+<p>A warning before we start. This is the part of the field where people are most certain and least correct. I am going to tell you what I have measured across client accounts, what the platforms have said in public, and where I am guessing. I will label the guesses.</p>
+
+<h2>Four readers, four libraries</h2>
+
+<p>Think of each AI platform as a reader who has been given a library card to a different library. The reader is smart. The library decides what they can know.</p>
+
+<p><strong>ChatGPT</strong> reads two libraries. The first is its training corpus, which leans heavily on Wikipedia, licensed news, books and the better-written half of the open web. The second is a live index it queries when the question needs current information. OpenAI's own crawler builds part of that, and OpenAI has said in public that Bing's index underpins search in ChatGPT. The practical effect is that ChatGPT rewards the things Wikipedia rewards: notability, independent coverage, clean facts repeated in reputable places. If you exist in the knowledge graph layer, ChatGPT finds you easily. If you exist only on your own site, it finds you when it searches and forgets you when it does not.</p>
+
+<p><strong>Perplexity</strong> reads the open web at the moment you ask. It runs its own crawler and its own index, and it retrieves fresh pages for nearly every answer. That makes it the platform most like classic search, and the one where page-level work still pays directly. It also leans on Reddit and forum content more than ChatGPT does, because that is where fresh, specific, opinionated answers live. If your category is discussed in a subreddit and you are absent from the discussion, Perplexity will not mention you, whatever your schema says.</p>
+
+<p><strong>Google AI Overviews and AI Mode</strong> read Google's index, which is the largest library of the four, but with a bias that surprised a lot of SEOs. Since Google's 2023 and 2024 updates that elevated forum and first-hand content, and since the 2024 licensing agreement that gave Google structured access to Reddit, Overviews cite Reddit, YouTube and Quora far more often than their share of the web would predict. Google is also the only platform with its own Knowledge Graph, so a Knowledge Panel for your brand feeds straight into how AI Mode describes you.</p>
+
+<p><strong>Claude</strong> reads its training corpus, which is curated more conservatively than the others, and a live web index when search is turned on. In my testing it is the most cautious about naming brands it is not sure of. It would rather say "several providers offer this" than guess. That makes it hard to win and hard to lose. The brands Claude names are the ones with the cleanest, most consistent public record.</p>
+
+<p>Put those four side by side and the tension from the last post becomes concrete. A Wikidata entry moves ChatGPT and Google. It does almost nothing for Perplexity next week. A strong Reddit presence moves Perplexity and Google Overviews. It does little for ChatGPT's training-time memory of you. Consistency moves Claude. Nothing moves everything.</p>
+
+<h2>Where the platforms disagree, and why it matters for you</h2>
+
+<p>I keep a scorecard for every client. For each of the five layers from the last post, I note which platforms respond to it, and how quickly. It is not scientific. It is twenty months of running the same prompts weekly across thirty-odd brands and watching what changes. This is the shape of it.</p>
+
+<p><strong>Entity home and structured data</strong> (Layers One and Two) move every platform, but slowly and quietly. They do not make you appear. They stop you from being described wrongly once you do appear. The founder's hallucinated "headquartered in Singapore" problem disappeared within six weeks of fixing the About page and the schema. His citation rate did not move in that window. Those are different jobs.</p>
+
+<p><strong>Knowledge graph presence</strong> (Layer Three) moves ChatGPT and Google the most, Claude somewhat, Perplexity least. The Wikidata entry showed up in ChatGPT's answers about his company within roughly two months. I cannot tell you the mechanism, and anyone who says they can is guessing. I can tell you the correlation has held across every client where we did it.</p>
+
+<p><strong>Co-mention density</strong> (Layer Four) is the one that moves Perplexity and Google Overviews fastest, and here the fight over where the mentions happen matters more than how many. A comparison article in a trade publication helps ChatGPT at the next training cycle. A thread on the right subreddit helps Perplexity on Thursday.</p>
+
+<p><strong>Consistency</strong> (Layer Five) is the floor for all four. The one platform that punishes inconsistency most visibly is Claude, which will simply decline to name you.</p>
+
+<p>So the honest answer to "which platform should I build for" is "which platform are your buyers using". That is a question you can answer with data rather than opinion, and most companies have not asked it. Your sales team knows which AI tool prospects quote back at them. Your support inbox knows. Your referral traffic in GA4, filtered to the AI domains, knows. Pick the one or two that matter and weight the layers to suit.</p>
+
+<p>For the fintech founder, the answer was ChatGPT first, Perplexity second. His buyers were Series A founders in the UK and Nigeria, and in both markets those two were what people reached for. We put Google third, which would have been the wrong order for an e-commerce client and the right order for him.</p>
+
+<h2>Reddit, and the uncomfortable part</h2>
+
+<p>I have to address Reddit directly, because it sits underneath two of the four platforms and most B2B marketers would rather it did not.</p>
+
+<p>Reddit matters to AI search for a dull reason. It is the largest public archive of real people answering specific questions in their own words, and both Google and OpenAI have paid for access to it. When a model needs to know "which business bank do founders actually like", a thread with forty replies is better evidence than any landing page, and the models have been built to treat it that way.</p>
+
+<p>That creates a temptation, and the temptation is to fake it. Seeded threads, employees posing as customers, agencies selling "Reddit presence" packages. Do not. Reddit's moderation is better than people assume, and the models are trained on the downvotes as well as the upvotes. A thread where your brand is recommended and then torn apart is worse than no thread.</p>
+
+<p>What works is slower. Founders and senior staff answering questions in their category under their own names. Sharing something useful without a link. Being present in the two or three subreddits where your buyers already are, for months, before anyone mentions your product. When the brand does come up, it comes up because someone else raised it. That is the only version of this that compounds.</p>
+
+<p>Two more sources deserve a line each. <strong>YouTube</strong> matters to Google Overviews and increasingly to ChatGPT, and the transcript is what gets read, so say the brand name and the category out loud. <strong>Quora</strong> is cited more than it deserves to be, and a clear, honest answer there under a real name still gets picked up.</p>
+
+<h2>The llms.txt argument, settled as far as it can be</h2>
+
+<p>Now the file.</p>
+
+<p>The proposal came from Jeremy Howard at Answer.AI in September 2024. The idea is simple. You put a Markdown file at <code>/llms.txt</code> on your domain that describes what the site is, links to the pages that matter most, and tells a language model where to look. A companion convention, <code>llms-full.txt</code>, carries the full text of your key documentation in one file so a model can read it without crawling.</p>
+
+<p>Supporters point to adoption. Thousands of sites have published one, including documentation sites from Anthropic, Stripe, Cloudflare and a long list of developer tools. Several AI coding assistants and documentation tools read the file. The argument is that it costs almost nothing and gives a model a clean map.</p>
+
+<p>Sceptics point to the absence of evidence that it affects search answers. John Mueller at Google compared it to the old keywords meta tag in 2025, a self-declaration with no outside check, and said Google does not use it. No major chat platform has confirmed reading it for search. Log analyses published by several SEO teams through 2025 found the big crawlers rarely requested the file at all. Nobody I know of has shown a controlled lift in citations from adding one.</p>
+
+<p>Both sides are right about different things, and the argument has been confused because people are using one name for two different jobs.</p>
+
+<p>Job one is <strong>documentation retrieval</strong>. A developer's AI assistant needs to read your API docs. Here llms.txt and llms-full.txt do exactly what they claim. The tools that read them are real, the benefit is immediate, and if you have documentation you should publish both. This is not search. It is a reading aid.</p>
+
+<p>Job two is <strong>search visibility</strong>. Getting ChatGPT or Perplexity to recommend you. Here the file does nothing that can be measured, and the mechanism it proposes runs against how the platforms actually work. They do not ask your site what it is about. They ask the rest of the web, and they verify against the knowledge layer. A file you wrote about yourself is the one source they trust least. That is the whole lesson of the last post.</p>
+
+<p>So my position, after a year of watching this. Publish llms.txt if you have documentation, a product people integrate with, or a large content library that models should be able to navigate. Spend half an hour on it. Then stop thinking about it, and do not let anyone sell you "llms.txt optimisation" as if it were a ranking lever. If your site is a brochure, skip the file entirely and put the half hour into Wikidata.</p>
+
+<p>For what it is worth, this site has no llms.txt as I write this. It has a Wikidata entry, a complete sameAs array, and four press mentions. I know which of those moved the needle, because I can see it in the answers.</p>
+
+<h2>The things everyone is fighting about that do not matter</h2>
+
+<p>While we are here, three other arguments you will meet, and how much weight I give each.</p>
+
+<p><strong>Blocking AI crawlers.</strong> A growing number of publishers block GPTBot, ClaudeBot and the rest in robots.txt, on the principle that training should be paid for. For a publisher whose product is the content, that is a legitimate commercial decision. For a company whose product is something else and whose content exists to be found, it is self-harm. You cannot be recommended by a model you have told to go away. Decide which kind of site you are, and do not copy a newspaper's robots.txt because it looked principled.</p>
+
+<p><strong>"GEO" as a separate discipline.</strong> Generative engine optimisation is a useful label and a poor strategy. Nearly everything that moves AI answers is a thing good SEO and good PR already did: be a clearly defined entity, be talked about by others, be consistent, be fast and crawlable. The parts that are new are the platform weightings I described above, and the knowledge-layer work most SEOs never learned. Buy those two skills. Do not buy a rebrand of the rest.</p>
+
+<p><strong>AI-generated content at scale.</strong> There is a camp that says you should publish thousands of machine-written pages to seed the corpus with your brand. It fails on both platforms that matter. Google's spam policies on scaled content abuse were written for exactly this. And the models are trained to discount text that looks like text they would have written. Co-mention is earned by being mentioned by someone else. You cannot mention yourself ten thousand times and call it authority.</p>
+
+<h2>What I would do on Monday</h2>
+
+<p>If you have read both posts and want the short list, this is it. In order.</p>
+
+<ol>
+<li><strong>Find out which platforms your buyers use.</strong> Ask sales. Check referral sources. Pick two.</li>
+<li><strong>Fix your entity home and schema.</strong> One week. The About page reads like an encyclopedia entry; the Organization or Person schema carries a full sameAs array and consistent facts. This is the floor, and it is still missing on most sites.</li>
+<li><strong>Get into the knowledge layer.</strong> Wikidata first, because you can do it yourself in an evening if you have independent coverage to cite. Crunchbase second. Wikipedia only when the coverage is there; do not force it.</li>
+<li><strong>Weight co-mention to your platforms.</strong> ChatGPT means trade press and comparison content. Perplexity and Google Overviews mean Reddit, YouTube and the forums where your category is discussed. Do it under real names, slowly.</li>
+<li><strong>Run an audit for inconsistency</strong> across every profile and every mention. Fix the founding year. Fix the city. Fix the spelling of the founder's name. This is the cheapest work on the list and the most often skipped.</li>
+<li><strong>Publish llms.txt only if you have documentation.</strong> Half an hour, then move on.</li>
+<li><strong>Measure the answers, not the rankings.</strong> A fixed set of twenty category prompts, run weekly on each platform, logged in a sheet. Citation rate is the number that matters. It will not move for two months. Then it will.</li>
+</ol>
+
+<h2>Where the founder is now</h2>
+
+<p>I said in the last post that his competitor went from winning seven queries in ten to four in ten. I can add the platform split now, because it tells the story of this post better than I can.</p>
+
+<p>On ChatGPT he went from almost absent to cited in roughly half of category queries, and the Wikidata entry and the trade-press roundup were the two changes that preceded the move. On Perplexity his gains came later and came from somewhere else: a founder-written answer in a subreddit thread about business banking for startups, which still gets cited eight months on. On Google AI Overviews he is barely there, because the category is dominated by comparison sites and he has not yet done the YouTube work. On Claude he is now named, which he was not before, and I attribute that to consistency rather than to any one source.</p>
+
+<p>Same company. Same six months of work. Four different outcomes, because four different readers with four different library cards.</p>
+
+<p>That is the fault line. Not llms.txt, not GEO, not any single tactic. It is that there is no longer one search engine to be found in, and the work of becoming an entity has to be aimed. Aim it at the platform your buyers use, do the unglamorous knowledge-layer work first, and let the rest of the industry argue about the file.</p>
+    </div>
+
+    <footer class="post__footer">
+      <aside class="author" aria-label="About the author">
+        <a href="/about/" class="author__photo" rel="author" tabindex="-1" aria-hidden="true">
+          <picture>
+            <source type="image/avif" srcset="/public/images/wole-oduwole-seogidi-640.avif">
+            <source type="image/webp" srcset="/public/images/wole-oduwole-seogidi-640.webp">
+            <img src="/public/images/wole-oduwole-seogidi-640.jpg" width="96" height="128" alt="" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        <div class="author__body">
+          <p class="eyebrow">Written by</p>
+          <p class="author__name"><a href="/about/" rel="author">'Wole Oduwole</a></p>
+          <p class="author__bio">SEO professional and growth marketing executive. Twelve years across search, growth and product marketing for tech companies in Africa and the UK. Founder and CMO of SEOGidi. Innovator Founder, with SERPGidi endorsed by Innovator International. MRes, University of Wolverhampton, 2026.</p>
+          <ul class="author__links">
+            <li><a href="https://www.linkedin.com/in/woldezzy/" rel="me noopener" target="_blank">LinkedIn</a></li>
+            <li><a href="https://x.com/woldezzy" rel="me noopener" target="_blank">X</a></li>
+            <li><a href="https://orcid.org/0009-0001-9302-3329", "https://medium.com/@woldezzy", "https://www.crunchbase.com/person/wole-oduwole", "https://www.f6s.com/member/woldezzy", "https://www.wikidata.org/wiki/Q142071288", "https://seogidi.com/author/woldezzy/" rel="me noopener" target="_blank">ORCID</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="share" data-share data-title="The Fault Lines: Where AI Search Platforms Disagree, and What llms.txt Actually Does" data-url="https://woldezzy.xyz/journal/fault-lines-ai-search-platforms-llms-txt/">
+        <p class="eyebrow">Share</p>
+        <ul class="share__list">
+          <li><button type="button" class="share__btn" data-share-native hidden>Share…</button></li>
+          <li><a class="share__btn" data-share-network="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Ffault-lines-ai-search-platforms-llms-txt%2F" rel="noopener" target="_blank">LinkedIn</a></li>
+          <li><a class="share__btn" data-share-network="x" href="https://x.com/intent/post?text=The%20Fault%20Lines%3A%20Where%20AI%20Search%20Platforms%20Disagree%2C%20and%20What%20llms.txt%20Actually%20Does&url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Ffault-lines-ai-search-platforms-llms-txt%2F&via=woldezzy" rel="noopener" target="_blank">X</a></li>
+          <li><a class="share__btn" data-share-network="whatsapp" href="https://wa.me/?text=The%20Fault%20Lines%3A%20Where%20AI%20Search%20Platforms%20Disagree%2C%20and%20What%20llms.txt%20Actually%20Does%20https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Ffault-lines-ai-search-platforms-llms-txt%2F" rel="noopener" target="_blank">WhatsApp</a></li>
+          <li><a class="share__btn" data-share-network="email" href="mailto:?subject=The%20Fault%20Lines%3A%20Where%20AI%20Search%20Platforms%20Disagree%2C%20and%20What%20llms.txt%20Actually%20Does&body=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Ffault-lines-ai-search-platforms-llms-txt%2F">Email</a></li>
+          <li><button type="button" class="share__btn" data-share-copy>Copy link</button></li>
+        </ul>
+        <p class="share__status" role="status" aria-live="polite"></p>
+      </div>
+    </footer>
+  </div>
+
+  <section class="related" aria-labelledby="related-title">
+    <div class="container container--wide">
+      <div class="chapter">
+        <span class="chapter__num">§</span>
+        <span class="chapter__title">Keep reading</span>
+        <a href="/journal/" class="chapter__action">All essays →</a>
+      </div>
+      <h2 class="statement" id="related-title" style="font-size: var(--t-2xl)">Related <em>essays</em>.</h2>
+      <div class="journal-grid">
+        <a href="/journal/entities-not-keywords-ai-recognition/" class="post-card">
+          <span class="post-card__date"><time datetime="2026-05-19">19 May 2026</time> · SEO</span>
+          <div class="post-card__thumb"><picture>
+            <source type="image/avif" srcset="/public/images/covers/entities-not-keywords-ai-recognition-960.avif">
+            <source type="image/webp" srcset="/public/images/covers/entities-not-keywords-ai-recognition-960.webp">
+            <img src="/public/images/covers/entities-not-keywords-ai-recognition.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+          </picture></div>
+          <h3 class="post-card__title">Entities, Not Keywords: How to Become a Thing AI Can Actually Recognize</h3>
+        </a>
+        <a href="/journal/the-dark-funnel-why-your-traffic-charts-started-lying-to-you/" class="post-card">
+          <span class="post-card__date"><time datetime="2026-05-11">11 May 2026</time> · SEO</span>
+          <div class="post-card__thumb"><picture>
+            <source type="image/avif" srcset="/public/images/covers/the-dark-funnel-why-your-traffic-charts-started-lying-to-you-960.avif">
+            <source type="image/webp" srcset="/public/images/covers/the-dark-funnel-why-your-traffic-charts-started-lying-to-you-960.webp">
+            <img src="/public/images/covers/the-dark-funnel-why-your-traffic-charts-started-lying-to-you.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+          </picture></div>
+          <h3 class="post-card__title">The Dark Funnel: Why Your Traffic Charts Started Lying to You</h3>
+        </a>
+        <a href="/journal/paying-for-seo-tools-smart-investment-or-monthly-money-drain/" class="post-card">
+          <span class="post-card__date"><time datetime="2024-06-10">10 Jun 2024</time> · SEO</span>
+          <div class="post-card__thumb"><picture>
+            <source type="image/avif" srcset="/public/images/covers/paying-for-seo-tools-smart-investment-or-monthly-money-drain-960.avif">
+            <source type="image/webp" srcset="/public/images/covers/paying-for-seo-tools-smart-investment-or-monthly-money-drain-960.webp">
+            <img src="/public/images/covers/paying-for-seo-tools-smart-investment-or-monthly-money-drain.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+          </picture></div>
+          <h3 class="post-card__title">Paying for SEO Tools: Smart Investment or Monthly Money Drain?</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+</article>
