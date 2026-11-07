@@ -306,7 +306,7 @@ for (const p of posts) {
         name: "'Wole Oduwole",
         alternateName: 'Adewole Oduwole',
         url: 'https://woldezzy.xyz/about/',
-        jobTitle: 'SEO Consultant and Growth Marketing Executive',
+        jobTitle: 'SEO Professional',
         image: 'https://woldezzy.xyz/public/images/wole-oduwole-seogidi-960.jpg',
         sameAs: ['https://www.linkedin.com/in/woldezzy/', 'https://x.com/woldezzy', 'https://orcid.org/0009-0001-9302-3329'],
       },
@@ -384,7 +384,7 @@ ${note}${body}
         <div class="author__body">
           <p class="eyebrow">Written by</p>
           <p class="author__name"><a href="/about/" rel="author">'Wole Oduwole</a></p>
-          <p class="author__bio">SEO consultant and growth marketing executive. Twelve years across search, growth and product marketing for tech companies in Africa and the UK. Founder and CMO of SEOGidi. Innovator Founder, with SERPGidi endorsed by Innovator International. MRes, University of Wolverhampton, 2026.</p>
+          <p class="author__bio">SEO professional and growth marketing executive. Twelve years across search, growth and product marketing for tech companies in Africa and the UK. Founder and CMO of SEOGidi. Innovator Founder, with SERPGidi endorsed by Innovator International. MRes, University of Wolverhampton, 2026.</p>
           <ul class="author__links">
             <li><a href="https://www.linkedin.com/in/woldezzy/" rel="me noopener" target="_blank">LinkedIn</a></li>
             <li><a href="https://x.com/woldezzy" rel="me noopener" target="_blank">X</a></li>

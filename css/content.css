@@ -470,3 +470,8 @@ textarea.cform__input { resize: vertical; line-height: var(--lh-relaxed); }
 @media (prefers-reduced-motion: reduce) {
   .strip__frame img, .strip__cap { transition: none; }
 }
+
+.prose .presslist { list-style: none; padding: 0; margin: var(--s-5) 0; display: grid; gap: var(--s-4); }
+.presslist__item { display: grid; gap: 4px; padding-bottom: var(--s-4); border-bottom: 1px solid var(--rule); }
+.presslist__pub { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--fg-mute); }
+.presslist__item a { font-weight: var(--w-strong); }
