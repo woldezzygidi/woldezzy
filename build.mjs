@@ -11,6 +11,7 @@
  * Usage: node build.mjs
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, cpSync, existsSync, statSync, rmSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -29,7 +30,21 @@ const write = (p, s) => {
 /* ──────── 1. CSS ──────── */
 const cssOrder = ['tokens', 'fonts', 'base', 'components', 'home', 'content', 'regional', 'journal'];
 const css = cssOrder.map((n) => `/* ${n}.css */\n` + read(`css/${n}.css`)).join('\n\n');
-write('css/main.css', css);
+
+/* Content-hashed asset names. /css and /js are served immutable for a year, so a change
+   must change the URL, or returning visitors keep the old file. */
+const hash8 = (buf) => createHash('sha256').update(buf).digest('hex').slice(0, 8);
+const ASSETS = {};
+const cssName = `css/main.${hash8(css)}.css`;
+write(cssName, css);
+ASSETS['/css/main.css'] = '/' + cssName;
+for (const f of readdirSync(join(ROOT, 'js')).filter((f) => f.endsWith('.js'))) {
+  const buf = read(`js/${f}`);
+  const name = `js/${f.replace(/\.js$/, '')}.${hash8(buf)}.js`;
+  write(name, buf);
+  ASSETS['/js/' + f] = '/' + name;
+}
+const rewriteAssets = (html) => Object.entries(ASSETS).reduce((h, [from, to]) => h.replaceAll(`"${from}"`, `"${to}"`), html);
 
 /* ──────── 2. Shell ──────── */
 const shell = read('_partials/shell.html');
@@ -81,7 +96,7 @@ for (const file of pages) {
   const ogImage = meta.ogImage || `${SITE}/public/images/og-home.jpg`;
   const schema = meta.schema ? JSON.stringify(meta.schema, null, 0) : '';
 
-  const html = shell
+  let html = shell
     .replaceAll('{{TITLE}}', meta.title)
     .replaceAll('{{DESC}}', meta.desc)
     .replaceAll('{{CANONICAL}}', canonical)
@@ -92,6 +107,7 @@ for (const file of pages) {
     .replaceAll('{{ROBOTS}}', meta.noindex ? '<meta name="robots" content="noindex, nofollow">' : '')
     .replaceAll('{{EXTRA_HEAD}}', meta.extraHead || '')
     .replaceAll('{{BODY}}', body);
+  html = rewriteAssets(html);
 
   const out = meta.path.endsWith('/') ? meta.path + 'index.html' : meta.path;
   write(out, html);
@@ -99,12 +115,11 @@ for (const file of pages) {
 }
 
 /* Homepage is hand-authored (bespoke hero preload) — copy as-is. */
-write('index.html', read('index.html'));
+write('index.html', rewriteAssets(read('index.html')));
 urls.unshift({ loc: SITE + '/', priority: '1.0' });
 
 /* ──────── 4. Static assets ──────── */
 cpSync(join(ROOT, 'public'), join(DIST, 'public'), { recursive: true });
-cpSync(join(ROOT, 'js'), join(DIST, 'js'), { recursive: true });
 for (const f of ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'site.webmanifest']) {
   if (existsSync(join(ROOT, f))) cpSync(join(ROOT, f), join(DIST, f));
 }
