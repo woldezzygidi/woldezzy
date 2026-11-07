@@ -360,12 +360,12 @@
     },
     {
       "source": "/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame",
-      "destination": "/journal/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame/",
+      "destination": "/journal/",
       "permanent": true
     },
     {
       "source": "/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame/",
-      "destination": "/journal/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame/",
+      "destination": "/journal/",
       "permanent": true
     },
     {
@@ -380,32 +380,32 @@
     },
     {
       "source": "/mtn-to-increase-data-tariff-blames-it-on-ncc-regulations",
-      "destination": "/journal/mtn-to-increase-data-tariff-blames-it-on-ncc-regulations/",
+      "destination": "/journal/",
       "permanent": true
     },
     {
       "source": "/mtn-to-increase-data-tariff-blames-it-on-ncc-regulations/",
-      "destination": "/journal/mtn-to-increase-data-tariff-blames-it-on-ncc-regulations/",
+      "destination": "/journal/",
       "permanent": true
     },
     {
       "source": "/how-to-make-video-call-on-whatsapp",
-      "destination": "/journal/how-to-make-video-call-on-whatsapp/",
+      "destination": "/journal/",
       "permanent": true
     },
     {
       "source": "/how-to-make-video-call-on-whatsapp/",
-      "destination": "/journal/how-to-make-video-call-on-whatsapp/",
+      "destination": "/journal/",
       "permanent": true
     },
     {
       "source": "/whats-life-without-data-airtel-fires-shots-at-glo-others",
-      "destination": "/journal/whats-life-without-data-airtel-fires-shots-at-glo-others/",
+      "destination": "/journal/",
       "permanent": true
     },
     {
       "source": "/whats-life-without-data-airtel-fires-shots-at-glo-others/",
-      "destination": "/journal/whats-life-without-data-airtel-fires-shots-at-glo-others/",
+      "destination": "/journal/",
       "permanent": true
     },
     {
@@ -466,6 +466,26 @@
     {
       "source": "/journal/basic-seo-techniques-a-beginners-guide/",
       "destination": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
+      "permanent": true
+    },
+    {
+      "source": "/journal/iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame/",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/journal/mtn-to-increase-data-tariff-blames-it-on-ncc-regulations/",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/journal/whats-life-without-data-airtel-fires-shots-at-glo-others/",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/journal/how-to-make-video-call-on-whatsapp/",
+      "destination": "/journal/",
       "permanent": true
     }
   ]

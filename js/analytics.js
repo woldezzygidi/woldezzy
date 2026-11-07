@@ -7,8 +7,33 @@
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
   window.gtag = gtag;
+  // Consent Mode v2. Default denied: GA4 runs cookieless (no identifiers, modelled data) until the
+  // visitor accepts. UK PECR needs consent before analytics cookies are set.
+  const KEY = 'consent.v1';
+  let stored = null;
+  try { stored = localStorage.getItem(KEY); } catch (_) {}
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    analytics_storage: stored === 'granted' ? 'granted' : 'denied',
+    wait_for_update: 0,
+  });
   gtag('js', new Date());
   gtag('config', ID, { anonymize_ip: true, transport_type: 'beacon' });
+
+  const banner = document.querySelector('[data-consent]');
+  const decide = (choice) => {
+    try { localStorage.setItem(KEY, choice); } catch (_) {}
+    gtag('consent', 'update', { analytics_storage: choice });
+    if (banner) { banner.hidden = true; banner.removeAttribute('data-open'); }
+    gtag('event', 'consent_choice', { choice });
+  };
+  const open = () => { if (!banner) return; banner.hidden = false; requestAnimationFrame(() => banner.setAttribute('data-open', '')); };
+  if (banner) {
+    banner.querySelector('[data-consent-accept]')?.addEventListener('click', () => decide('granted'));
+    banner.querySelector('[data-consent-decline]')?.addEventListener('click', () => decide('denied'));
+    if (stored !== 'granted' && stored !== 'denied') setTimeout(open, 900);
+  }
+  document.querySelectorAll('[data-consent-open]').forEach((el) => el.addEventListener('click', (e) => { e.preventDefault(); open(); }));
 
   const load = () => {
     const s = document.createElement('script');

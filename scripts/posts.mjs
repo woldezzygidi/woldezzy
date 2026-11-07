@@ -268,8 +268,10 @@ const SEO_TITLE = {
   'governance-privacy-and-risk-in-ai-marketing-what-digital-managers-must-know': 'Governance, privacy and risk in AI marketing',
   'iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame': 'iPhone 8: wireless charging and a glass frame',
 };
+const DROP = new Set(["iphone-8-is-the-newest-magic-with-wireless-charging-and-glass-frame", "mtn-to-increase-data-tariff-blames-it-on-ncc-regulations", "whats-life-without-data-airtel-fires-shots-at-glo-others", "how-to-make-video-call-on-whatsapp"]);
 const out = [];
 for (const p of posts) {
+  if (DROP.has(p.slug)) continue;
   const body = clean(p.raw, p.slug);
   const n = words(body);
   // Editorial overrides: off-brand consumer-tech news stays in the archive regardless of length.

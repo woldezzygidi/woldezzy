@@ -159,7 +159,7 @@
 .hero__frame.is-active { opacity: 1; }
 .hero__frame.is-active img { animation: heroPush 8s linear both; }
 @keyframes heroPush { from { transform: scale(1); } to { transform: scale(1.06); } }
-.hero__portrait__caption [data-frame-label] { transition: opacity var(--t-base) var(--ease); }
+.hero__portrait__caption [data-frame-label] { transition: opacity var(--d-base) var(--ease); }
 .hero__portrait__caption [data-frame-label].is-swapping { opacity: 0; }
 @media (prefers-reduced-motion: reduce) {
   .hero__frame.is-active img { animation: none; }
@@ -339,7 +339,7 @@
   border-top: 1px solid var(--rule);
   color: var(--fg);
   align-items: baseline;
-  transition: padding var(--t-base) var(--ease);
+  transition: padding var(--d-base) var(--ease);
 }
 .work-item:last-child { border-bottom: 1px solid var(--rule); }
 

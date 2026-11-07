@@ -32,6 +32,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Journal · 'Wole Oduwole" href="/journal/feed.xml">
 
 <script>
 (function(){try{var t=localStorage.getItem('woldezzy:theme');if(!t){t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();
@@ -164,8 +165,8 @@
     <div class="container container--wide">
 
       <div class="hero__meta">
-        <span class="hero__meta-item"><span class="dot" aria-hidden="true"></span><strong>Available</strong> for Q1 engagements</span>
-        <span class="hero__meta-item">Lagos <strong>/</strong> London</span>
+        <span class="hero__meta-item"><span class="dot" aria-hidden="true"></span><strong>Available</strong> for new engagements</span>
+        <span class="hero__meta-item">Lagos <strong>/</strong> West Midlands</span>
       </div>
 
       <div class="hero__grid">
@@ -414,6 +415,8 @@
         <li><a href="/research/">Research</a></li>
         <li><a href="/journal/">Journal</a></li>
         <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/privacy/#cookies" data-consent-open>Cookie choice</a></li>
       </ul>
     </div>
     <div>
@@ -436,10 +439,17 @@
   </div>
   <div class="footer__base">
     <span>© <span data-year>2026</span> Adewole Oduwole</span>
-    <span>Lagos · London</span>
+    <span>Lagos · West Midlands</span>
   </div>
 </footer>
 
+<div class="consent" data-consent hidden role="region" aria-label="Cookie choice">
+  <p class="consent__text">I use Google Analytics to see which pages are read. No cookies are set unless you say yes. <a href="/privacy/">How data is handled</a>.</p>
+  <div class="consent__actions">
+    <button type="button" class="btn btn--primary consent__btn" data-consent-accept>Allow analytics</button>
+    <button type="button" class="btn btn--ghost consent__btn" data-consent-decline>No thanks</button>
+  </div>
+</div>
 <script type="module" src="/js/main.js"></script>
 <script src="/js/analytics.js" defer></script>
 </body>

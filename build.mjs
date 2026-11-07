@@ -118,4 +118,34 @@ ${urls.map((u) => `  <url><loc>${u.loc}</loc><lastmod>${today}</lastmod><priorit
 write('sitemap.xml', sitemap);
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 
+/* ──────── 6. RSS feed for the journal ──────── */
+const postsPath = join(ROOT, 'scripts', 'posts.json');
+if (existsSync(postsPath)) {
+  const esc = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const posts = JSON.parse(readFileSync(postsPath, 'utf8')).filter((p) => p.tier === 'featured').sort((a, b) => (a.date < b.date ? 1 : -1));
+  const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Journal · 'Wole Oduwole</title>
+  <link>${SITE}/journal/</link>
+  <atom:link href="${SITE}/journal/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Essays on SEO, growth, product marketing and building tech companies across Africa and the UK.</description>
+  <language>en-GB</language>
+  <image><url>${SITE}/public/brand/mark-512.png</url><title>Journal · 'Wole Oduwole</title><link>${SITE}/journal/</link></image>
+${posts.map((p) => `  <item>
+    <title>${esc(p.title)}</title>
+    <link>${SITE}/journal/${p.slug}/</link>
+    <guid isPermaLink="true">${SITE}/journal/${p.slug}/</guid>
+    <pubDate>${new Date(p.date + 'T09:00:00Z').toUTCString()}</pubDate>
+    <category>${esc(p.cat)}</category>
+    <description>${esc(p.desc)}</description>
+    <enclosure url="${SITE}/public/images/covers/${p.slug}.jpg" type="image/jpeg" length="0"/>
+  </item>`).join('\n')}
+</channel>
+</rss>
+`;
+  mkdirSync(join(DIST, 'journal'), { recursive: true });
+  write('journal/feed.xml', rss);
+}
+
 console.log(`Built ${pages.length + 1} pages → ${relative(ROOT, DIST)}/`);

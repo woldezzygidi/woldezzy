@@ -178,7 +178,7 @@ html:not([data-theme]) .proof__item:hover img { filter: invert(1) brightness(1.4
   font-size: var(--t-md);
   font-weight: var(--w-label);
   color: var(--accent);
-  transition: transform var(--t-base) var(--ease);
+  transition: transform var(--d-base) var(--ease);
 }
 .faq__item[open] .faq__q::after { transform: rotate(45deg); }
 .faq__a {

@@ -18,7 +18,7 @@
   <div class="container container--wide">
     <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">Contact</span> Say hello</p>
     <h1 class="page-hero__title" id="contact-title">Best reached by <em>email</em>.</h1>
-    <p class="page-hero__lede">I read everything and respond within two working days. For consulting enquiries, a short description of your business and what you are trying to solve helps.</p>
+    <p class="page-hero__lede">I read everything and respond within two working days. Use the form or write directly. A short description of your business and what you are trying to solve helps.</p>
   </div>
 </section>
 
@@ -27,6 +27,27 @@
     <div class="contact reveal">
       <p class="eyebrow contact__eyebrow">Email</p>
       <a href="mailto:wole@woldezzy.xyz" class="contact__email">wole@woldezzy.xyz</a>
+      <form class="cform" data-contact-form action="/api/contact" method="post" novalidate>
+        <div class="cform__row">
+          <label class="cform__field">
+            <span class="cform__label">Name</span>
+            <input class="cform__input" type="text" name="name" autocomplete="name" required minlength="2" maxlength="120">
+          </label>
+          <label class="cform__field">
+            <span class="cform__label">Email</span>
+            <input class="cform__input" type="email" name="email" autocomplete="email" required maxlength="200" inputmode="email">
+          </label>
+        </div>
+        <label class="cform__field">
+          <span class="cform__label">What are you trying to solve?</span>
+          <textarea class="cform__input" name="message" rows="5" required minlength="20" maxlength="4000"></textarea>
+        </label>
+        <label class="cform__hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+        <div class="cform__foot">
+          <button type="submit" class="btn btn--primary" data-contact-submit>Send <span class="btn__arrow" aria-hidden="true">→</span></button>
+          <p class="cform__status" role="status" aria-live="polite" data-contact-status></p>
+        </div>
+      </form>
       <div class="contact__links">
         <a href="https://www.linkedin.com/in/woldezzy/" class="contact__link" rel="noopener me">LinkedIn</a>
         <a href="https://x.com/woldezzy" class="contact__link" rel="noopener me">X</a>

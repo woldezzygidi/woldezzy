@@ -329,6 +329,44 @@ function initStrip() {
   };
 }
 
+/* Contact form: posts JSON to /api/contact; if the endpoint is unavailable, falls back to a
+   prefilled mailto so the message is never lost. */
+function initContactForm() {
+  const form = document.querySelector('[data-contact-form]');
+  if (!form) return () => {};
+  const status = form.querySelector('[data-contact-status]');
+  const say = (msg, cls) => { if (!status) return; status.textContent = msg; status.className = 'cform__status' + (cls ? ' ' + cls : ''); };
+  const mailto = (d) => `mailto:wole@woldezzy.xyz?subject=${encodeURIComponent('Enquiry from ' + d.name)}&body=${encodeURIComponent(d.message + '\n\n' + d.name + '\n' + d.email)}`;
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const d = Object.fromEntries(new FormData(form).entries());
+    form.setAttribute('data-busy', '');
+    say('Sending…');
+    try {
+      const r = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d) });
+      if (r.ok) {
+        form.reset();
+        say('Sent. I will reply within two working days.', 'is-ok');
+        window.gtag?.('event', 'generate_lead', { method: 'form' });
+      } else if (r.status === 422) {
+        say('Please check the fields: a name, a valid email and at least a couple of sentences.', 'is-err');
+      } else {
+        say('The form is not available right now. Opening your email app instead.', 'is-err');
+        location.href = mailto(d);
+      }
+    } catch (_) {
+      say('No connection. Opening your email app instead.', 'is-err');
+      location.href = mailto(d);
+    } finally {
+      form.removeAttribute('data-busy');
+    }
+  };
+  form.addEventListener('submit', onSubmit);
+  return () => form.removeEventListener('submit', onSubmit);
+}
+
 function initShare() {
   const root = document.querySelector('[data-share]');
   if (!root) return () => {};
@@ -368,7 +406,7 @@ const cleanups = [];
 
 function boot() {
   initYear();
-  cleanups.push(initTheme(), initHeader(), initNav(), initReveal(), initParallax(), initShare(), initHeroFrames(), initStrip());
+  cleanups.push(initTheme(), initHeader(), initNav(), initReveal(), initParallax(), initShare(), initHeroFrames(), initStrip(), initContactForm());
 }
 
 if (document.readyState === 'loading') {
