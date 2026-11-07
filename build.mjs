@@ -10,12 +10,13 @@
  *
  * Usage: node build.mjs
  */
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, cpSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, cpSync, existsSync, statSync, rmSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const DIST = join(ROOT, 'dist');
+rmSync(DIST, { recursive: true, force: true }); // clean build: removed pages must not linger
 const SITE = 'https://woldezzy.xyz';
 
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');
