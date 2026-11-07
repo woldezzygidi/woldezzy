@@ -470,5 +470,125 @@
       "height": 1200
     },
     "inline": true
+  },
+  {
+    "slug": "wolverhampton-desk-2025",
+    "src": "local://wolverhampton-desk-2025.jpg",
+    "file": "wolverhampton-desk-2025.jpg",
+    "widths": [
+      640,
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole at his desk in Wolverhampton, March 2025"
+  },
+  {
+    "slug": "wole-oduwole-suit",
+    "src": "local://wole-oduwole-suit.jpg",
+    "file": "wole-oduwole-suit.jpg",
+    "widths": [
+      640,
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole in a suit, smiling"
+  },
+  {
+    "slug": "lagos-rooftop",
+    "src": "local://lagos-rooftop.jpg",
+    "file": "lagos-rooftop.jpg",
+    "widths": [
+      960,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole in white with three friends on a Lagos rooftop"
+  },
+  {
+    "slug": "lagos-rooftop-wide",
+    "src": "local://lagos-rooftop-wide.jpg",
+    "file": "lagos-rooftop-wide.jpg",
+    "widths": [
+      960,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole with four friends on bean bags on a Lagos rooftop at dusk"
+  },
+  {
+    "slug": "home-office-portrait",
+    "src": "local://home-office-portrait.jpg",
+    "file": "home-office-portrait.jpg",
+    "widths": [
+      640,
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "Black and white photograph of 'Wole Oduwole at his home desk, a painted portrait of him on the wall behind"
+  },
+  {
+    "slug": "woldezzy-canvas",
+    "src": "local://woldezzy-canvas.jpg",
+    "file": "woldezzy-canvas.jpg",
+    "widths": [
+      960,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole beside a split canvas print of his illustrated Woldezzy avatar"
+  },
+  {
+    "slug": "early-career-office",
+    "src": "local://early-career-office.jpg",
+    "file": "early-career-office.jpg",
+    "widths": [
+      640,
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole at a desktop computer in his first office, Lagos"
+  },
+  {
+    "slug": "lagos-home-office",
+    "src": "local://lagos-home-office.jpg",
+    "file": "lagos-home-office.jpg",
+    "widths": [
+      640,
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp",
+      "jpg"
+    ],
+    "alt": "'Wole Oduwole working at his Lagos home office, two monitors and a painted portrait on the wall"
   }
 ]
