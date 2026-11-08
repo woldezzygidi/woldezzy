@@ -154,7 +154,7 @@ html[data-theme="light"] .theme-toggle__sun  { display: block; }
     height: calc(100dvh - var(--header-h));
     z-index: 49;
     background: var(--bg);
-    padding: var(--s-8) var(--gutter);
+    padding: clamp(16px, 4vh, 48px) var(--gutter);
     transform: translateY(-8px);
     opacity: 0;
     visibility: hidden;
@@ -178,7 +178,7 @@ html[data-theme="light"] .theme-toggle__sun  { display: block; }
   }
   .nav__link {
     display: block;
-    padding-block: var(--s-5);
+    padding-block: clamp(10px, 2.4vh, 24px);
     font-family: var(--font-display);
     font-size: var(--t-xl);
     letter-spacing: var(--tracking-tight);

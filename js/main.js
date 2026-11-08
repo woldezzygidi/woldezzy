@@ -336,6 +336,9 @@ function initContactForm() {
   const form = document.querySelector('[data-contact-form]');
   if (!form) return () => {};
   const status = form.querySelector('[data-contact-status]');
+  const typeSel = form.querySelector('[data-contact-type]');
+  const qType = new URLSearchParams(location.search).get('type');
+  if (typeSel && qType && [...typeSel.options].some((o) => o.value === qType)) typeSel.value = qType;
   const say = (msg, cls) => { if (!status) return; status.textContent = msg; status.className = 'cform__status' + (cls ? ' ' + cls : ''); };
   const mailto = (d) => `mailto:wole@woldezzy.xyz?subject=${encodeURIComponent('Enquiry from ' + d.name)}&body=${encodeURIComponent(d.message + '\n\n' + d.name + '\n' + d.email)}`;
 
@@ -350,7 +353,7 @@ function initContactForm() {
       if (r.ok) {
         form.reset();
         say('Sent. I will reply within two working days.', 'is-ok');
-        window.gtag?.('event', 'generate_lead', { method: 'form' });
+        window.gtag?.('event', 'generate_lead', { method: 'form', enquiry_type: d.type || 'project' });
       } else if (r.status === 422) {
         say('Please check the fields: a name, a valid email and at least a couple of sentences.', 'is-err');
       } else {

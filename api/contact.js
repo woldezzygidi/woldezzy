@@ -19,6 +19,8 @@ export default async function handler(req, res) {
   const name = String(body.name || '').trim().slice(0, MAX.name);
   const email = String(body.email || '').trim().slice(0, MAX.email);
   const message = String(body.message || '').trim().slice(0, MAX.message);
+  const TYPES = { project: 'Consulting or a project', role: 'Full-time role', contract: 'Contract or interim', fractional: 'Fractional CMO', speaking: 'Speaking or training', other: 'Something else' };
+  const type = TYPES[body.type] || TYPES.project;
   if (name.length < 2 || !EMAIL.test(email) || message.length < 20) return res.status(422).json({ ok: false, error: 'fields' });
 
   const key = process.env.RESEND_API_KEY;
@@ -33,9 +35,9 @@ export default async function handler(req, res) {
     headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       from, to: [to], reply_to: email,
-      subject: `Enquiry from ${name}`,
-      text: `From: ${name} <${email}>\n\n${message}`,
-      html: `<p><strong>${esc(name)}</strong> &lt;${esc(email)}&gt;</p><p style="white-space:pre-wrap">${esc(message)}</p>`,
+      subject: `[${type}] Enquiry from ${name}`,
+      text: `Type: ${type}\nFrom: ${name} <${email}>\n\n${message}`,
+      html: `<p><em>${esc(type)}</em></p><p><strong>${esc(name)}</strong> &lt;${esc(email)}&gt;</p><p style="white-space:pre-wrap">${esc(message)}</p>`,
     }),
   });
   if (!r.ok) return res.status(502).json({ ok: false, error: 'send' });

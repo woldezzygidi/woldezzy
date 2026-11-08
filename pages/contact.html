@@ -18,7 +18,7 @@
   <div class="container container--wide">
     <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">Contact</span> Say hello</p>
     <h1 class="page-hero__title" id="contact-title">Best reached by <em>email</em>.</h1>
-    <p class="page-hero__lede">I read everything and respond within two working days. Use the form or write directly. A short description of your business and what you are trying to solve helps.</p>
+    <p class="page-hero__lede">I read everything and respond within two working days. Use the form or write directly. Hiring? A job description or a link to the role is enough. For projects, a short description of the business and the problem helps.</p>
   </div>
 </section>
 
@@ -38,6 +38,17 @@
             <input class="cform__input" type="email" name="email" autocomplete="email" required maxlength="200" inputmode="email">
           </label>
         </div>
+        <label class="cform__field">
+          <span class="cform__label">What is this about?</span>
+          <select class="cform__input cform__select" name="type" data-contact-type>
+            <option value="project">Consulting or a project</option>
+            <option value="role">A full-time role</option>
+            <option value="contract">Contract or interim work</option>
+            <option value="fractional">Fractional CMO</option>
+            <option value="speaking">Speaking or training</option>
+            <option value="other">Something else</option>
+          </select>
+        </label>
         <label class="cform__field">
           <span class="cform__label">What are you trying to solve?</span>
           <textarea class="cform__input" name="message" rows="5" required minlength="20" maxlength="4000"></textarea>

@@ -56,6 +56,7 @@ const NAV = [
   ['/services/', 'Services'],
   ['/research/', 'Research'],
   ['/journal/', 'Journal'],
+  ['/hire/', 'Hire me'],
   ['/contact/', 'Contact'],
 ];
 
