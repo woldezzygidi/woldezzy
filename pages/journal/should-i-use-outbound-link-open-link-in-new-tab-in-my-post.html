@@ -1,7 +1,7 @@
 <!--meta
 {
-  "title": "Should I Use Outbound Link (Open Link In New Tab) In My Post?",
-  "desc": "This is one major challenge for many bloggers and content curators out there, understanding the idea of linking in posts. The question is, does outbound…",
+  "title": "Should links open in a new tab? UX, accessibility, SEO",
+  "desc": "Should links open in a new tab? Usually not. What accessibility guidance says, why it has no SEO effect, and the few cases where a new tab helps the reader.",
   "path": "/journal/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/",
   "ogType": "article",
   "ogImage": "https://woldezzy.xyz/public/images/covers/should-i-use-outbound-link-open-link-in-new-tab-in-my-post.jpg",
@@ -13,10 +13,10 @@
       {
         "@type": "BlogPosting",
         "@id": "https://woldezzy.xyz/journal/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/#article",
-        "headline": "Should I Use Outbound Link (Open Link In New Tab) In My Post?",
-        "description": "This is one major challenge for many bloggers and content curators out there, understanding the idea of linking in posts. The question is, does outbound…",
+        "headline": "Should Links Open in a New Tab? UX, Accessibility and SEO in 2026",
+        "description": "Should links open in a new tab? Usually not. What accessibility guidance says, why it has no SEO effect, and the few cases where a new tab helps the reader.",
         "datePublished": "2018-06-16",
-        "dateModified": "2018-06-16",
+        "dateModified": "2026-11-08",
         "author": {
           "@type": "Person",
           "@id": "https://woldezzy.xyz/#person",
@@ -38,8 +38,8 @@
         "url": "https://woldezzy.xyz/journal/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/",
         "mainEntityOfPage": "https://woldezzy.xyz/journal/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/",
         "articleSection": "SEO",
-        "keywords": "outbound link and seo",
-        "wordCount": 477,
+        "keywords": "external links, target blank, accessibility, UX, rel attributes, noopener",
+        "wordCount": 1646,
         "inLanguage": "en-GB",
         "isPartOf": {
           "@id": "https://woldezzy.xyz/journal/#blog"
@@ -63,7 +63,7 @@
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Should I Use Outbound Link (Open Link In New Tab) In My Post?",
+            "name": "Should Links Open in a New Tab? UX, Accessibility and SEO in 2026",
             "item": "https://woldezzy.xyz/journal/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/"
           }
         ]
@@ -79,11 +79,11 @@
         <ol class="crumbs">
           <li><a href="/">Home</a></li>
           <li><a href="/journal/">Journal</a></li>
-          <li><span aria-current="page" class="crumbs__current">Should I Use Outbound Link (Open Link In New Tab) In My Post?</span></li>
+          <li><span aria-current="page" class="crumbs__current">Should Links Open in a New Tab? UX, Accessibility and SEO in 2026</span></li>
         </ol>
       </nav>
-      <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">SEO</span> <time datetime="2018-06-16">16 Jun 2018</time> · 2 min read</p>
-      <h1 class="page-hero__title post__title" itemprop="headline">Should I Use Outbound Link (Open Link In New Tab) In My Post?</h1>
+      <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">SEO</span> <time datetime="2018-06-16">16 Jun 2018</time> · Updated <time datetime="2026-11-08">8 Nov 2026</time> · 7 min read</p>
+      <h1 class="page-hero__title post__title" itemprop="headline">Should Links Open in a New Tab? UX, Accessibility and SEO in 2026</h1>
       <p class="post__byline-top">By <a href="/about/" rel="author" itemprop="author">'Wole Oduwole</a></p>
     </div>
   </header>
@@ -100,27 +100,97 @@
 
   <div class="container container--narrow">
     <div class="prose post__body" itemprop="articleBody">
-<aside class="note" role="note"><p><strong>Editor’s note, 2026.</strong> Written in 2018. The accessibility argument against forcing new tabs has strengthened since; the SEO argument is unchanged.</p></aside>
-This is one major challenge for many bloggers and content curators out there, understanding the idea of linking in posts. <em><strong>The question is, does outbound (external linking) cause more harm or benefit to your SEO?</strong></em>
-Before you get the answer, I'll like to put you through the most vital component of SEO which is <strong>User Experience (UX)</strong>
+<p>No, not by default. Links in your posts, internal or external, should open in the same tab. Opening a new tab has no effect on your SEO, it takes a decision away from the reader, and it causes real problems for some users. There are a handful of cases where a new tab helps, and I list them below. Outside those, leave the reader in charge.</p>
 
-While you own your blog, have it mind that you don't own the browser of your user, in other words, they should be able to have full control on how they visit pages on their browser. Viewing your website and click on a link that opens in another tab might be frustrating to many of these users. Fine, you trying to maintain a low bounce rate, you don't want them to exit your page too quickly.  But these users are also aware of the back button, so they could always go back to your page at their own will, why try to force them?
+<p>I first wrote about this in 2018, when a lot of bloggers forced every external link into a new tab to keep people "on the site" and protect their bounce rate. My answer then was that you own your blog but you do not own your reader's browser. That part has held up. What has changed is that the accessibility guidance is clearer, the security reason for a special rel attribute has mostly gone away, and Google has given us more ways to describe outbound links. So here is the current version.</p>
 
-<h2>Outbound Link and SEO</h2>
+<h2>Does opening links in a new tab help SEO?</h2>
 
-<h3>How does Outbound link affect SEO, it does in some ways.</h3>
+<p>No. Google does not use <code>target="_blank"</code> as a ranking signal, in either direction. A link that opens in a new tab passes the same signals as one that opens in the same tab. Nothing about the target attribute tells Google anything about your page's quality.</p>
 
-1. It affects UX, User Experience in now is quite important and cannot be overemphasized. You need to give them the full power to experience your web pages in the way they desire. Having web pages that carry a ton of outbound links will irritate users and they will never want to come back to your site or in a common way, they might end up closing the entire pages of your website.
+<p>The old argument was indirect: keep your page open in the background and the visitor will come back to it, so your bounce rate falls and that somehow helps rankings. Two problems. First, Google has said for years that it does not use Google Analytics data such as bounce rate in ranking. Second, that bounce rate no longer exists in the form people were gaming. GA4 counts a session as engaged after 10 seconds by default, so a reader who spends a minute on your post and then clicks out has already counted as engaged. I cover that change in <a href="/journal/how-to-reduce-bounce-rate-on-your-website/">how to reduce bounce rate</a>.</p>
 
-2. It discourages low-end browsers. Now, you need to understand that there are different strokes for different folks. Having web pages that can serve all browsers is quite necessary. So what happens to users with low-end phones that can't multi-task? You practically telling them your website isn't for them, which isn't your plan. So have them in mind and create UX that will work for all browsers and devices.
+<p>If you want people to stay, give them a reason to. Forcing a tab open behind their back is not a reason.</p>
 
-<a href="/wp-content/uploads/2018/06/Outbound-Links-and-SEO.jpg"><img src="/public/images/posts/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/Outbound-Links-and-SEO.jpg" width="525" height="394" alt="Outbound Links and SEO" loading="lazy" decoding="async"></a>
+<h2>What does accessibility guidance say about new tabs?</h2>
 
-<h4>Solution to Outbound Link and SEO (Safe Practises)</h4>
+<p>The Web Content Accessibility Guidelines (WCAG) do not ban new tabs. They ask you to warn people. The relevant W3C technique is <a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G201" rel="noopener" target="_blank">G201: Giving users advanced warning when opening a new window</a>, listed against success criterion 3.2.5 Change on Request and the link purpose criteria.</p>
 
-Do not use an outbound link, rather do in-linking. And if you must use use outbound links, make the user aware that the link will open in another tab in such a way that they understand before clicking so they are not caught unaware. Your SEO will still remain intact as long as they still navigating on yoru website. However, another way make users stay longer on your site without them following external links out of your website is to make your posts sorted in such a way that they have enough to consume on that particular page.
+<p>The reasoning in G201 is worth reading in full. Unexpected new windows can disorient people with visual impairments and some people with cognitive disabilities. A screen reader user may not realise the context has changed. The back button stops working, because the new tab has no history. Someone who is magnifying the screen may not see the new tab appear at all. A warning lets them decide for themselves whether to leave the page.</p>
 
-Have it mind that not all pages on your website are important, so they might leave some pages quicker than others. The ones that matter should be your focus. Optimize contents to make them stay longer, use images, illustrations, videos if necessary, all of these will keep them longer on a particular page.
+<p>So if you do open a link in a new tab, say so in the link. Either in the text ("pricing table (opens in a new tab)") or with an icon that has a text alternative a screen reader will announce. A small arrow icon with no label does not count.</p>
+
+<p>Accessibility is also where the strongest everyday argument sits. Every browser already lets the reader open a link in a new tab: middle-click, Ctrl or Cmd plus click, long-press on mobile. Those who want a new tab can have one. Those who do not want one cannot easily undo yours. Same-tab is the only choice that serves both groups.</p>
+
+<h2>What about mobile and low-end devices?</h2>
+
+<p>In 2018 I made a point about low-end phones that struggled to multitask. Phones have improved, but the core problem has not gone away. On mobile, a new tab is close to invisible. The reader taps a link, the page changes, and the back button either does nothing or closes the tab and returns them somewhere they did not expect. Tab switchers on phones are buried behind an icon many people never use. I still see readers with dozens of forgotten tabs open because sites kept spawning them.</p>
+
+<p>The Nielsen Norman Group reached the same view in its 2020 review, <a href="https://www.nngroup.com/alertbox/open_new_windows.html" rel="noopener" target="_blank">Opening Links in New Browser Windows and Tabs</a>: open links in the same tab by default, and avoid new tabs in most mobile use.</p>
+
+<h2>When should a link open in a new tab?</h2>
+
+<p>NN/g's guidance and my own experience line up on a short list. A new tab is justified when closing the current page would cost the reader something:</p>
+
+<ul>
+<li><strong>The reader is in the middle of a form or task.</strong> A "what does this mean?" link next to a field in a checkout, application or sign-up form. Navigating away could lose what they have typed.</li>
+<li><strong>Help or reference material used alongside the task.</strong> Documentation the reader needs to look at while they configure something on the original page.</li>
+<li><strong>PDFs and other documents on desktop</strong>, when the reader will read or print the file and then return. Label the link with the file type and size either way.</li>
+<li><strong>Logged-in sessions or editors</strong>, where leaving the page would end the session or discard unsaved work. Previewing a page while editing it is the classic case.</li>
+</ul>
+
+<p>Notice what is not on the list: "it is an external link". Whether a link points to your site or someone else's says nothing about whether the reader wants to leave. A link to a source in a blog post is a normal link. Let it behave like one.</p>
+
+<h2>Do I still need rel="noopener" on target="_blank" links?</h2>
+
+<p>For modern browsers, no. The reason <code>rel="noopener"</code> existed was a security issue called reverse tabnabbing. A page opened with <code>target="_blank"</code> could use <code>window.opener</code> to redirect the original tab, for example to a fake login page. Adding noopener cut that link.</p>
+
+<p>The HTML standard changed so that <code>target="_blank"</code> now implies noopener by default. According to <a href="https://caniuse.com/mdn-html_elements_a_implicit_noopener" rel="noopener" target="_blank">Can I Use</a>, that has been the behaviour since Chrome 88, Edge 88, Firefox 79 and Safari 12.1. Leaving the attribute in does no harm, and many CMSs add it automatically, so I would not go and strip it out. Just do not treat it as an SEO attribute. It has nothing to do with search.</p>
+
+<p><code>rel="noreferrer"</code> is different and has a cost. It hides the referrer from the site you link to, so your visit shows up in their analytics as direct traffic rather than a referral from you. If you want other sites to see that you send them visitors, which is how many link relationships start, do not add noreferrer unless you have a privacy reason to. It is one of the small things that feeds the attribution mess I wrote about in <a href="/journal/the-dark-funnel-why-your-traffic-charts-started-lying-to-you/">the dark funnel</a>.</p>
+
+<h2>Which rel attributes matter for SEO: nofollow, sponsored or ugc?</h2>
+
+<p>These are the attributes that do talk to Google. In September 2019 Google added two new values alongside nofollow, and from March 2020 it began treating all three as hints rather than strict instructions. Google's <a href="https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links" rel="noopener" target="_blank">guidance on qualifying outbound links</a> sets them out:</p>
+
+<ul>
+<li><strong><code>rel="sponsored"</code></strong> for links that are paid for: adverts, sponsorships, affiliate links and anything given in exchange for compensation.</li>
+<li><strong><code>rel="ugc"</code></strong> for links inside user-generated content, such as comments and forum posts.</li>
+<li><strong><code>rel="nofollow"</code></strong> for other cases where you do not want to vouch for the page or pass ranking signals to it.</li>
+</ul>
+
+<p>You can combine them, for example <code>rel="ugc nofollow"</code>. Nofollow remains an acceptable fallback for paid links. Leaving paid links unqualified is the mistake that gets sites into trouble with link spam policies.</p>
+
+<p>For ordinary editorial links, the ones you add because a source is useful to your reader, use no rel attribute at all. Linking out to good sources is normal behaviour on the web. Sites that refuse to link anywhere, or nofollow every external link out of fear, look less like a real publication, not more. Citing primary sources also helps readers check what you say, and it is the kind of corroboration that helps search engines and AI systems understand who you are and what you cover. I go into that side in <a href="/journal/entities-not-keywords-ai-recognition/">entities, not keywords</a>.</p>
+
+<h2>How to set your link policy</h2>
+
+<p>If you run a blog or a content team, write this down once so people stop debating it per post:</p>
+
+<ol>
+<li><strong>Default every link to the same tab.</strong> Check your CMS or theme settings, because some themes force external links into new tabs site-wide. Turn that off.</li>
+<li><strong>Allow new tabs only for the cases above:</strong> mid-task help, PDFs on desktop, editors and logged-in tools.</li>
+<li><strong>When you do use a new tab, label it</strong> in text or with an icon that has an accessible name.</li>
+<li><strong>Mark paid and affiliate links</strong> with <code>rel="sponsored"</code>, and comment links with <code>rel="ugc"</code>. Most comment systems handle the second one for you.</li>
+<li><strong>Leave editorial links plain.</strong> No nofollow, no noreferrer by default.</li>
+<li><strong>Keep readers with good internal links</strong>, placed where they are useful, rather than by trapping them. Related reading at the point a question comes up does more than any tab trick.</li>
+</ol>
+
+<h2>Quick answers</h2>
+
+<p><strong>Do external links hurt my SEO?</strong><br>
+No. Linking to useful, relevant sources is normal and does not leak rankings in any way you need to worry about. Qualify paid links, and avoid linking to spam.</p>
+
+<p><strong>Does target="_blank" affect rankings?</strong><br>
+No. Google ignores it for ranking purposes.</p>
+
+<p><strong>Is it an accessibility failure to open a link in a new tab?</strong><br>
+Not automatically. Doing it without warning goes against WCAG technique G201 and can fail the AAA criterion 3.2.5. Labelling the link is the fix.</p>
+
+<p><strong>Should I add rel="noopener" manually?</strong><br>
+Modern browsers apply it automatically to target="_blank" links. Adding it is harmless, and it protects anyone on a very old browser.</p>
+
+<p>The 2018 version of this post ended with "they are aware of the back button". That is still the short answer. Trust your readers to come back, and give them something worth coming back to.</p>
     </div>
 
     <footer class="post__footer">
@@ -145,14 +215,14 @@ Have it mind that not all pages on your website are important, so they might lea
         </div>
       </aside>
 
-      <div class="share" data-share data-title="Should I Use Outbound Link (Open Link In New Tab) In My Post?" data-url="https://woldezzy.xyz/journal/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/">
+      <div class="share" data-share data-title="Should Links Open in a New Tab? UX, Accessibility and SEO in 2026" data-url="https://woldezzy.xyz/journal/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/">
         <p class="eyebrow">Share</p>
         <ul class="share__list">
           <li><button type="button" class="share__btn" data-share-native hidden>Share…</button></li>
           <li><a class="share__btn" data-share-network="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fshould-i-use-outbound-link-open-link-in-new-tab-in-my-post%2F" rel="noopener" target="_blank">LinkedIn</a></li>
-          <li><a class="share__btn" data-share-network="x" href="https://x.com/intent/post?text=Should%20I%20Use%20Outbound%20Link%20(Open%20Link%20In%20New%20Tab)%20In%20My%20Post%3F&url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fshould-i-use-outbound-link-open-link-in-new-tab-in-my-post%2F&via=woldezzy" rel="noopener" target="_blank">X</a></li>
-          <li><a class="share__btn" data-share-network="whatsapp" href="https://wa.me/?text=Should%20I%20Use%20Outbound%20Link%20(Open%20Link%20In%20New%20Tab)%20In%20My%20Post%3F%20https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fshould-i-use-outbound-link-open-link-in-new-tab-in-my-post%2F" rel="noopener" target="_blank">WhatsApp</a></li>
-          <li><a class="share__btn" data-share-network="email" href="mailto:?subject=Should%20I%20Use%20Outbound%20Link%20(Open%20Link%20In%20New%20Tab)%20In%20My%20Post%3F&body=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fshould-i-use-outbound-link-open-link-in-new-tab-in-my-post%2F">Email</a></li>
+          <li><a class="share__btn" data-share-network="x" href="https://x.com/intent/post?text=Should%20Links%20Open%20in%20a%20New%20Tab%3F%20UX%2C%20Accessibility%20and%20SEO%20in%202026&url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fshould-i-use-outbound-link-open-link-in-new-tab-in-my-post%2F&via=woldezzy" rel="noopener" target="_blank">X</a></li>
+          <li><a class="share__btn" data-share-network="whatsapp" href="https://wa.me/?text=Should%20Links%20Open%20in%20a%20New%20Tab%3F%20UX%2C%20Accessibility%20and%20SEO%20in%202026%20https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fshould-i-use-outbound-link-open-link-in-new-tab-in-my-post%2F" rel="noopener" target="_blank">WhatsApp</a></li>
+          <li><a class="share__btn" data-share-network="email" href="mailto:?subject=Should%20Links%20Open%20in%20a%20New%20Tab%3F%20UX%2C%20Accessibility%20and%20SEO%20in%202026&body=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fshould-i-use-outbound-link-open-link-in-new-tab-in-my-post%2F">Email</a></li>
           <li><button type="button" class="share__btn" data-share-copy>Copy link</button></li>
         </ul>
         <p class="share__status" role="status" aria-live="polite"></p>
@@ -169,6 +239,15 @@ Have it mind that not all pages on your website are important, so they might lea
       </div>
       <h2 class="statement" id="related-title" style="font-size: var(--t-2xl)">Related <em>essays</em>.</h2>
       <div class="journal-grid">
+        <a href="/journal/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content/" class="post-card">
+          <span class="post-card__date"><time datetime="2018-06-16">16 Jun 2018</time> · SEO</span>
+          <div class="post-card__thumb"><picture>
+            <source type="image/avif" srcset="/public/images/covers/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content-960.avif">
+            <source type="image/webp" srcset="/public/images/covers/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content-960.webp">
+            <img src="/public/images/covers/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+          </picture></div>
+          <h3 class="post-card__title">How Video Shows Up in Google Search Now: Key Moments, Video Mode, Shorts and VideoObject</h3>
+        </a>
         <a href="/journal/how-to-reduce-bounce-rate-on-your-website/" class="post-card">
           <span class="post-card__date"><time datetime="2019-08-20">20 Aug 2019</time> · SEO</span>
           <div class="post-card__thumb"><picture>
@@ -176,25 +255,16 @@ Have it mind that not all pages on your website are important, so they might lea
             <source type="image/webp" srcset="/public/images/covers/how-to-reduce-bounce-rate-on-your-website-960.webp">
             <img src="/public/images/covers/how-to-reduce-bounce-rate-on-your-website.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
           </picture></div>
-          <h3 class="post-card__title">How To Reduce Bounce Rate On Your Website</h3>
+          <h3 class="post-card__title">How to Reduce Bounce Rate in GA4: What the Metric Means Now and How to Improve It</h3>
         </a>
-        <a href="/journal/is-google-going-too-far-with-serp-features-and-stealing-clicks/" class="post-card">
-          <span class="post-card__date"><time datetime="2022-06-02">2 Jun 2022</time> · SEO</span>
+        <a href="/journal/why-you-should-move-to-https-today/" class="post-card">
+          <span class="post-card__date"><time datetime="2017-01-17">17 Jan 2017</time> · SEO</span>
           <div class="post-card__thumb"><picture>
-            <source type="image/avif" srcset="/public/images/covers/is-google-going-too-far-with-serp-features-and-stealing-clicks-960.avif">
-            <source type="image/webp" srcset="/public/images/covers/is-google-going-too-far-with-serp-features-and-stealing-clicks-960.webp">
-            <img src="/public/images/covers/is-google-going-too-far-with-serp-features-and-stealing-clicks.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+            <source type="image/avif" srcset="/public/images/covers/why-you-should-move-to-https-today-960.avif">
+            <source type="image/webp" srcset="/public/images/covers/why-you-should-move-to-https-today-960.webp">
+            <img src="/public/images/covers/why-you-should-move-to-https-today.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
           </picture></div>
-          <h3 class="post-card__title">"Is Google going too far with SERP features and stealing clicks?"</h3>
-        </a>
-        <a href="/journal/how-to-build-organic-presence-for-free-a-comprehensive-guide/" class="post-card">
-          <span class="post-card__date"><time datetime="2023-02-21">21 Feb 2023</time> · SEO</span>
-          <div class="post-card__thumb"><picture>
-            <source type="image/avif" srcset="/public/images/covers/how-to-build-organic-presence-for-free-a-comprehensive-guide-960.avif">
-            <source type="image/webp" srcset="/public/images/covers/how-to-build-organic-presence-for-free-a-comprehensive-guide-960.webp">
-            <img src="/public/images/covers/how-to-build-organic-presence-for-free-a-comprehensive-guide.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
-          </picture></div>
-          <h3 class="post-card__title">How to Build Organic Presence for Free: A Comprehensive Guide</h3>
+          <h3 class="post-card__title">HTTPS in 2026: What Still Matters Now That Every Site Should Already Be Secure</h3>
         </a>
       </div>
     </div>

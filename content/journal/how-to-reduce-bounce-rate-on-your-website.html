@@ -1,0 +1,124 @@
+<!--meta
+{
+  "title": "How to Reduce Bounce Rate in GA4: What the Metric Means Now and How to Improve It",
+  "seoTitle": "How to reduce bounce rate in GA4 (and what it means now)",
+  "date": "2019-08-20",
+  "modified": "2026-11-08",
+  "categories": ["SEO"],
+  "tags": ["bounce rate", "GA4", "engagement rate", "Google Analytics", "user experience", "content"],
+  "metaDesc": "How to reduce bounce rate in GA4: what the metric measures now, why it is the inverse of engagement rate, and practical ways to keep visitors engaged in 2026."
+}
+-->
+<p>To reduce bounce rate in 2026, you have to make more sessions count as engaged in GA4. That means visitors stay longer than 10 seconds, view a second page, or complete an action you care about. In practice: match the page to the promise that brought them, make it load fast, put the answer near the top, and give them a clear next step. The rest of this post explains what bounce rate measures now and how to move it.</p>
+
+<p>I first wrote this in 2019, when bounce rate in Universal Analytics was the number every site owner watched. Most of it was about a metric that no longer exists. Universal Analytics is gone, and the bounce rate in GA4 is calculated in a completely different way. The behavioural advice from the original post mostly holds up. The reasoning around it needed rewriting.</p>
+
+<h2>What is bounce rate in GA4?</h2>
+
+<p>In GA4, bounce rate is the percentage of sessions that were not engaged. It is the exact inverse of engagement rate. If your engagement rate is 62 percent, your bounce rate is 38 percent. They always add up to 100.</p>
+
+<p>Google defines an <a href="https://support.google.com/analytics/answer/12798876">engaged session</a> as one that meets at least one of these conditions:</p>
+
+<ul>
+<li>lasts longer than 10 seconds,</li>
+<li>includes a key event (what GA4 used to call a conversion), or</li>
+<li>has at least two page views or screen views.</li>
+</ul>
+
+<p>So a bounce in GA4 is a visit that lasted under 10 seconds, viewed one page, and did nothing you marked as important. That is a much stricter, and more useful, definition than the old one.</p>
+
+<h2>How is GA4 bounce rate different from Universal Analytics?</h2>
+
+<p>In Universal Analytics, a bounce was any single-page session with no interaction event. Time did not matter. Someone who landed on your article, read every word for six minutes, found what they needed and closed the tab was a bounce. That is why blogs and recipe sites always had bounce rates in the 70s and 80s, and why the number told you so little. A high bounce rate on a page that answered the question perfectly looked the same as a high bounce rate on a page that put people off in two seconds.</p>
+
+<p>GA4 fixed that. The six-minute reader is now an engaged session. Only the quick exits count as bounces. That makes the metric worth watching again, but it also means you cannot compare your old UA bounce rate with your GA4 one. They measure different things.</p>
+
+<p>The timeline, for anyone still trying to find their old reports: standard Universal Analytics properties stopped processing data on 1 July 2023. Paying Analytics 360 customers had an extension to 1 July 2024, and Google then <a href="https://support.google.com/analytics/answer/11583528">shut off access and deleted UA data</a> from that week. If you did not export your historical data before then, it is gone.</p>
+
+<h2>What is a good bounce rate in GA4?</h2>
+
+<p>There is no single good number, and I would be suspicious of anyone who gives you one. It depends on the type of page, the traffic source and your engagement settings. A few patterns I see across client sites:</p>
+
+<ul>
+<li>Pages that answer a quick factual question (opening hours, a definition, a phone number) bounce more, and that is fine. The visitor got what they came for.</li>
+<li>Paid social and display traffic bounces more than organic search or email, because the intent is weaker.</li>
+<li>Mobile usually bounces more than desktop.</li>
+<li>Very low bounce rates, under 10 percent, are often a tracking fault. A duplicated tag or an event firing on page load will make every session look engaged.</li>
+</ul>
+
+<p>Compare a page with itself over time, and with pages of the same type on your own site. That tells you far more than any industry average.</p>
+
+<h3>Should I change the 10-second timer?</h3>
+
+<p>You can. In GA4 go to Admin, Data streams, choose your web stream, then Configure tag settings, Show more, Adjust session timeout. The "Adjust timer for engaged sessions" setting goes from the default 10 seconds up to 60. For long-form content, a 30-second threshold is a more honest test of whether someone actually read anything. Just remember that it changes the numbers from that day forward, so note the date and do not compare across it.</p>
+
+<h2>Does bounce rate affect SEO?</h2>
+
+<p>Not directly. Google has said repeatedly that it does not use Google Analytics data in ranking, and most sites do not even run GA. Your bounce rate is not a ranking factor.</p>
+
+<p>What bounce rate does is point at problems that also hurt search. A page that people leave in five seconds is probably not satisfying the query. Google's systems try to reward content that helps people, and they have their own ways of judging that. So treat a high bounce rate as a symptom, not the disease. Fix the page for the reader and the search side tends to follow.</p>
+
+<h2>How to reduce bounce rate: what works in 2026</h2>
+
+<p>Here is how I approach it, roughly in the order I would check things. Some of these are from the 2019 post and are still true. Others are new.</p>
+
+<h3>1. Give people what the title promised</h3>
+
+<p>This was the first point in the original post and it is still the biggest cause I find. If the title and meta description promise one thing and the page delivers another, people leave fast. In 2019 that usually meant keyword-stuffed titles. In 2026 it is more often a page targeting a query whose intent has shifted, or a title rewritten for clicks. Search the query yourself and look at what ranks. If the top results are all how-to guides and yours is a sales page, you have an intent problem, not a content problem.</p>
+
+<h3>2. Put the answer at the top</h3>
+
+<p>People decide in seconds whether a page is going to help. Long introductions, story-led openings and "before we start" sections lose them. Answer the main question in the first paragraph, then go deeper. This is also what gets a page quoted in AI Overviews and other AI answers, so the habit pays twice.</p>
+
+<h3>3. Make the page fast, especially on mobile</h3>
+
+<p>The 2019 list said use a good host, keep plugins to a minimum and use caching. All still true. The measure has moved on. Google's Core Web Vitals now use Interaction to Next Paint (INP), which replaced First Input Delay in March 2024, alongside Largest Contentful Paint and Cumulative Layout Shift. A page that renders the heading but takes three seconds to respond to a tap feels broken, and people leave. Check the Core Web Vitals report in Search Console for your real-user data as well as a lab test.</p>
+
+<h3>4. Cut what gets in the way</h3>
+
+<p>I said in 2019 to reduce display ads within posts. Now I would widen that to everything that sits between the visitor and the content: cookie banners that fill the screen, newsletter pop-ups that fire on arrival, chat widgets, autoplay video, sticky ads that cover a third of a phone screen. Each one may be justified alone. Together they make people leave. Google also treats intrusive interstitials on mobile as a poor page experience. Ask whether each one earns its place.</p>
+
+<h3>5. Avoid thin pages, but do not pad</h3>
+
+<p>Thin content still bounces. A page that can be read in 20 seconds and offers nothing beyond what the search result already showed will not hold anyone. The 2026 fix is not word count, though. Padding a page to 2,000 words with filler raises bounce rate, because people cannot find the part they need. Write as much as the topic needs, structure it with clear headings, and cut the rest.</p>
+
+<h3>6. Link to the next useful page</h3>
+
+<p>Inline links to related content were in the original post and they still work, because a second page view makes the session engaged. Place links where a reader would naturally have a follow-up question, not in a block at the bottom. Related posts modules help on blogs, as I said in 2019, but only if the suggestions are actually related. Many themes still pick by date or by tag, and the results are poor. Curate them for your top pages.</p>
+
+<p>Let those links open in the same tab. Forcing new tabs does not help your engagement figures and annoys readers. I explain why in <a href="/journal/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/">the post on new tabs</a>.</p>
+
+<h3>7. Use media where it adds something</h3>
+
+<p>In 2019 I wrote about embedding YouTube, Instagram and X posts to keep people on the page. Used well, that still works. A short video that shows the thing you are describing, a chart, a worked example. Used badly, it adds weight and slows the page. Embed only where it explains something the text cannot, and use lazy loading so embeds below the fold do not hold up the first view.</p>
+
+<h3>8. Track the actions that matter</h3>
+
+<p>If people are doing something valuable on a single page (clicking to call, downloading a file, starting a form), mark it as a key event. Those sessions then count as engaged, and your bounce rate reflects reality. I go through setting these up in <a href="/journal/5-ways-you-can-use-google-analytics-for-conversion/">how to use Google Analytics for conversion</a>.</p>
+
+<h2>How to find the pages to fix first</h2>
+
+<ol>
+<li>In GA4, open Reports, Engagement, Landing page. Bounce rate is not shown by default, so click the pencil icon to customise the report and add it as a metric.</li>
+<li>Add a filter or comparison for Session default channel group so you can look at organic search on its own.</li>
+<li>Sort by sessions, not bounce rate. A page with 40 sessions and a 90 percent bounce rate matters less than one with 4,000 sessions and 60 percent.</li>
+<li>For the top 10 pages by traffic, compare bounce rate on mobile and desktop. A big gap usually means a mobile layout or speed problem.</li>
+<li>Open each problem page on a phone, on mobile data, as a first-time visitor. Most of the causes above are obvious within ten seconds of doing that.</li>
+<li>Fix one thing per page and give it a few weeks before you judge the result.</li>
+</ol>
+
+<h2>Quick answers</h2>
+
+<p><strong>Where is bounce rate in GA4?</strong><br>
+It is available but not shown in the standard reports by default. Add it by customising a report such as Landing page, or use it in an exploration.</p>
+
+<p><strong>Is a high bounce rate always bad?</strong><br>
+No. For pages that answer a quick question, a high bounce rate can mean the page did its job. Look at the intent of the page before deciding.</p>
+
+<p><strong>Why did my bounce rate drop when we moved to GA4?</strong><br>
+Because the definition changed. GA4 counts any session over 10 seconds as engaged, so long reads on a single page are no longer bounces. Nothing about your site necessarily improved.</p>
+
+<p><strong>Can I still see my old Universal Analytics bounce rate?</strong><br>
+Only if you exported it before July 2024. Google deleted UA data after that.</p>
+
+<p>Bounce rate used to be a vanity number that made content sites feel bad. In GA4 it is a fair test: did this visit last more than a few seconds, go anywhere or do anything? Pick your ten busiest landing pages, open them on your phone, and fix whatever makes you want to leave.</p>

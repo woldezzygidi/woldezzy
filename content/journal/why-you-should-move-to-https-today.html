@@ -1,0 +1,124 @@
+<!--meta
+{
+  "title": "HTTPS in 2026: What Still Matters Now That Every Site Should Already Be Secure",
+  "seoTitle": "HTTPS in 2026: Chrome warnings, HSTS and certificates",
+  "date": "2017-01-17",
+  "modified": "2026-11-08",
+  "categories": ["SEO"],
+  "tags": ["HTTPS", "Chrome", "HSTS", "SSL certificates", "technical SEO", "site migration"],
+  "metaDesc": "HTTPS in 2026 is the baseline. What still matters: Chrome's secure connections default, mixed content, HSTS, shorter certificates and migration mistakes."
+}
+-->
+<p>If your site still loads over plain HTTP in 2026, move it to HTTPS this week. Chrome now asks people for permission before it opens an HTTP page, certificates are free, and there is no serious argument left on the other side. For everyone else, the question has changed. It is no longer "should I move?" but "is my HTTPS set up properly, and will it keep working as certificates get shorter?"</p>
+
+<p>I first wrote this post in January 2017, when HTTPS was still a choice and most small business sites I saw did not have it. It opened with a story about a client whose site "stopped working" for people. I checked it, it loaded fine. The manager checked it, fine. Days later he sent me a screenshot and I found the problem. He had typed the bare domain into a WhatsApp message. WhatsApp turned it into an https:// link, and the site had no certificate. Everyone who tapped the link hit an error page. The site was fine. The protocol was the problem.</p>
+
+<p>That story is more relevant now than it was then, because the browser has started doing what WhatsApp did. Here is the current picture and what I still check on every site.</p>
+
+<h2>What changed in Chrome in 2026?</h2>
+
+<p>Chrome launched a setting called "Always use secure connections" as an opt-in in 2022. With it on, Chrome tries HTTPS first for every address and, if HTTPS is not available, shows a full-page warning before loading the HTTP version. The user can click through, but they have to make a choice.</p>
+
+<p>In October 2025 the Chrome security team <a href="https://security.googleblog.com/2025/10/https-by-default.html">announced the plan to make this the default</a>:</p>
+
+<ul>
+<li><strong>Chrome 147 (April 2026):</strong> switched on for public sites for users with Enhanced Safe Browsing, which Google put at over a billion people.</li>
+<li><strong>Chrome 154 (October 2026):</strong> switched on for all users.</li>
+</ul>
+
+<p>Chrome does not warn on every visit. It warns on sites the person has not visited recently, so a regular visitor to an HTTP site sees the prompt once and then rarely again. In Google's own test, the median user saw fewer than one warning a week. That sounds mild until you think about who sees it: new visitors. The people arriving from search, from an ad, from a link in a message. Exactly the people you are paying, in money or effort, to reach.</p>
+
+<p>Google's announcement also explains why it took this step. HTTPS page loads in Chrome went from roughly 30 to 45 percent in 2015 to 95 to 99 percent around 2020, and then flattened. The remaining HTTP traffic is a long tail of sites nobody got round to fixing. The warning is aimed at that tail.</p>
+
+<h2>Is HTTPS still a Google ranking factor?</h2>
+
+<p>Yes, but a small one, and it always was. Google announced HTTPS as a lightweight ranking signal in August 2014. Today its <a href="https://developers.google.com/search/docs/appearance/page-experience">page experience documentation</a> asks "Are your pages served in a secure fashion?" as one of the self-assessment questions, and says Google's core ranking systems "look to reward content that provides a good page experience". Google has also been clear that there is no single page experience signal and that relevance and helpfulness come first.</p>
+
+<p>So I do not sell HTTPS to clients as an SEO win. Moving a site to HTTPS will not lift you past a competitor with better content. The ranking argument was always the weakest of the reasons to do it. The real costs of staying on HTTP are elsewhere:</p>
+
+<ul>
+<li><strong>Interstitial warnings</strong> on first visits from search, as above.</li>
+<li><strong>"Not secure" in the address bar</strong>, which Chrome has shown on every HTTP page since 2018.</li>
+<li><strong>Lost features.</strong> Most modern browser APIs (geolocation, service workers, HTTP/2 and HTTP/3 in practice, payment and credential APIs) only work on secure origins.</li>
+<li><strong>Lost referral data.</strong> Browsers strip the referrer when a visitor moves from an HTTPS page to an HTTP one. If other sites link to you and you are on HTTP, those visits often land in your analytics as direct traffic. That is one of the quieter causes of the attribution problems I covered in <a href="/journal/the-dark-funnel-why-your-traffic-charts-started-lying-to-you/">the dark funnel</a>.</li>
+</ul>
+
+<h2>Why does my HTTPS site still show "Not secure"?</h2>
+
+<p>Usually mixed content. The page loads over HTTPS but pulls in something over HTTP: an image hard-coded with an http:// URL in an old post, a script from a third party, a font, an iframe. Modern Chrome blocks insecure scripts and iframes on HTTPS pages outright and tries to upgrade images, audio and video to HTTPS automatically. If the file is not available over HTTPS, it simply fails to load. The result is a broken page that looks fine to the owner, whose browser cached the asset years ago.</p>
+
+<p>On older WordPress sites I still find this in three places: absolute http:// URLs in the post content stored in the database, theme settings (logos, background images), and embed codes pasted in years ago. A database search and replace from http://yourdomain to https://yourdomain fixes most of it. Open the browser console on your key templates afterwards and check for mixed content messages.</p>
+
+<p>The other cause is an expired or misissued certificate, which brings us to the bigger change.</p>
+
+<h2>Certificate lifetimes are shrinking: what you need to do</h2>
+
+<p>In 2025 the CA/Browser Forum, the body of browser makers and certificate authorities that sets the rules for public certificates, passed ballot SC-081. It cuts the maximum lifetime of a public TLS certificate in stages:</p>
+
+<ul>
+<li>Before 15 March 2026: 398 days.</li>
+<li>From 15 March 2026: 200 days.</li>
+<li>From 15 March 2027: 100 days.</li>
+<li>From 15 March 2029: 47 days.</li>
+</ul>
+
+<p>The period a certificate authority can reuse a previous domain validation shrinks on the same schedule, down to 10 days from 2029. <a href="https://knowledge.digicert.com/alerts/domain-validation-reuse-changes-in-2026">DigiCert's summary</a> sets out both timelines. Let's Encrypt, which issues 90-day certificates already, has <a href="https://support.dnsimple.com/articles/announcement-ssl-certificate-validity-changes/">announced its own reductions</a>, to 64 days in February 2027 and 45 days in February 2028.</p>
+
+<p>We are already in the 200-day phase. If someone in your business renews a certificate by hand once a year from a calendar reminder, that process has already broken or is about to. By 2029 manual renewal is not realistic at all.</p>
+
+<p>What to do:</p>
+
+<ol>
+<li><strong>Find out who issues your certificate.</strong> Your host, your CDN (Cloudflare and similar issue their own at the edge), or a certificate you bought and installed yourself.</li>
+<li><strong>If your host or CDN handles it automatically, confirm that it does.</strong> Check the expiry date in the browser's certificate viewer and see if it matches a short automated cycle.</li>
+<li><strong>If you install certificates manually, move to automation.</strong> That usually means ACME, the protocol Let's Encrypt uses, which most paid certificate authorities now support too.</li>
+<li><strong>Set up expiry monitoring</strong> that alerts someone other than the person who set it up. Uptime tools and Search Console will both tell you eventually. You want to know before visitors do.</li>
+<li><strong>List every hostname.</strong> The main site is rarely the one that expires. It is the forgotten subdomain: the shop, the booking system, the old campaign microsite.</li>
+</ol>
+
+<h2>Should I use HSTS and the preload list?</h2>
+
+<p>HSTS (HTTP Strict Transport Security) is a response header that tells the browser "only ever contact this domain over HTTPS". After the first visit, the browser will not even try HTTP. That closes the gap where someone types your bare domain and the first request goes out unencrypted.</p>
+
+<p>The preload list goes further. It is a list built into Chrome, Firefox, Safari and Edge, so the browser knows to use HTTPS for your domain before the first visit. To get on it through <a href="https://hstspreload.org/">hstspreload.org</a> you need to redirect HTTP to HTTPS, serve a valid certificate, and send an HSTS header with a max-age of at least one year, includeSubDomains and the preload directive.</p>
+
+<p>My advice is to use HSTS on every site, and to preload only when you are sure. The includeSubDomains part is the trap. If any subdomain anywhere in your organisation still needs HTTP (an old intranet tool, a printer admin page, a supplier's white-label portal on your domain), preloading breaks it. Removal from the list is possible but takes months to reach users' browsers. Start with a short max-age, raise it once nothing breaks, and preload last.</p>
+
+<h2>HTTPS migration mistakes that still cost traffic</h2>
+
+<p>Most sites made the move years ago. I still see the leftovers in audits, and some of them are quietly costing traffic. If you migrated in a hurry, check these:</p>
+
+<ol>
+<li><strong>Temporary redirects.</strong> HTTP to HTTPS should be a permanent 301 or 308, not a 302.</li>
+<li><strong>Redirect chains.</strong> http://domain to https://domain to https://www.domain to the final URL with a trailing slash. Each hop slows the page and wastes crawling. One hop from any variant to the final URL.</li>
+<li><strong>Canonical tags still pointing at HTTP.</strong> Google then gets two conflicting instructions: the redirect says one thing, the canonical says another.</li>
+<li><strong>XML sitemaps listing HTTP URLs.</strong> Common when the sitemap is generated by a plugin with a hard-coded base URL.</li>
+<li><strong>Internal links to HTTP.</strong> They work through the redirect, but every one is a wasted hop and a mixed signal.</li>
+<li><strong>Hreflang and structured data with HTTP URLs.</strong> Easy to miss because nothing visibly breaks.</li>
+<li><strong>Search Console set up only for the old property.</strong> A domain property covers HTTP, HTTPS and all subdomains together. If you are still looking at a URL-prefix property for http://, you are looking at an empty report.</li>
+<li><strong>Analytics and ad platforms with the old URL.</strong> Referral exclusions, goals or key events based on full URLs, Google Ads final URLs.</li>
+</ol>
+
+<p>None of these will sink a site alone. Together, on a site with a few thousand pages, they add up. They are the kind of thing I include in <a href="/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/">the basic technical checks</a> because they are cheap to fix and often missed.</p>
+
+<h2>The original argument still stands</h2>
+
+<p>In 2017 I wrote that HTTP sends everything in plain text, readable by anyone sitting between the browser and the server, and that HTTPS encrypts it. That was the real reason to move then and it is the real reason now. Public Wi-Fi, compromised routers and injected ads on mobile networks were not theoretical. Neither is trust. People look for the signs that a site is safe before they type in an email address or card number, and the browser now tells them loudly when it is not.</p>
+
+<p>What has changed is who bears the cost of getting it wrong. In 2017 a missing certificate was an inconvenience. In 2026 it is an interstitial warning on your first impression, and an expired certificate is a full-page error for every visitor until someone notices.</p>
+
+<h2>Quick answers</h2>
+
+<p><strong>Do I need to pay for an SSL certificate?</strong><br>
+For most sites, no. Free certificates from Let's Encrypt or your host give the same encryption as paid ones. Paid certificates make sense when you need specific support, warranties or organisation validation for procurement reasons.</p>
+
+<p><strong>Will moving to HTTPS drop my rankings?</strong><br>
+A clean migration with one-hop permanent redirects, updated canonicals and an updated sitemap usually settles within a few weeks. Drops that last are almost always caused by the mistakes listed above.</p>
+
+<p><strong>Does Chrome block HTTP sites now?</strong><br>
+No. It warns before loading public HTTP sites the user has not visited recently, and the user can continue. Private addresses such as local network devices are treated differently.</p>
+
+<p><strong>How often will I need to renew certificates?</strong><br>
+Under the current schedule, every 200 days at most, falling to 100 days in March 2027 and 47 days in March 2029. In practice that means automated renewal.</p>
+
+<p>If you only do one thing after reading this, open your site in a private window, type the bare domain without https://, and watch what happens. Then do the same for every subdomain you own. That is the 2026 version of the WhatsApp test, and it takes five minutes.</p>

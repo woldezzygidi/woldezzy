@@ -1,7 +1,7 @@
 <!--meta
 {
-  "title": "Why You Should Move To HTTPS Today! · 'Wole Oduwole",
-  "desc": "I created a website for a company and the manager contacted me some weeks after saying people are having difficulties in accessing the site. Quickly, i ran…",
+  "title": "HTTPS in 2026: Chrome warnings, HSTS and certificates",
+  "desc": "HTTPS in 2026 is the baseline. What still matters: Chrome's secure connections default, mixed content, HSTS, shorter certificates and migration mistakes.",
   "path": "/journal/why-you-should-move-to-https-today/",
   "ogType": "article",
   "ogImage": "https://woldezzy.xyz/public/images/covers/why-you-should-move-to-https-today.jpg",
@@ -13,10 +13,10 @@
       {
         "@type": "BlogPosting",
         "@id": "https://woldezzy.xyz/journal/why-you-should-move-to-https-today/#article",
-        "headline": "Why You Should Move To HTTPS Today!",
-        "description": "I created a website for a company and the manager contacted me some weeks after saying people are having difficulties in accessing the site. Quickly, i ran…",
+        "headline": "HTTPS in 2026: What Still Matters Now That Every Site Should Already Be Secure",
+        "description": "HTTPS in 2026 is the baseline. What still matters: Chrome's secure connections default, mixed content, HSTS, shorter certificates and migration mistakes.",
         "datePublished": "2017-01-17",
-        "dateModified": "2017-01-17",
+        "dateModified": "2026-11-08",
         "author": {
           "@type": "Person",
           "@id": "https://woldezzy.xyz/#person",
@@ -37,9 +37,9 @@
         "image": "https://woldezzy.xyz/public/images/covers/why-you-should-move-to-https-today.jpg",
         "url": "https://woldezzy.xyz/journal/why-you-should-move-to-https-today/",
         "mainEntityOfPage": "https://woldezzy.xyz/journal/why-you-should-move-to-https-today/",
-        "articleSection": "Analytics",
-        "keywords": "how to enable https for website, https for website, https for wordpress, https redirect, wordpress enable ssl",
-        "wordCount": 318,
+        "articleSection": "SEO",
+        "keywords": "HTTPS, Chrome, HSTS, SSL certificates, technical SEO, site migration",
+        "wordCount": 1972,
         "inLanguage": "en-GB",
         "isPartOf": {
           "@id": "https://woldezzy.xyz/journal/#blog"
@@ -63,7 +63,7 @@
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Why You Should Move To HTTPS Today!",
+            "name": "HTTPS in 2026: What Still Matters Now That Every Site Should Already Be Secure",
             "item": "https://woldezzy.xyz/journal/why-you-should-move-to-https-today/"
           }
         ]
@@ -79,11 +79,11 @@
         <ol class="crumbs">
           <li><a href="/">Home</a></li>
           <li><a href="/journal/">Journal</a></li>
-          <li><span aria-current="page" class="crumbs__current">Why You Should Move To HTTPS Today!</span></li>
+          <li><span aria-current="page" class="crumbs__current">HTTPS in 2026: What Still Matters Now That Every Site Should Already Be Secure</span></li>
         </ol>
       </nav>
-      <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">Analytics</span> <time datetime="2017-01-17">17 Jan 2017</time> · 1 min read</p>
-      <h1 class="page-hero__title post__title" itemprop="headline">Why You Should Move To HTTPS Today!</h1>
+      <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">SEO</span> <time datetime="2017-01-17">17 Jan 2017</time> · Updated <time datetime="2026-11-08">8 Nov 2026</time> · 9 min read</p>
+      <h1 class="page-hero__title post__title" itemprop="headline">HTTPS in 2026: What Still Matters Now That Every Site Should Already Be Secure</h1>
       <p class="post__byline-top">By <a href="/about/" rel="author" itemprop="author">'Wole Oduwole</a></p>
     </div>
   </header>
@@ -100,22 +100,119 @@
 
   <div class="container container--narrow">
     <div class="prose post__body" itemprop="articleBody">
-<aside class="note" role="note"><p><strong>Editor’s note, 2026.</strong> Written in 2017, when HTTPS was still a choice. It is now a baseline. The reasoning is kept for the record.</p></aside>
-<a href="/wp-content/uploads/2017/01/https-for-website.jpg"><img src="/public/images/posts/why-you-should-move-to-https-today/https-for-website.jpg" width="300" height="242" alt="" loading="lazy" decoding="async"></a>
+<p>If your site still loads over plain HTTP in 2026, move it to HTTPS this week. Chrome now asks people for permission before it opens an HTTP page, certificates are free, and there is no serious argument left on the other side. For everyone else, the question has changed. It is no longer "should I move?" but "is my HTTPS set up properly, and will it keep working as certificates get shorter?"</p>
 
-I created a website for a company and the manager contacted me some weeks after saying people are having difficulties in accessing the site.
+<p>I first wrote this post in January 2017, when HTTPS was still a choice and most small business sites I saw did not have it. It opened with a story about a client whose site "stopped working" for people. I checked it, it loaded fine. The manager checked it, fine. Days later he sent me a screenshot and I found the problem. He had typed the bare domain into a WhatsApp message. WhatsApp turned it into an https:// link, and the site had no certificate. Everyone who tapped the link hit an error page. The site was fine. The protocol was the problem.</p>
 
-Quickly, i ran a check on the website and to my dismay, it was all up and working fine. I requested he check it from his end. He also confirmed nothing was wrong. Couple of days later, he contacted me for the issue, and i asked him to send me a screenshot.
+<p>That story is more relevant now than it was then, because the browser has started doing what WhatsApp did. Here is the current picture and what I still check on every site.</p>
 
-I nearly broke a sweat until i found it;s just a mere protocol issue. He sent his website link typed to someone on Whatsapp messenger. Unknown the him, Whatsapp and many other messengers automatically use the https protocol which you don't specify. So he typed the site as e.g mysite.com and while the reciepient clicks, it takes them to https://mysite.com which a secure protocol which wasn't enable on the site. 
+<h2>What changed in Chrome in 2026?</h2>
 
-Now, this is the jerk. Google itself is taking secure connections serious and we know sooner or later it will start to influence SEO greatly as it's already doing so gradually.
+<p>Chrome launched a setting called "Always use secure connections" as an opt-in in 2022. With it on, Chrome tries HTTPS first for every address and, if HTTPS is not available, shows a full-page warning before loading the HTTP version. The user can click through, but they have to make a choice.</p>
 
-All communications sent over regular HTTP connections are in 'plain text' and can be read by any hacker that manages to break into the connection between your browser and the website. This presents a clear danger if the 'communication' is on an order form and includes your credit card details or social security number. With a HTTPS connection, all communications are securely encrypted. This means that even if somebody managed to break into the connection, they would not be able decrypt any of the data which passes between you and the website.
+<p>In October 2025 the Chrome security team <a href="https://security.googleblog.com/2025/10/https-by-default.html" rel="noopener" target="_blank">announced the plan to make this the default</a>:</p>
 
-The major benefits of a HTTPS certificate are:
+<ul>
+<li><strong>Chrome 147 (April 2026):</strong> switched on for public sites for users with Enhanced Safe Browsing, which Google put at over a billion people.</li>
+<li><strong>Chrome 154 (October 2026):</strong> switched on for all users.</li>
+</ul>
 
-- Customer information, like credit card numbers, is encrypted and cannot be intercepted. Visitors can verify you are a registered business and that you own the domain. Customers are more likely to trust and complete purchases from sites that use HTTPS
+<p>Chrome does not warn on every visit. It warns on sites the person has not visited recently, so a regular visitor to an HTTP site sees the prompt once and then rarely again. In Google's own test, the median user saw fewer than one warning a week. That sounds mild until you think about who sees it: new visitors. The people arriving from search, from an ad, from a link in a message. Exactly the people you are paying, in money or effort, to reach.</p>
+
+<p>Google's announcement also explains why it took this step. HTTPS page loads in Chrome went from roughly 30 to 45 percent in 2015 to 95 to 99 percent around 2020, and then flattened. The remaining HTTP traffic is a long tail of sites nobody got round to fixing. The warning is aimed at that tail.</p>
+
+<h2>Is HTTPS still a Google ranking factor?</h2>
+
+<p>Yes, but a small one, and it always was. Google announced HTTPS as a lightweight ranking signal in August 2014. Today its <a href="https://developers.google.com/search/docs/appearance/page-experience" rel="noopener" target="_blank">page experience documentation</a> asks "Are your pages served in a secure fashion?" as one of the self-assessment questions, and says Google's core ranking systems "look to reward content that provides a good page experience". Google has also been clear that there is no single page experience signal and that relevance and helpfulness come first.</p>
+
+<p>So I do not sell HTTPS to clients as an SEO win. Moving a site to HTTPS will not lift you past a competitor with better content. The ranking argument was always the weakest of the reasons to do it. The real costs of staying on HTTP are elsewhere:</p>
+
+<ul>
+<li><strong>Interstitial warnings</strong> on first visits from search, as above.</li>
+<li><strong>"Not secure" in the address bar</strong>, which Chrome has shown on every HTTP page since 2018.</li>
+<li><strong>Lost features.</strong> Most modern browser APIs (geolocation, service workers, HTTP/2 and HTTP/3 in practice, payment and credential APIs) only work on secure origins.</li>
+<li><strong>Lost referral data.</strong> Browsers strip the referrer when a visitor moves from an HTTPS page to an HTTP one. If other sites link to you and you are on HTTP, those visits often land in your analytics as direct traffic. That is one of the quieter causes of the attribution problems I covered in <a href="/journal/the-dark-funnel-why-your-traffic-charts-started-lying-to-you/">the dark funnel</a>.</li>
+</ul>
+
+<h2>Why does my HTTPS site still show "Not secure"?</h2>
+
+<p>Usually mixed content. The page loads over HTTPS but pulls in something over HTTP: an image hard-coded with an http:// URL in an old post, a script from a third party, a font, an iframe. Modern Chrome blocks insecure scripts and iframes on HTTPS pages outright and tries to upgrade images, audio and video to HTTPS automatically. If the file is not available over HTTPS, it simply fails to load. The result is a broken page that looks fine to the owner, whose browser cached the asset years ago.</p>
+
+<p>On older WordPress sites I still find this in three places: absolute http:// URLs in the post content stored in the database, theme settings (logos, background images), and embed codes pasted in years ago. A database search and replace from <a href="http://yourdomain" rel="noopener" target="_blank">http://yourdomain</a> to <a href="https://yourdomain" rel="noopener" target="_blank">https://yourdomain</a> fixes most of it. Open the browser console on your key templates afterwards and check for mixed content messages.</p>
+
+<p>The other cause is an expired or misissued certificate, which brings us to the bigger change.</p>
+
+<h2>Certificate lifetimes are shrinking: what you need to do</h2>
+
+<p>In 2025 the CA/Browser Forum, the body of browser makers and certificate authorities that sets the rules for public certificates, passed ballot SC-081. It cuts the maximum lifetime of a public TLS certificate in stages:</p>
+
+<ul>
+<li>Before 15 March 2026: 398 days.</li>
+<li>From 15 March 2026: 200 days.</li>
+<li>From 15 March 2027: 100 days.</li>
+<li>From 15 March 2029: 47 days.</li>
+</ul>
+
+<p>The period a certificate authority can reuse a previous domain validation shrinks on the same schedule, down to 10 days from 2029. <a href="https://knowledge.digicert.com/alerts/domain-validation-reuse-changes-in-2026" rel="noopener" target="_blank">DigiCert's summary</a> sets out both timelines. Let's Encrypt, which issues 90-day certificates already, has <a href="https://support.dnsimple.com/articles/announcement-ssl-certificate-validity-changes/" rel="noopener" target="_blank">announced its own reductions</a>, to 64 days in February 2027 and 45 days in February 2028.</p>
+
+<p>We are already in the 200-day phase. If someone in your business renews a certificate by hand once a year from a calendar reminder, that process has already broken or is about to. By 2029 manual renewal is not realistic at all.</p>
+
+<p>What to do:</p>
+
+<ol>
+<li><strong>Find out who issues your certificate.</strong> Your host, your CDN (Cloudflare and similar issue their own at the edge), or a certificate you bought and installed yourself.</li>
+<li><strong>If your host or CDN handles it automatically, confirm that it does.</strong> Check the expiry date in the browser's certificate viewer and see if it matches a short automated cycle.</li>
+<li><strong>If you install certificates manually, move to automation.</strong> That usually means ACME, the protocol Let's Encrypt uses, which most paid certificate authorities now support too.</li>
+<li><strong>Set up expiry monitoring</strong> that alerts someone other than the person who set it up. Uptime tools and Search Console will both tell you eventually. You want to know before visitors do.</li>
+<li><strong>List every hostname.</strong> The main site is rarely the one that expires. It is the forgotten subdomain: the shop, the booking system, the old campaign microsite.</li>
+</ol>
+
+<h2>Should I use HSTS and the preload list?</h2>
+
+<p>HSTS (HTTP Strict Transport Security) is a response header that tells the browser "only ever contact this domain over HTTPS". After the first visit, the browser will not even try HTTP. That closes the gap where someone types your bare domain and the first request goes out unencrypted.</p>
+
+<p>The preload list goes further. It is a list built into Chrome, Firefox, Safari and Edge, so the browser knows to use HTTPS for your domain before the first visit. To get on it through <a href="https://hstspreload.org/" rel="noopener" target="_blank">hstspreload.org</a> you need to redirect HTTP to HTTPS, serve a valid certificate, and send an HSTS header with a max-age of at least one year, includeSubDomains and the preload directive.</p>
+
+<p>My advice is to use HSTS on every site, and to preload only when you are sure. The includeSubDomains part is the trap. If any subdomain anywhere in your organisation still needs HTTP (an old intranet tool, a printer admin page, a supplier's white-label portal on your domain), preloading breaks it. Removal from the list is possible but takes months to reach users' browsers. Start with a short max-age, raise it once nothing breaks, and preload last.</p>
+
+<h2>HTTPS migration mistakes that still cost traffic</h2>
+
+<p>Most sites made the move years ago. I still see the leftovers in audits, and some of them are quietly costing traffic. If you migrated in a hurry, check these:</p>
+
+<ol>
+<li><strong>Temporary redirects.</strong> HTTP to HTTPS should be a permanent 301 or 308, not a 302.</li>
+<li><strong>Redirect chains.</strong> <a href="http://domain" rel="noopener" target="_blank">http://domain</a> to <a href="https://domain" rel="noopener" target="_blank">https://domain</a> to <a href="https://www.domain" rel="noopener" target="_blank">https://www.domain</a> to the final URL with a trailing slash. Each hop slows the page and wastes crawling. One hop from any variant to the final URL.</li>
+<li><strong>Canonical tags still pointing at HTTP.</strong> Google then gets two conflicting instructions: the redirect says one thing, the canonical says another.</li>
+<li><strong>XML sitemaps listing HTTP URLs.</strong> Common when the sitemap is generated by a plugin with a hard-coded base URL.</li>
+<li><strong>Internal links to HTTP.</strong> They work through the redirect, but every one is a wasted hop and a mixed signal.</li>
+<li><strong>Hreflang and structured data with HTTP URLs.</strong> Easy to miss because nothing visibly breaks.</li>
+<li><strong>Search Console set up only for the old property.</strong> A domain property covers HTTP, HTTPS and all subdomains together. If you are still looking at a URL-prefix property for http://, you are looking at an empty report.</li>
+<li><strong>Analytics and ad platforms with the old URL.</strong> Referral exclusions, goals or key events based on full URLs, Google Ads final URLs.</li>
+</ol>
+
+<p>None of these will sink a site alone. Together, on a site with a few thousand pages, they add up. They are the kind of thing I include in <a href="/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/">the basic technical checks</a> because they are cheap to fix and often missed.</p>
+
+<h2>The original argument still stands</h2>
+
+<p>In 2017 I wrote that HTTP sends everything in plain text, readable by anyone sitting between the browser and the server, and that HTTPS encrypts it. That was the real reason to move then and it is the real reason now. Public Wi-Fi, compromised routers and injected ads on mobile networks were not theoretical. Neither is trust. People look for the signs that a site is safe before they type in an email address or card number, and the browser now tells them loudly when it is not.</p>
+
+<p>What has changed is who bears the cost of getting it wrong. In 2017 a missing certificate was an inconvenience. In 2026 it is an interstitial warning on your first impression, and an expired certificate is a full-page error for every visitor until someone notices.</p>
+
+<h2>Quick answers</h2>
+
+<p><strong>Do I need to pay for an SSL certificate?</strong><br>
+For most sites, no. Free certificates from Let's Encrypt or your host give the same encryption as paid ones. Paid certificates make sense when you need specific support, warranties or organisation validation for procurement reasons.</p>
+
+<p><strong>Will moving to HTTPS drop my rankings?</strong><br>
+A clean migration with one-hop permanent redirects, updated canonicals and an updated sitemap usually settles within a few weeks. Drops that last are almost always caused by the mistakes listed above.</p>
+
+<p><strong>Does Chrome block HTTP sites now?</strong><br>
+No. It warns before loading public HTTP sites the user has not visited recently, and the user can continue. Private addresses such as local network devices are treated differently.</p>
+
+<p><strong>How often will I need to renew certificates?</strong><br>
+Under the current schedule, every 200 days at most, falling to 100 days in March 2027 and 47 days in March 2029. In practice that means automated renewal.</p>
+
+<p>If you only do one thing after reading this, open your site in a private window, type the bare domain without https://, and watch what happens. Then do the same for every subdomain you own. That is the 2026 version of the WhatsApp test, and it takes five minutes.</p>
     </div>
 
     <footer class="post__footer">
@@ -140,14 +237,14 @@ The major benefits of a HTTPS certificate are:
         </div>
       </aside>
 
-      <div class="share" data-share data-title="Why You Should Move To HTTPS Today!" data-url="https://woldezzy.xyz/journal/why-you-should-move-to-https-today/">
+      <div class="share" data-share data-title="HTTPS in 2026: What Still Matters Now That Every Site Should Already Be Secure" data-url="https://woldezzy.xyz/journal/why-you-should-move-to-https-today/">
         <p class="eyebrow">Share</p>
         <ul class="share__list">
           <li><button type="button" class="share__btn" data-share-native hidden>Share…</button></li>
           <li><a class="share__btn" data-share-network="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fwhy-you-should-move-to-https-today%2F" rel="noopener" target="_blank">LinkedIn</a></li>
-          <li><a class="share__btn" data-share-network="x" href="https://x.com/intent/post?text=Why%20You%20Should%20Move%20To%20HTTPS%20Today!&url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fwhy-you-should-move-to-https-today%2F&via=woldezzy" rel="noopener" target="_blank">X</a></li>
-          <li><a class="share__btn" data-share-network="whatsapp" href="https://wa.me/?text=Why%20You%20Should%20Move%20To%20HTTPS%20Today!%20https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fwhy-you-should-move-to-https-today%2F" rel="noopener" target="_blank">WhatsApp</a></li>
-          <li><a class="share__btn" data-share-network="email" href="mailto:?subject=Why%20You%20Should%20Move%20To%20HTTPS%20Today!&body=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fwhy-you-should-move-to-https-today%2F">Email</a></li>
+          <li><a class="share__btn" data-share-network="x" href="https://x.com/intent/post?text=HTTPS%20in%202026%3A%20What%20Still%20Matters%20Now%20That%20Every%20Site%20Should%20Already%20Be%20Secure&url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fwhy-you-should-move-to-https-today%2F&via=woldezzy" rel="noopener" target="_blank">X</a></li>
+          <li><a class="share__btn" data-share-network="whatsapp" href="https://wa.me/?text=HTTPS%20in%202026%3A%20What%20Still%20Matters%20Now%20That%20Every%20Site%20Should%20Already%20Be%20Secure%20https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fwhy-you-should-move-to-https-today%2F" rel="noopener" target="_blank">WhatsApp</a></li>
+          <li><a class="share__btn" data-share-network="email" href="mailto:?subject=HTTPS%20in%202026%3A%20What%20Still%20Matters%20Now%20That%20Every%20Site%20Should%20Already%20Be%20Secure&body=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fwhy-you-should-move-to-https-today%2F">Email</a></li>
           <li><button type="button" class="share__btn" data-share-copy>Copy link</button></li>
         </ul>
         <p class="share__status" role="status" aria-live="polite"></p>
@@ -164,14 +261,14 @@ The major benefits of a HTTPS certificate are:
       </div>
       <h2 class="statement" id="related-title" style="font-size: var(--t-2xl)">Related <em>essays</em>.</h2>
       <div class="journal-grid">
-        <a href="/journal/5-ways-you-can-use-google-analytics-for-conversion/" class="post-card">
-          <span class="post-card__date"><time datetime="2022-05-05">5 May 2022</time> · Analytics</span>
+        <a href="/journal/introducing-accelerated-mobile-pages-amp-and-effects-on-seo/" class="post-card">
+          <span class="post-card__date"><time datetime="2016-11-27">27 Nov 2016</time> · SEO</span>
           <div class="post-card__thumb"><picture>
-            <source type="image/avif" srcset="/public/images/covers/5-ways-you-can-use-google-analytics-for-conversion-960.avif">
-            <source type="image/webp" srcset="/public/images/covers/5-ways-you-can-use-google-analytics-for-conversion-960.webp">
-            <img src="/public/images/covers/5-ways-you-can-use-google-analytics-for-conversion.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+            <source type="image/avif" srcset="/public/images/covers/introducing-accelerated-mobile-pages-amp-and-effects-on-seo-960.avif">
+            <source type="image/webp" srcset="/public/images/covers/introducing-accelerated-mobile-pages-amp-and-effects-on-seo-960.webp">
+            <img src="/public/images/covers/introducing-accelerated-mobile-pages-amp-and-effects-on-seo.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
           </picture></div>
-          <h3 class="post-card__title">5 Ways You Can Use Google Analytics For Conversion</h3>
+          <h3 class="post-card__title">What Happened to AMP? Should You Still Use It in 2026, and How to Remove It Safely</h3>
         </a>
         <a href="/journal/should-i-use-outbound-link-open-link-in-new-tab-in-my-post/" class="post-card">
           <span class="post-card__date"><time datetime="2018-06-16">16 Jun 2018</time> · SEO</span>
@@ -180,16 +277,16 @@ The major benefits of a HTTPS certificate are:
             <source type="image/webp" srcset="/public/images/covers/should-i-use-outbound-link-open-link-in-new-tab-in-my-post-960.webp">
             <img src="/public/images/covers/should-i-use-outbound-link-open-link-in-new-tab-in-my-post.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
           </picture></div>
-          <h3 class="post-card__title">Should I Use Outbound Link (Open Link In New Tab) In My Post?</h3>
+          <h3 class="post-card__title">Should Links Open in a New Tab? UX, Accessibility and SEO in 2026</h3>
         </a>
-        <a href="/journal/how-to-reduce-bounce-rate-on-your-website/" class="post-card">
-          <span class="post-card__date"><time datetime="2019-08-20">20 Aug 2019</time> · SEO</span>
+        <a href="/journal/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content/" class="post-card">
+          <span class="post-card__date"><time datetime="2018-06-16">16 Jun 2018</time> · SEO</span>
           <div class="post-card__thumb"><picture>
-            <source type="image/avif" srcset="/public/images/covers/how-to-reduce-bounce-rate-on-your-website-960.avif">
-            <source type="image/webp" srcset="/public/images/covers/how-to-reduce-bounce-rate-on-your-website-960.webp">
-            <img src="/public/images/covers/how-to-reduce-bounce-rate-on-your-website.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+            <source type="image/avif" srcset="/public/images/covers/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content-960.avif">
+            <source type="image/webp" srcset="/public/images/covers/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content-960.webp">
+            <img src="/public/images/covers/google-algorithm-update-june-2018-google-gives-more-attention-to-video-content.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
           </picture></div>
-          <h3 class="post-card__title">How To Reduce Bounce Rate On Your Website</h3>
+          <h3 class="post-card__title">How Video Shows Up in Google Search Now: Key Moments, Video Mode, Shorts and VideoObject</h3>
         </a>
       </div>
     </div>

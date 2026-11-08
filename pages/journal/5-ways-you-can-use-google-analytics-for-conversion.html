@@ -1,7 +1,7 @@
 <!--meta
 {
-  "title": "Five ways to use Google Analytics for conversion",
-  "desc": "Google Analytics is an integral part of any website or blog. It tells you how your site is doing and where there might be problems. However, Google…",
+  "title": "5 ways to use GA4 for conversions and key events",
+  "desc": "Use Google Analytics 4 for conversions: set up key events, read landing pages, build funnel and path explorations, check attribution and link Search Console.",
   "path": "/journal/5-ways-you-can-use-google-analytics-for-conversion/",
   "ogType": "article",
   "ogImage": "https://woldezzy.xyz/public/images/covers/5-ways-you-can-use-google-analytics-for-conversion.jpg",
@@ -13,10 +13,10 @@
       {
         "@type": "BlogPosting",
         "@id": "https://woldezzy.xyz/journal/5-ways-you-can-use-google-analytics-for-conversion/#article",
-        "headline": "5 Ways You Can Use Google Analytics For Conversion",
-        "description": "Google Analytics is an integral part of any website or blog. It tells you how your site is doing and where there might be problems. However, Google…",
+        "headline": "5 Ways to Use Google Analytics 4 for Conversions: Key Events, Funnels and Attribution",
+        "description": "Use Google Analytics 4 for conversions: set up key events, read landing pages, build funnel and path explorations, check attribution and link Search Console.",
         "datePublished": "2022-05-05",
-        "dateModified": "2022-05-05",
+        "dateModified": "2026-11-08",
         "author": {
           "@type": "Person",
           "@id": "https://woldezzy.xyz/#person",
@@ -38,8 +38,8 @@
         "url": "https://woldezzy.xyz/journal/5-ways-you-can-use-google-analytics-for-conversion/",
         "mainEntityOfPage": "https://woldezzy.xyz/journal/5-ways-you-can-use-google-analytics-for-conversion/",
         "articleSection": "Analytics",
-        "keywords": "e-commerce, Google Analytics",
-        "wordCount": 972,
+        "keywords": "GA4, key events, conversion tracking, attribution, consent mode, Search Console",
+        "wordCount": 2123,
         "inLanguage": "en-GB",
         "isPartOf": {
           "@id": "https://woldezzy.xyz/journal/#blog"
@@ -63,7 +63,7 @@
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "5 Ways You Can Use Google Analytics For Conversion",
+            "name": "5 Ways to Use Google Analytics 4 for Conversions: Key Events, Funnels and Attribution",
             "item": "https://woldezzy.xyz/journal/5-ways-you-can-use-google-analytics-for-conversion/"
           }
         ]
@@ -79,11 +79,11 @@
         <ol class="crumbs">
           <li><a href="/">Home</a></li>
           <li><a href="/journal/">Journal</a></li>
-          <li><span aria-current="page" class="crumbs__current">5 Ways You Can Use Google Analytics For Conversion</span></li>
+          <li><span aria-current="page" class="crumbs__current">5 Ways to Use Google Analytics 4 for Conversions: Key Events, Funnels and Attribution</span></li>
         </ol>
       </nav>
-      <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">Analytics</span> <time datetime="2022-05-05">5 May 2022</time> · 4 min read</p>
-      <h1 class="page-hero__title post__title" itemprop="headline">5 Ways You Can Use Google Analytics For Conversion</h1>
+      <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">Analytics</span> <time datetime="2022-05-05">5 May 2022</time> · Updated <time datetime="2026-11-08">8 Nov 2026</time> · 10 min read</p>
+      <h1 class="page-hero__title post__title" itemprop="headline">5 Ways to Use Google Analytics 4 for Conversions: Key Events, Funnels and Attribution</h1>
       <p class="post__byline-top">By <a href="/about/" rel="author" itemprop="author">'Wole Oduwole</a></p>
     </div>
   </header>
@@ -100,55 +100,129 @@
 
   <div class="container container--narrow">
     <div class="prose post__body" itemprop="articleBody">
-<figure><img src="/public/images/posts/5-ways-you-can-use-google-analytics-for-conversion/A-snapshot-of-Google-Analytics-real-time.png" width="662" height="285" alt="A snapshot of Google Analytics real-time" loading="lazy" decoding="async"><figcaption>A snapshot of Google Analytics real-time</figcaption></figure>
+<p>The five ways I use Google Analytics 4 for conversions in 2026: mark the actions that matter as key events, find which landing pages produce them, use funnel explorations to see where people drop out, check attribution to see which channels earn them, and link Search Console to see which search queries lead to them. Before any of that, make sure consent mode is set up properly, or the numbers will mislead you.</p>
 
-Google Analytics is an integral part of any website or blog. It tells you how your site is doing and where there might be problems. However, Google Analytics can be overwhelming with all the data it provides. Fortunately, this article walks through five simple ways to use Google Analytics for conversion.
-<h2>Description of Google Analytics</h2>
-Google Analytics is a free web analytics tool that helps you track your website’s traffic and performance. You can use it to see how many people visit your site, where they come from, what they do on your site, and more.
+<p>I wrote the first version of this post in May 2022, using Universal Analytics. Goals, goal funnels, exit page reports and custom reports were the tools. All of them have gone. Universal Analytics stopped processing data in July 2023, Google deleted the remaining data in July 2024, and GA4 has since renamed the very thing this post is about. The idea behind the post still stands: use analytics to find where you are losing people, then fix it. The method is different, so this is a full rewrite.</p>
 
-You can also use Google Analytics to track your website’s conversion rate. This is the number of visitors who take the desired action on your site, such as subscribing to your newsletter or making a purchase.
+<h2>Are conversions now called key events in GA4?</h2>
 
-There are many ways to use Google Analytics to improve your website’s conversion rate. Here are some of the most effective:
+<p>Yes. In March 2024 Google renamed "conversions" in GA4 to "key events". It is the change that confuses people most, so it is worth getting straight before anything else.</p>
 
-1. Use goal tracking to measure conversion rates.
-2. Use landing page reports to see which pages convert best.
-3. Use exit page reports to identify problem areas on your site.
-4. Use demographic and interest reports to segment your audience.
-5. Use custom reports to track specific conversions.
+<ul>
+<li><strong>A key event</strong> is a GA4 event you have marked as important to your business: a purchase, a form submission, a phone click, a quote request. Key events are what you analyse inside GA4.</li>
+<li><strong>A conversion</strong> now means a conversion in the Google Ads sense: an action used to measure ad performance and to train bidding. In GA4 you create a Google Ads conversion from a key event, which needs a linked Google Ads account.</li>
+</ul>
 
-By using these features of Google Analytics, you can get a better understanding of your website’s traffic and performance, and make sure that more visitors are taking the actions you want them to take.
-<h2>What to track with Google Analytics</h2>
-If you want to use Google Analytics to improve your website's conversion rate, there are a few things you'll need to track. First, you'll need to track pageviews. This will give you an idea of how many people are visiting your website.
+<p>Google's own help page, <a href="https://support.google.com/analytics/answer/13965727" rel="noopener" target="_blank">Events and key events</a>, explains the reason: before the change, the same action could be counted differently in GA4 and Google Ads, and the two numbers never matched. Separating the names makes the difference visible. If you do not run Google Ads, you only need key events.</p>
 
-<a href="/wp-content/uploads/2022/05/Screenshot-2022-05-05-at-1.47.49-AM.png"><img src="/public/images/posts/5-ways-you-can-use-google-analytics-for-conversion/Screenshot-2022-05-05-at-1.47.49-AM.png" width="912" height="642" alt="Google Analytics Audience Overview Snapshot" loading="lazy" decoding="async"></a>
+<p>Old reports and many tutorials still say "conversions". When you see it in a GA4 context from before 2024, read it as key events.</p>
 
-Second, you'll need to track how long each visitor spends on your website. This will give you an idea of how engaged they are with your content. Third, you'll need to track what actions each visitor takes on your website. This will give you an idea of what's working and what isn't. By tracking these things, you can start to see patterns that will help you improve your conversion rate.
-<h2>How to set up conversion tracking in GA</h2>
-1. To set up conversion tracking in GA, you need to first create a goal. A goal is a specific action that you want your users to take on your website, such as making a purchase or signing up for a newsletter.
+<h2>Before you start: can you trust the data?</h2>
 
-2. Once you have created a goal, you need to add the goal tracking code to your website. This code will track when users take the desired action on your site.
+<p>Conversion analysis is only as good as the data under it, and two things have changed the data since 2022.</p>
 
-3. You can then view your conversion data in GA. This data will show you how many users completed the goal and what percentage of users converted.
+<p><strong>Consent.</strong> If you have visitors in the UK or the EU, many of them will decline analytics cookies. Google's consent mode tells Google tags what each visitor has agreed to. Version 2, which added the ad_user_data and ad_personalization signals, became a requirement in March 2024 for anyone using Google's advertising features with users in the European Economic Area. There are two ways to implement it:</p>
 
-4. You can use this data to improve your website and increase conversions. For example, if you see that a certain page on your site has a high conversion rate, you can add more content to that page or make it more visible on your site.
-<h2>How to use goals in Google Analytics for conversion</h2>
-Google Analytics is a powerful tool that can help you track your website's performance. One of the most useful features of Google Analytics is goals. Goals allow you to track conversions on your website.
+<ul>
+<li><strong>Basic:</strong> Google tags do not load until the visitor consents. Visitors who decline are invisible.</li>
+<li><strong>Advanced:</strong> tags load with storage denied and send cookieless pings. GA4 can then estimate the missing behaviour with <a href="https://support.google.com/analytics/answer/11161109" rel="noopener" target="_blank">behavioural modelling</a>, but only if the property qualifies. Google's thresholds include at least 1,000 events a day from visitors who declined, for at least seven days, and at least 1,000 consenting users a day on seven of the previous 28 days.</li>
+</ul>
 
-There are four types of goals in Google Analytics: destination, duration, pages/screens per session, and event. Destination goals are the most commonly used type of goal. To set up a destination goal, you need to specify the URL that you want to track as a goal. For example, if you want to track sales on your website, you would specify the URL of the thank-you page as your goal.
+<p>Most small and mid-sized sites do not meet those thresholds. So on a UK site with a typical consent banner, your GA4 key event counts are a sample, not a census. They are still very useful for comparing pages, channels and periods. They will not match your CRM or your order system, and they should not be expected to. Use your back-end figures for totals and GA4 for patterns.</p>
 
-Duration goals allow you to track how long users spend on your website. Pages/Screens per session goals allow you to track how many pages or screens users view on your website. Event goals allow you to track specific events, such as button clicks or video views.
+<p><strong>Retention.</strong> GA4 standard properties keep event-level data for two months by default. Explorations, which three of the five methods below rely on, can only look back as far as that setting allows. Go to Admin, Data collection and modification, Data retention, and change it to 14 months. It only applies from the day you change it, so do it today.</p>
 
-To set up a goal in Google Analytics, go to the Admin section and click on Goals. Then click on +New Goal and select the type of goal that you want to create. Enter the necessary information and then click Save.
+<h2>1. Set up key events for the actions that matter</h2>
 
-Once you have created a goal, you can start tracking conversions on your website. To do this,
-<h2>Tips for using goal funnels in Google Analytics</h2>
-There are a few key things to keep in mind when using goal funnels in Google Analytics. First, make sure that your goals are properly configured. This means that you should have a clear idea of what constitutes a conversion on your website or app. Without this, it will be difficult to accurately track conversions using goal funnels.
+<p>The old version of this post told you to create a goal. The GA4 equivalent is to make sure the right events exist and mark them as key events.</p>
 
-Next, you need to ensure that your tracking code is installed properly. The tracking code is what allows Google Analytics to track user behavior on your website or app. If it is not installed correctly, goal funnels will not work properly.
+<ol>
+<li><strong>List the actions that make you money or start a sales conversation.</strong> For a lead generation site that is usually form submissions, phone and email clicks, and booking confirmations. For ecommerce, purchase, and possibly begin_checkout. Keep the list short. If everything is a key event, nothing is.</li>
+<li><strong>Check whether the events already exist.</strong> Open Admin, Events (under Data display). Enhanced measurement already records some interactions, such as file downloads and outbound clicks. Form tracking in enhanced measurement exists but is unreliable on many form builders, so test it.</li>
+<li><strong>Create the missing events.</strong> For anything that is not recorded, set up an event in Google Tag Manager, or use Create event in GA4 to build one from an existing event, for example a page_view where the page location contains /thank-you/.</li>
+<li><strong>Mark them as key events.</strong> In Admin, Key events, add the event name, or tick the star next to it in the Events list.</li>
+<li><strong>Test.</strong> Use DebugView, or Realtime, while you complete the action yourself. Then check the counts against your form tool or order system after a week.</li>
+<li><strong>If you run Google Ads,</strong> link the accounts and create Google Ads conversions from the key events you want to bid on.</li>
+</ol>
 
-Finally, make sure that you use the proper filters when setting up goal funnels. This will help to ensure that only relevant data is included in the funnel. By taking these steps, you can ensure that goal funnels are set up properly and provide accurate data about conversions on your website or app.
-<h2>Conclusion</h2>
-Google Analytics is a powerful tool that can help you track and improve your website's conversion rate. By tracking key metrics such as pageviews, bounce rate, and time on site, you can identify areas of your website that need improvement. Google Analytics can also be used to track the effectiveness of your marketing campaigns and social media efforts. If you're not already using Google Analytics, we hope this article has inspired you to start using it to boost your website's conversions.
+<p>Once key events are in place, GA4 also uses them to define engaged sessions, which is why they affect your bounce rate. I explain that link in <a href="/journal/how-to-reduce-bounce-rate-on-your-website/">how to reduce bounce rate in GA4</a>.</p>
+
+<h2>2. Find which landing pages produce key events</h2>
+
+<p>This replaces the old landing page and exit page reports, and it is still the report I open first.</p>
+
+<p>Go to Reports, Engagement, Landing page. Add Key events and Session key event rate as metrics if they are not already there, and set the key event filter to the one you care about, so a newsletter sign-up is not counted the same as a sales enquiry. Then add a comparison for Session default channel group equals Organic Search.</p>
+
+<p>You are looking for two kinds of page:</p>
+
+<ul>
+<li><strong>High traffic, low key event rate.</strong> People arrive and do not act. Usually the page answers a different question from the one your offer solves, or the call to action is weak or buried. These are your biggest opportunities.</li>
+<li><strong>Low traffic, high key event rate.</strong> Pages that convert well but few people see. Link to them from your busier pages, and consider them for search and content investment.</li>
+</ul>
+
+<p>Use the session-scoped key event rate here, not the user-scoped one. You want to know what happens on visits that start on this page.</p>
+
+<h2>3. Use funnel explorations to see where people drop out</h2>
+
+<p>In Universal Analytics, goal funnels had to be configured in advance and only showed data from that point onwards. GA4's funnel exploration works on data you already have, as far back as your retention setting allows.</p>
+
+<ol>
+<li>Go to Explore and choose Funnel exploration.</li>
+<li>Define your steps. For a lead form: landed on a service page, viewed the contact page, started the form (if you track form_start), submitted the form. For ecommerce: view_item, add_to_cart, begin_checkout, purchase.</li>
+<li>Choose open or closed. A closed funnel only counts people who entered at step one. An open funnel lets people join at any step, which is closer to how real visitors behave.</li>
+<li>Add a breakdown by Device category. In my experience the biggest single finding in most funnels is a mobile step that loses far more people than the same step on desktop.</li>
+<li>Turn on the elapsed time option to see how long each step takes.</li>
+</ol>
+
+<p>Then use path exploration to look at what people do instead. Start from the step with the worst drop-off and look at the next pages they visit. If people leave your pricing page for your FAQ and never come back, the FAQ is answering a question the pricing page should have. Path exploration also runs backwards: choose a key event as the end point and see the pages people viewed before it.</p>
+
+<h2>4. Check attribution to see which channels earn key events</h2>
+
+<p>GA4 reports key events against the channel that brought the session, but the default reports and the Advertising section use different attribution, which is why figures disagree between screens.</p>
+
+<p>The attribution options have narrowed. In 2023 Google <a href="https://support.google.com/google-ads/answer/13427716" rel="noopener" target="_blank">removed the rule-based models</a>, first click, linear, time decay and position-based, from both Google Ads and GA4. In GA4 you can now choose data-driven attribution, which is the default, a paid and organic last click model, or a Google paid channels last click model. You set the reporting model in Admin, Attribution settings.</p>
+
+<p>How I use this:</p>
+
+<ul>
+<li><strong>Advertising, Attribution, Attribution paths</strong> shows which channels tend to start, assist and close paths that end in a key event. Organic search and referral often look much more valuable here than in last click reports, because they introduce people who convert later through direct or branded search.</li>
+<li><strong>Model comparison</strong> lets you compare data-driven with last click on the same key event. A channel that gains a lot under data-driven is doing work that last click hides.</li>
+<li><strong>Do not over-trust any model.</strong> Data-driven attribution can only credit touchpoints GA4 can see. Recommendations in a WhatsApp group, a podcast, an AI assistant's answer, a conversation at a conference: none of that is visible. I wrote about that gap in <a href="/journal/the-dark-funnel-why-your-traffic-charts-started-lying-to-you/">the dark funnel</a>. Ask "how did you hear about us?" on your forms as well.</li>
+</ul>
+
+<h2>5. Link Search Console to see which queries lead to key events</h2>
+
+<p>This is the most underused integration in GA4 and the one I care most about as an SEO. Search Console tells you which queries bring clicks. GA4 tells you what those visitors did. Linking them lets you see both, by landing page.</p>
+
+<ol>
+<li>In GA4, go to Admin, Product links, Search Console links, and link the Search Console property to your web data stream. You need to be a verified owner in Search Console and have edit access in GA4.</li>
+<li>Go to Reports, Library, and publish the Search Console collection so it appears in your navigation. It contains two reports: Queries and Google organic search traffic.</li>
+<li>Open Google organic search traffic. It shows landing pages with Search Console impressions, clicks and position alongside GA4 engagement and key events.</li>
+</ol>
+
+<p>The Queries report cannot show key events per query, because GA4 does not know which query an individual visitor used. The landing page view is where the value is. Sort by organic clicks and add key event rate. A page ranking well for many queries with a low key event rate needs a better offer or a better path to the offer. A page with a high key event rate and modest rankings is where more SEO work will pay back fastest. That is the sort of prioritisation I describe in <a href="/journal/learn-how-to-scale-your-business-with-seo/">scaling your business with SEO</a>.</p>
+
+<h2>What about demographics and custom reports?</h2>
+
+<p>The 2022 version recommended demographic reports and custom reports. Both exist in GA4 in some form, with limits. Demographic and interest data needs Google signals to be turned on, and GA4 applies thresholding, hiding rows where the number of users is small enough that individuals could be identified. On smaller sites, so much is withheld that the reports are not useful for conversion work.</p>
+
+<p>Custom reports are now explorations, covered above, plus the ability to customise the standard reports and add them to your navigation. If you need dashboards for a team, connect GA4 to Looker Studio, or export to BigQuery, which is free to link for standard properties within the export limits.</p>
+
+<h2>Quick answers</h2>
+
+<p><strong>What is the difference between a key event and a conversion in GA4?</strong><br>
+A key event is an important action you measure in GA4. A conversion is a Google Ads conversion created from a key event and used for ad measurement and bidding.</p>
+
+<p><strong>Why don't my GA4 key events match my sales figures?</strong><br>
+Consent choices, ad blockers, cross-device visits and tracking gaps all mean GA4 sees a subset of activity. Use your order system or CRM for totals and GA4 for comparisons.</p>
+
+<p><strong>Can I still use first click attribution in GA4?</strong><br>
+No. Google removed first click, linear, time decay and position-based models in 2023. Attribution paths in the Advertising section show which channels start the path to a key event.</p>
+
+<p><strong>How many key events should I have?</strong><br>
+As few as describe the actions that matter to the business. For most small business sites that is two to five.</p>
+
+<p>Start with the first method this week. Mark the two or three actions that make you money as key events, test them, and change data retention to 14 months. In a month you will have enough data for the other four.</p>
     </div>
 
     <footer class="post__footer">
@@ -173,14 +247,14 @@ Google Analytics is a powerful tool that can help you track and improve your web
         </div>
       </aside>
 
-      <div class="share" data-share data-title="5 Ways You Can Use Google Analytics For Conversion" data-url="https://woldezzy.xyz/journal/5-ways-you-can-use-google-analytics-for-conversion/">
+      <div class="share" data-share data-title="5 Ways to Use Google Analytics 4 for Conversions: Key Events, Funnels and Attribution" data-url="https://woldezzy.xyz/journal/5-ways-you-can-use-google-analytics-for-conversion/">
         <p class="eyebrow">Share</p>
         <ul class="share__list">
           <li><button type="button" class="share__btn" data-share-native hidden>Share…</button></li>
           <li><a class="share__btn" data-share-network="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2F5-ways-you-can-use-google-analytics-for-conversion%2F" rel="noopener" target="_blank">LinkedIn</a></li>
-          <li><a class="share__btn" data-share-network="x" href="https://x.com/intent/post?text=5%20Ways%20You%20Can%20Use%20Google%20Analytics%20For%20Conversion&url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2F5-ways-you-can-use-google-analytics-for-conversion%2F&via=woldezzy" rel="noopener" target="_blank">X</a></li>
-          <li><a class="share__btn" data-share-network="whatsapp" href="https://wa.me/?text=5%20Ways%20You%20Can%20Use%20Google%20Analytics%20For%20Conversion%20https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2F5-ways-you-can-use-google-analytics-for-conversion%2F" rel="noopener" target="_blank">WhatsApp</a></li>
-          <li><a class="share__btn" data-share-network="email" href="mailto:?subject=5%20Ways%20You%20Can%20Use%20Google%20Analytics%20For%20Conversion&body=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2F5-ways-you-can-use-google-analytics-for-conversion%2F">Email</a></li>
+          <li><a class="share__btn" data-share-network="x" href="https://x.com/intent/post?text=5%20Ways%20to%20Use%20Google%20Analytics%204%20for%20Conversions%3A%20Key%20Events%2C%20Funnels%20and%20Attribution&url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2F5-ways-you-can-use-google-analytics-for-conversion%2F&via=woldezzy" rel="noopener" target="_blank">X</a></li>
+          <li><a class="share__btn" data-share-network="whatsapp" href="https://wa.me/?text=5%20Ways%20to%20Use%20Google%20Analytics%204%20for%20Conversions%3A%20Key%20Events%2C%20Funnels%20and%20Attribution%20https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2F5-ways-you-can-use-google-analytics-for-conversion%2F" rel="noopener" target="_blank">WhatsApp</a></li>
+          <li><a class="share__btn" data-share-network="email" href="mailto:?subject=5%20Ways%20to%20Use%20Google%20Analytics%204%20for%20Conversions%3A%20Key%20Events%2C%20Funnels%20and%20Attribution&body=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2F5-ways-you-can-use-google-analytics-for-conversion%2F">Email</a></li>
           <li><button type="button" class="share__btn" data-share-copy>Copy link</button></li>
         </ul>
         <p class="share__status" role="status" aria-live="polite"></p>
@@ -197,14 +271,14 @@ Google Analytics is a powerful tool that can help you track and improve your web
       </div>
       <h2 class="statement" id="related-title" style="font-size: var(--t-2xl)">Related <em>essays</em>.</h2>
       <div class="journal-grid">
-        <a href="/journal/why-you-should-move-to-https-today/" class="post-card">
-          <span class="post-card__date"><time datetime="2017-01-17">17 Jan 2017</time> · Analytics</span>
+        <a href="/journal/is-google-going-too-far-with-serp-features-and-stealing-clicks/" class="post-card">
+          <span class="post-card__date"><time datetime="2022-06-02">2 Jun 2022</time> · SEO</span>
           <div class="post-card__thumb"><picture>
-            <source type="image/avif" srcset="/public/images/covers/why-you-should-move-to-https-today-960.avif">
-            <source type="image/webp" srcset="/public/images/covers/why-you-should-move-to-https-today-960.webp">
-            <img src="/public/images/covers/why-you-should-move-to-https-today.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+            <source type="image/avif" srcset="/public/images/covers/is-google-going-too-far-with-serp-features-and-stealing-clicks-960.avif">
+            <source type="image/webp" srcset="/public/images/covers/is-google-going-too-far-with-serp-features-and-stealing-clicks-960.webp">
+            <img src="/public/images/covers/is-google-going-too-far-with-serp-features-and-stealing-clicks.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
           </picture></div>
-          <h3 class="post-card__title">Why You Should Move To HTTPS Today!</h3>
+          <h3 class="post-card__title">Is Google Stealing Clicks? AI Overviews, AI Mode and Zero-Click Search in 2026</h3>
         </a>
         <a href="/journal/gain-organic-traffic-at-zero-cost-strategies-and-insights-from-wole-oduwole/" class="post-card">
           <span class="post-card__date"><time datetime="2022-06-02">2 Jun 2022</time> · Content</span>
@@ -213,16 +287,16 @@ Google Analytics is a powerful tool that can help you track and improve your web
             <source type="image/webp" srcset="/public/images/covers/gain-organic-traffic-at-zero-cost-strategies-and-insights-from-wole-oduwole-960.webp">
             <img src="/public/images/covers/gain-organic-traffic-at-zero-cost-strategies-and-insights-from-wole-oduwole.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
           </picture></div>
-          <h3 class="post-card__title">Gain Organic Traffic at Zero Cost: Strategies and Insights from Wole Oduwole</h3>
+          <h3 class="post-card__title">How to Get Organic Traffic for Free: My Content Playbook for Earning Visits Without Ad Spend</h3>
         </a>
-        <a href="/journal/is-google-going-too-far-with-serp-features-and-stealing-clicks/" class="post-card">
-          <span class="post-card__date"><time datetime="2022-06-02">2 Jun 2022</time> · SEO</span>
+        <a href="/journal/how-to-grow-on-social-media-strategies-and-real-world-examples/" class="post-card">
+          <span class="post-card__date"><time datetime="2022-06-08">8 Jun 2022</time> · Social Media</span>
           <div class="post-card__thumb"><picture>
-            <source type="image/avif" srcset="/public/images/covers/is-google-going-too-far-with-serp-features-and-stealing-clicks-960.avif">
-            <source type="image/webp" srcset="/public/images/covers/is-google-going-too-far-with-serp-features-and-stealing-clicks-960.webp">
-            <img src="/public/images/covers/is-google-going-too-far-with-serp-features-and-stealing-clicks.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+            <source type="image/avif" srcset="/public/images/covers/how-to-grow-on-social-media-strategies-and-real-world-examples-960.avif">
+            <source type="image/webp" srcset="/public/images/covers/how-to-grow-on-social-media-strategies-and-real-world-examples-960.webp">
+            <img src="/public/images/covers/how-to-grow-on-social-media-strategies-and-real-world-examples.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
           </picture></div>
-          <h3 class="post-card__title">"Is Google going too far with SERP features and stealing clicks?"</h3>
+          <h3 class="post-card__title">How to Grow on Social Media in 2026: What Works Now, With Real Examples</h3>
         </a>
       </div>
     </div>

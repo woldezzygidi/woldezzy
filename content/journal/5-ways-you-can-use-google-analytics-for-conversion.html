@@ -1,0 +1,134 @@
+<!--meta
+{
+  "title": "5 Ways to Use Google Analytics 4 for Conversions: Key Events, Funnels and Attribution",
+  "seoTitle": "5 ways to use GA4 for conversions and key events",
+  "date": "2022-05-05",
+  "modified": "2026-11-08",
+  "categories": ["Analytics"],
+  "tags": ["GA4", "key events", "conversion tracking", "attribution", "consent mode", "Search Console"],
+  "metaDesc": "Use Google Analytics 4 for conversions: set up key events, read landing pages, build funnel and path explorations, check attribution and link Search Console."
+}
+-->
+<p>The five ways I use Google Analytics 4 for conversions in 2026: mark the actions that matter as key events, find which landing pages produce them, use funnel explorations to see where people drop out, check attribution to see which channels earn them, and link Search Console to see which search queries lead to them. Before any of that, make sure consent mode is set up properly, or the numbers will mislead you.</p>
+
+<p>I wrote the first version of this post in May 2022, using Universal Analytics. Goals, goal funnels, exit page reports and custom reports were the tools. All of them have gone. Universal Analytics stopped processing data in July 2023, Google deleted the remaining data in July 2024, and GA4 has since renamed the very thing this post is about. The idea behind the post still stands: use analytics to find where you are losing people, then fix it. The method is different, so this is a full rewrite.</p>
+
+<h2>Are conversions now called key events in GA4?</h2>
+
+<p>Yes. In March 2024 Google renamed "conversions" in GA4 to "key events". It is the change that confuses people most, so it is worth getting straight before anything else.</p>
+
+<ul>
+<li><strong>A key event</strong> is a GA4 event you have marked as important to your business: a purchase, a form submission, a phone click, a quote request. Key events are what you analyse inside GA4.</li>
+<li><strong>A conversion</strong> now means a conversion in the Google Ads sense: an action used to measure ad performance and to train bidding. In GA4 you create a Google Ads conversion from a key event, which needs a linked Google Ads account.</li>
+</ul>
+
+<p>Google's own help page, <a href="https://support.google.com/analytics/answer/13965727">Events and key events</a>, explains the reason: before the change, the same action could be counted differently in GA4 and Google Ads, and the two numbers never matched. Separating the names makes the difference visible. If you do not run Google Ads, you only need key events.</p>
+
+<p>Old reports and many tutorials still say "conversions". When you see it in a GA4 context from before 2024, read it as key events.</p>
+
+<h2>Before you start: can you trust the data?</h2>
+
+<p>Conversion analysis is only as good as the data under it, and two things have changed the data since 2022.</p>
+
+<p><strong>Consent.</strong> If you have visitors in the UK or the EU, many of them will decline analytics cookies. Google's consent mode tells Google tags what each visitor has agreed to. Version 2, which added the ad_user_data and ad_personalization signals, became a requirement in March 2024 for anyone using Google's advertising features with users in the European Economic Area. There are two ways to implement it:</p>
+
+<ul>
+<li><strong>Basic:</strong> Google tags do not load until the visitor consents. Visitors who decline are invisible.</li>
+<li><strong>Advanced:</strong> tags load with storage denied and send cookieless pings. GA4 can then estimate the missing behaviour with <a href="https://support.google.com/analytics/answer/11161109">behavioural modelling</a>, but only if the property qualifies. Google's thresholds include at least 1,000 events a day from visitors who declined, for at least seven days, and at least 1,000 consenting users a day on seven of the previous 28 days.</li>
+</ul>
+
+<p>Most small and mid-sized sites do not meet those thresholds. So on a UK site with a typical consent banner, your GA4 key event counts are a sample, not a census. They are still very useful for comparing pages, channels and periods. They will not match your CRM or your order system, and they should not be expected to. Use your back-end figures for totals and GA4 for patterns.</p>
+
+<p><strong>Retention.</strong> GA4 standard properties keep event-level data for two months by default. Explorations, which three of the five methods below rely on, can only look back as far as that setting allows. Go to Admin, Data collection and modification, Data retention, and change it to 14 months. It only applies from the day you change it, so do it today.</p>
+
+<h2>1. Set up key events for the actions that matter</h2>
+
+<p>The old version of this post told you to create a goal. The GA4 equivalent is to make sure the right events exist and mark them as key events.</p>
+
+<ol>
+<li><strong>List the actions that make you money or start a sales conversation.</strong> For a lead generation site that is usually form submissions, phone and email clicks, and booking confirmations. For ecommerce, purchase, and possibly begin_checkout. Keep the list short. If everything is a key event, nothing is.</li>
+<li><strong>Check whether the events already exist.</strong> Open Admin, Events (under Data display). Enhanced measurement already records some interactions, such as file downloads and outbound clicks. Form tracking in enhanced measurement exists but is unreliable on many form builders, so test it.</li>
+<li><strong>Create the missing events.</strong> For anything that is not recorded, set up an event in Google Tag Manager, or use Create event in GA4 to build one from an existing event, for example a page_view where the page location contains /thank-you/.</li>
+<li><strong>Mark them as key events.</strong> In Admin, Key events, add the event name, or tick the star next to it in the Events list.</li>
+<li><strong>Test.</strong> Use DebugView, or Realtime, while you complete the action yourself. Then check the counts against your form tool or order system after a week.</li>
+<li><strong>If you run Google Ads,</strong> link the accounts and create Google Ads conversions from the key events you want to bid on.</li>
+</ol>
+
+<p>Once key events are in place, GA4 also uses them to define engaged sessions, which is why they affect your bounce rate. I explain that link in <a href="/journal/how-to-reduce-bounce-rate-on-your-website/">how to reduce bounce rate in GA4</a>.</p>
+
+<h2>2. Find which landing pages produce key events</h2>
+
+<p>This replaces the old landing page and exit page reports, and it is still the report I open first.</p>
+
+<p>Go to Reports, Engagement, Landing page. Add Key events and Session key event rate as metrics if they are not already there, and set the key event filter to the one you care about, so a newsletter sign-up is not counted the same as a sales enquiry. Then add a comparison for Session default channel group equals Organic Search.</p>
+
+<p>You are looking for two kinds of page:</p>
+
+<ul>
+<li><strong>High traffic, low key event rate.</strong> People arrive and do not act. Usually the page answers a different question from the one your offer solves, or the call to action is weak or buried. These are your biggest opportunities.</li>
+<li><strong>Low traffic, high key event rate.</strong> Pages that convert well but few people see. Link to them from your busier pages, and consider them for search and content investment.</li>
+</ul>
+
+<p>Use the session-scoped key event rate here, not the user-scoped one. You want to know what happens on visits that start on this page.</p>
+
+<h2>3. Use funnel explorations to see where people drop out</h2>
+
+<p>In Universal Analytics, goal funnels had to be configured in advance and only showed data from that point onwards. GA4's funnel exploration works on data you already have, as far back as your retention setting allows.</p>
+
+<ol>
+<li>Go to Explore and choose Funnel exploration.</li>
+<li>Define your steps. For a lead form: landed on a service page, viewed the contact page, started the form (if you track form_start), submitted the form. For ecommerce: view_item, add_to_cart, begin_checkout, purchase.</li>
+<li>Choose open or closed. A closed funnel only counts people who entered at step one. An open funnel lets people join at any step, which is closer to how real visitors behave.</li>
+<li>Add a breakdown by Device category. In my experience the biggest single finding in most funnels is a mobile step that loses far more people than the same step on desktop.</li>
+<li>Turn on the elapsed time option to see how long each step takes.</li>
+</ol>
+
+<p>Then use path exploration to look at what people do instead. Start from the step with the worst drop-off and look at the next pages they visit. If people leave your pricing page for your FAQ and never come back, the FAQ is answering a question the pricing page should have. Path exploration also runs backwards: choose a key event as the end point and see the pages people viewed before it.</p>
+
+<h2>4. Check attribution to see which channels earn key events</h2>
+
+<p>GA4 reports key events against the channel that brought the session, but the default reports and the Advertising section use different attribution, which is why figures disagree between screens.</p>
+
+<p>The attribution options have narrowed. In 2023 Google <a href="https://support.google.com/google-ads/answer/13427716">removed the rule-based models</a>, first click, linear, time decay and position-based, from both Google Ads and GA4. In GA4 you can now choose data-driven attribution, which is the default, a paid and organic last click model, or a Google paid channels last click model. You set the reporting model in Admin, Attribution settings.</p>
+
+<p>How I use this:</p>
+
+<ul>
+<li><strong>Advertising, Attribution, Attribution paths</strong> shows which channels tend to start, assist and close paths that end in a key event. Organic search and referral often look much more valuable here than in last click reports, because they introduce people who convert later through direct or branded search.</li>
+<li><strong>Model comparison</strong> lets you compare data-driven with last click on the same key event. A channel that gains a lot under data-driven is doing work that last click hides.</li>
+<li><strong>Do not over-trust any model.</strong> Data-driven attribution can only credit touchpoints GA4 can see. Recommendations in a WhatsApp group, a podcast, an AI assistant's answer, a conversation at a conference: none of that is visible. I wrote about that gap in <a href="/journal/the-dark-funnel-why-your-traffic-charts-started-lying-to-you/">the dark funnel</a>. Ask "how did you hear about us?" on your forms as well.</li>
+</ul>
+
+<h2>5. Link Search Console to see which queries lead to key events</h2>
+
+<p>This is the most underused integration in GA4 and the one I care most about as an SEO. Search Console tells you which queries bring clicks. GA4 tells you what those visitors did. Linking them lets you see both, by landing page.</p>
+
+<ol>
+<li>In GA4, go to Admin, Product links, Search Console links, and link the Search Console property to your web data stream. You need to be a verified owner in Search Console and have edit access in GA4.</li>
+<li>Go to Reports, Library, and publish the Search Console collection so it appears in your navigation. It contains two reports: Queries and Google organic search traffic.</li>
+<li>Open Google organic search traffic. It shows landing pages with Search Console impressions, clicks and position alongside GA4 engagement and key events.</li>
+</ol>
+
+<p>The Queries report cannot show key events per query, because GA4 does not know which query an individual visitor used. The landing page view is where the value is. Sort by organic clicks and add key event rate. A page ranking well for many queries with a low key event rate needs a better offer or a better path to the offer. A page with a high key event rate and modest rankings is where more SEO work will pay back fastest. That is the sort of prioritisation I describe in <a href="/journal/learn-how-to-scale-your-business-with-seo/">scaling your business with SEO</a>.</p>
+
+<h2>What about demographics and custom reports?</h2>
+
+<p>The 2022 version recommended demographic reports and custom reports. Both exist in GA4 in some form, with limits. Demographic and interest data needs Google signals to be turned on, and GA4 applies thresholding, hiding rows where the number of users is small enough that individuals could be identified. On smaller sites, so much is withheld that the reports are not useful for conversion work.</p>
+
+<p>Custom reports are now explorations, covered above, plus the ability to customise the standard reports and add them to your navigation. If you need dashboards for a team, connect GA4 to Looker Studio, or export to BigQuery, which is free to link for standard properties within the export limits.</p>
+
+<h2>Quick answers</h2>
+
+<p><strong>What is the difference between a key event and a conversion in GA4?</strong><br>
+A key event is an important action you measure in GA4. A conversion is a Google Ads conversion created from a key event and used for ad measurement and bidding.</p>
+
+<p><strong>Why don't my GA4 key events match my sales figures?</strong><br>
+Consent choices, ad blockers, cross-device visits and tracking gaps all mean GA4 sees a subset of activity. Use your order system or CRM for totals and GA4 for comparisons.</p>
+
+<p><strong>Can I still use first click attribution in GA4?</strong><br>
+No. Google removed first click, linear, time decay and position-based models in 2023. Attribution paths in the Advertising section show which channels start the path to a key event.</p>
+
+<p><strong>How many key events should I have?</strong><br>
+As few as describe the actions that matter to the business. For most small business sites that is two to five.</p>
+
+<p>Start with the first method this week. Mark the two or three actions that make you money as key events, test them, and change data retention to 14 months. In a month you will have enough data for the other four.</p>

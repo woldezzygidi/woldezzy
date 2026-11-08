@@ -1,7 +1,7 @@
 <!--meta
 {
-  "title": "Basic SEO Techniques: Your Ultimate Guide to Getting Started",
-  "desc": "Search Engine Optimization (SEO) can seem daunting, but it’s essential for improving your website's visibility on search engines like Google. Whether you're…",
+  "title": "Basic SEO Techniques: A Beginner's Guide for 2026",
+  "desc": "Basic SEO techniques for beginners: how Google crawls and ranks, Search Console setup, keyword intent, titles, internal links, Core Web Vitals and AI search.",
   "path": "/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
   "ogType": "article",
   "ogImage": "https://woldezzy.xyz/public/images/covers/basic-seo-techniques-your-ultimate-guide-to-getting-started.jpg",
@@ -13,10 +13,10 @@
       {
         "@type": "BlogPosting",
         "@id": "https://woldezzy.xyz/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/#article",
-        "headline": "Basic SEO Techniques: Your Ultimate Guide to Getting Started",
-        "description": "Search Engine Optimization (SEO) can seem daunting, but it’s essential for improving your website's visibility on search engines like Google. Whether you're…",
+        "headline": "Basic SEO Techniques for Beginners: What to Do First, and Why It Works",
+        "description": "Basic SEO techniques for beginners: how Google crawls and ranks, Search Console setup, keyword intent, titles, internal links, Core Web Vitals and AI search.",
         "datePublished": "2023-05-18",
-        "dateModified": "2024-05-18",
+        "dateModified": "2026-11-08",
         "author": {
           "@type": "Person",
           "@id": "https://woldezzy.xyz/#person",
@@ -38,8 +38,8 @@
         "url": "https://woldezzy.xyz/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
         "mainEntityOfPage": "https://woldezzy.xyz/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/",
         "articleSection": "SEO",
-        "keywords": "",
-        "wordCount": 756,
+        "keywords": "SEO for beginners, Search Console, keyword research, technical SEO, Core Web Vitals, E-E-A-T",
+        "wordCount": 2078,
         "inLanguage": "en-GB",
         "isPartOf": {
           "@id": "https://woldezzy.xyz/journal/#blog"
@@ -63,7 +63,7 @@
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Basic SEO Techniques: Your Ultimate Guide to Getting Started",
+            "name": "Basic SEO Techniques for Beginners: What to Do First, and Why It Works",
             "item": "https://woldezzy.xyz/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/"
           }
         ]
@@ -79,11 +79,11 @@
         <ol class="crumbs">
           <li><a href="/">Home</a></li>
           <li><a href="/journal/">Journal</a></li>
-          <li><span aria-current="page" class="crumbs__current">Basic SEO Techniques: Your Ultimate Guide to Getting Started</span></li>
+          <li><span aria-current="page" class="crumbs__current">Basic SEO Techniques for Beginners: What to Do First, and Why It Works</span></li>
         </ol>
       </nav>
-      <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">SEO</span> <time datetime="2023-05-18">18 May 2023</time> · 3 min read</p>
-      <h1 class="page-hero__title post__title" itemprop="headline">Basic SEO Techniques: Your Ultimate Guide to Getting Started</h1>
+      <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">SEO</span> <time datetime="2023-05-18">18 May 2023</time> · Updated <time datetime="2026-11-08">8 Nov 2026</time> · 9 min read</p>
+      <h1 class="page-hero__title post__title" itemprop="headline">Basic SEO Techniques for Beginners: What to Do First, and Why It Works</h1>
       <p class="post__byline-top">By <a href="/about/" rel="author" itemprop="author">'Wole Oduwole</a></p>
     </div>
   </header>
@@ -100,81 +100,141 @@
 
   <div class="container container--narrow">
     <div class="prose post__body" itemprop="articleBody">
-<p>Search Engine Optimization (SEO) can seem daunting, but it’s essential for improving your website's visibility on search engines like Google. Whether you're a small business owner, a blogger, or a marketer, mastering some basic SEO techniques can make a big difference. Let's break down these techniques in a simple, conversational way, with practical examples and case studies to help you understand how to apply them.</p>
+<p>Basic SEO comes down to three jobs. Make sure Google can find and index your pages. Make each page the clearest answer to one specific search. Give Google and real people reasons to trust you. Everything else in this guide, from keyword research to Core Web Vitals, is a way of doing one of those three jobs better.</p>
 
-<figure><img src="/public/images/posts/basic-seo-techniques-your-ultimate-guide-to-getting-started/Basic-SEO-techniques.jpg" width="1200" height="800" alt="Basic SEO techniques" loading="lazy" decoding="async"></figure>
+<p>I first wrote this guide in 2023. It sent readers to Google's Mobile-Friendly Test, which Google has since retired, and it said nothing about AI Overviews, because they did not exist in the UK yet. The fundamentals have held up. The tools and a few of the rules have not, so this is the version I would hand a new client or a junior on my team in November 2026.</p>
 
-<h2>1. Keyword Research</h2>
+<h2>How does Google search actually work?</h2>
 
-<p><strong>Why It Matters</strong>: Keywords are the terms people type into search engines. Knowing which keywords are relevant to your audience helps you create content that ranks well.</p>
+<p>Google does three things, in order, and most beginner problems come from not knowing which stage is failing.</p>
 
-<p><strong>How to Do It</strong>: Use tools like Google Keyword Planner, Ubersuggest, or Ahrefs to find keywords related to your business. Look for keywords with high search volume but moderate competition.</p>
+<ol>
+<li><strong>Crawling.</strong> Googlebot discovers URLs by following links and reading sitemaps, then fetches the pages.</li>
+<li><strong>Indexing.</strong> Google renders the page, works out what it is about, picks a canonical version if there are duplicates, and decides whether to store it. Plenty of crawled pages are never indexed.</li>
+<li><strong>Ranking.</strong> When someone searches, Google pulls candidates from the index and orders them by relevance, quality and usefulness for that query, in that location, on that device.</li>
+</ol>
 
-<p><strong>Example</strong>: If you run a bakery, you might find that "best chocolate cake recipe" is a popular search term. Creating a blog post around this keyword can attract people looking for baking tips.</p>
+<p>Google explains this in its own <a href="https://developers.google.com/search/docs/fundamentals/how-search-works" rel="noopener" target="_blank">How Search works</a> guide, and it is worth twenty minutes of your time. The practical lesson is simple. If a page is not indexed, no amount of keyword work will help it. If it is indexed but ranks nowhere, the problem is relevance or quality. Diagnose the stage before you fix anything.</p>
 
-<h2>2. On-Page SEO</h2>
+<h2>How do I set up Google Search Console?</h2>
 
-<p><strong>Why It Matters</strong>: On-page SEO involves optimizing individual pages to rank higher and earn more relevant traffic.</p>
+<p>Search Console is the one free tool every site owner needs. It is the only place Google tells you directly what it sees: which queries you appear for, which pages are indexed, and what is broken.</p>
 
-<p><strong>How to Do It</strong>:</p>
+<ol>
+<li>Go to <a href="https://search.google.com/search-console" rel="noopener" target="_blank">Google Search Console</a> and sign in with the Google account the business owns, not a freelancer's personal account.</li>
+<li>Add a <strong>Domain property</strong> rather than a URL-prefix property. It covers http, https, www and every subdomain in one view.</li>
+<li>Verify ownership by adding the TXT record Google gives you to your domain's DNS settings. Your registrar or host will have a DNS page for this.</li>
+<li>Submit your XML sitemap under Sitemaps. Most CMS platforms generate one at <code>/sitemap.xml</code> or <code>/sitemap_index.xml</code>.</li>
+<li>Add at least one other owner, so you never lose access when someone leaves.</li>
+<li>Wait a few days for data, then open the Performance report and the Pages report (under Indexing). Those two reports will answer most of your early questions.</li>
+</ol>
+
+<p>Do the same in <a href="https://www.bing.com/webmasters" rel="noopener" target="_blank">Bing Webmaster Tools</a>. You can import your Search Console sites in a couple of clicks. Bing's index matters more than its market share suggests, because several AI assistants draw on it.</p>
+
+<h2>How do I choose the right keywords?</h2>
+
+<p>The old version of this post told you to look for keywords with high volume and moderate competition. That advice is fine as far as it goes, but it skips the part that decides whether you rank: intent.</p>
+
+<p>Every search has a job behind it. Someone typing "chocolate cake recipe" wants to bake. Someone typing "birthday cake delivery Wolverhampton" wants to buy. Someone typing "why did my cake sink" wants a fix. Google has learnt what kind of page satisfies each of those, and it will not rank a product page for a recipe query however well you optimise it.</p>
+
+<p>So before you write anything, search the query yourself and look at what ranks. Are the top results guides, product pages, local listings, videos or forum threads? That is Google telling you the format it believes answers the question. Match it, then do it better.</p>
+
+<p>For a beginner, free tools are enough:</p>
 
 <ul>
-<li><strong>Title Tags</strong>: Ensure your title is catchy and includes your primary keyword.</li>
-
-<li><strong>Meta Descriptions</strong>: Write concise descriptions that include your keyword and encourage clicks.</li>
-
-<li><strong>Headers</strong>: Use headers (H1, H2, H3) to structure your content and include keywords naturally.</li>
+<li><strong>Google autocomplete and People Also Ask</strong> show you how real people phrase things.</li>
+<li><strong>Google Keyword Planner</strong> gives rough volume ranges. Treat them as ranges, not facts.</li>
+<li><strong>Search Console</strong> shows queries you already appear for. Once you have a few months of data, this becomes your best keyword tool.</li>
 </ul>
 
-<p><strong>Example</strong>: A blog post titled "10 Tips for Baking the Perfect Chocolate Cake" with headers like "Ingredients for Chocolate Cake" and "Step-by-Step Baking Instructions" will be more readable and SEO-friendly.</p>
+<p>Pick one main query per page, plus the close variations that share the same intent. If two of your pages target the same intent, merge them. I go further into finding winnable queries with free tools in <a href="/journal/gain-organic-traffic-at-zero-cost-strategies-and-insights-from-wole-oduwole/">my playbook on getting organic traffic for free</a>.</p>
 
-<h2>3. Quality Content</h2>
+<h2>How to write title tags, meta descriptions and headings</h2>
 
-<p><strong>Why It Matters</strong>: Content is king in SEO. High-quality, relevant content keeps visitors on your site longer and encourages them to return.</p>
+<p>These are the first things a searcher sees and the clearest signals of what a page covers.</p>
 
-<p><strong>How to Do It</strong>: Focus on creating content that answers questions, provides value, and engages your audience. Use a mix of text, images, videos, and infographics.</p>
+<p><strong>Title tags.</strong> Put the main query near the front, describe the page honestly, and keep it to roughly 50 to 60 characters so it is less likely to be cut off. Google rewrites titles it thinks are unhelpful or misleading, so a plain, accurate title usually survives better than a clever one.</p>
 
-<p><strong>Case Study</strong>: Neil Patel’s blog is a great example. By consistently publishing in-depth, valuable content on digital marketing, he attracts millions of visitors and ranks highly for numerous keywords.</p>
+<p><strong>Meta descriptions.</strong> They do not affect rankings directly, but they affect whether people click. Write one or two sentences that say what the reader gets. Google will often replace it with text from the page that better matches the query, which is fine.</p>
 
-<h2>4. Mobile Optimization</h2>
+<p><strong>Headings.</strong> Use one H1 that states the topic. Use H2s for the main sections, phrased the way people search where that reads naturally. A heading like "How long does a chocolate cake take to bake?" helps the reader scan and helps Google match the section to a question. Do not stuff headings with keywords. Write them for the person skimming on a phone.</p>
 
-<p><strong>Why It Matters</strong>: More people are using mobile devices to search the web. Google also uses mobile-first indexing, meaning it primarily uses the mobile version of content for ranking.</p>
+<p>Clean URLs help too. <code>/chocolate-cake-recipe/</code> tells everyone what to expect. <code>/p?id=4471</code> tells nobody anything.</p>
 
-<p><strong>How to Do It</strong>: Ensure your website is responsive (adjusts to different screen sizes) and has fast load times. Use tools like Google’s Mobile-Friendly Test to check your site.</p>
+<h2>Why do internal links matter so much?</h2>
 
-<p><strong>Example</strong>: Websites like BuzzFeed have mastered mobile optimization, providing a smooth browsing experience regardless of device, which helps them maintain high engagement rates.</p>
+<p>Internal links are the most underused technique I see on small sites. They do three things at once. They help Googlebot discover pages. They tell Google which pages you consider important, because important pages get linked to more. And the anchor text tells Google what the target page is about.</p>
 
-<figure><img src="/public/images/posts/basic-seo-techniques-your-ultimate-guide-to-getting-started/Fundamental-SEO.jpg" width="1200" height="800" alt="Fundamental SEO" loading="lazy" decoding="async"></figure>
+<p>A page with no internal links pointing to it is an orphan. Google may find it through your sitemap, but it will treat it as an afterthought. On client sites I work on, adding a handful of descriptive internal links from related, already-ranking pages is often the fastest win available, and it costs nothing.</p>
 
-<h2>5. Link Building</h2>
+<p>Use descriptive anchors ("our guide to sourdough starters"), not "click here". Link from the body copy where it helps the reader, not only from menus and footers.</p>
 
-<p><strong>Why It Matters</strong>: Backlinks (links from other websites to yours) signal to search engines that your content is valuable and trustworthy.</p>
+<h2>What technical SEO does a beginner actually need?</h2>
 
-<p><strong>How to Do It</strong>: Reach out to other websites for guest blogging opportunities, create shareable content, and engage in industry forums.</p>
+<p>You do not need to become a developer. You do need to check a short list.</p>
 
-<p><strong>Case Study</strong>: Brian Dean of Backlinko used a strategy called the "Skyscraper Technique," where he created comprehensive content, then reached out to sites that had linked to similar content. This helped him earn high-quality backlinks and improve his site’s ranking.</p>
+<h3>Indexing</h3>
 
-<h2>6. Technical SEO</h2>
+<p>Open the Pages report in Search Console. Look at the reasons pages are not indexed. "Crawled, currently not indexed" usually means Google did not think the page was worth keeping, which is a quality problem. "Excluded by noindex tag" on a page you want ranked is a mistake you can fix today. Use the URL Inspection tool to test any single page.</p>
 
-<p><strong>Why It Matters</strong>: Technical SEO involves optimizing your website's backend to help search engines crawl and index your site more effectively.</p>
+<h3>Sitemaps and robots.txt</h3>
 
-<p><strong>How to Do It</strong>: Ensure your site has a clean URL structure, create an XML sitemap, use HTTPS for security, and fix broken links.</p>
+<p>Your sitemap should list only the canonical, indexable URLs you want found. Your robots.txt should not block anything you want ranked, including the CSS and JavaScript files Google needs to render the page. Remember that robots.txt stops crawling, not indexing. To keep a page out of results, use a noindex tag and let Google crawl it.</p>
 
-<p><strong>Example</strong>: Moz is renowned for its comprehensive approach to technical SEO, offering resources and tools that help ensure websites are technically sound and search engine-friendly.</p>
+<h3>HTTPS and mobile</h3>
 
-<h2>7. User Experience (UX)</h2>
+<p>Serve every page over HTTPS. Google uses mobile-first indexing, which means it looks at the mobile version of your site. If content or links are missing on mobile, Google will not see them. Check your own site on a phone, and use Lighthouse in Chrome DevTools now that the standalone Mobile-Friendly Test has gone.</p>
 
-<p><strong>Why It Matters</strong>: A positive user experience leads to higher engagement and lower bounce rates, which can improve your rankings.</p>
+<h3>Core Web Vitals</h3>
 
-<p><strong>How to Do It</strong>: Focus on website design, navigation, and overall usability. Make sure your site is easy to navigate and that content is accessible.</p>
+<p>Core Web Vitals are Google's measures of real-user experience. There are three, and one changed after the original version of this post. On 12 March 2024, <a href="https://web.dev/blog/inp-cwv-march-12" rel="noopener" target="_blank">Interaction to Next Paint (INP) replaced First Input Delay (FID)</a>. INP is stricter, because it measures how quickly the page responds to every interaction during a visit, not only the first one.</p>
 
-<p><strong>Example</strong>: Apple’s website is an example of excellent UX design. It’s clean, easy to navigate, and provides a smooth experience across all devices, contributing to high customer satisfaction and strong SEO performance.</p>
+<ul>
+<li><strong>Largest Contentful Paint (LCP):</strong> how fast the main content appears. Good is 2.5 seconds or less.</li>
+<li><strong>Interaction to Next Paint (INP):</strong> how fast the page responds to taps, clicks and key presses. Good is 200 milliseconds or less.</li>
+<li><strong>Cumulative Layout Shift (CLS):</strong> how much the layout jumps around. Good is 0.1 or less.</li>
+</ul>
 
-<h2>Conclusion</h2>
+<p>Check them in the Core Web Vitals report in Search Console or at <a href="https://pagespeed.web.dev/" rel="noopener" target="_blank">PageSpeed Insights</a>. Be realistic about their weight. They are part of the page experience signals Google uses, but a fast page with thin content will not beat a slower page that answers the question properly. Fix anything rated "Poor", then go back to content.</p>
 
-<p>Mastering basic SEO techniques is about understanding your audience, optimizing your content, and ensuring your website provides a great user experience. By implementing these strategies, you can improve your search engine rankings and drive more organic traffic to your site.</p>
+<h2>What does Google mean by helpful content and E-E-A-T?</h2>
 
-<p>Ready to boost your SEO? Start with these basics, and you’ll be on your way to creating a more visible and engaging online presence. If you have any questions or need further assistance, feel free to reach out!</p>
+<p>The 2023 version of this post said "content is king" and pointed at a few famous blogs. That is not wrong, but it is not useful either. Here is what has changed.</p>
+
+<p>In March 2024 Google folded its helpful content system into its core ranking systems and, in the <a href="https://developers.google.com/search/blog/2024/03/core-update-spam-policies" rel="noopener" target="_blank">same announcement</a>, introduced new spam policies against scaled content abuse, site reputation abuse and expired domain abuse. The message was plain: pages made mainly to rank, rather than to help someone, are now a ranking liability across the whole site.</p>
+
+<p>Google's <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" rel="noopener" target="_blank">guidance on helpful, reliable, people-first content</a> is the best checklist available. The questions that matter most for a beginner:</p>
+
+<ul>
+<li>Does the page show first-hand experience? Photos you took, results you got, mistakes you made.</li>
+<li>Would someone leave feeling they learnt enough to act, or would they go back and search again?</li>
+<li>Is it clear who wrote it and why they are qualified?</li>
+<li>Did you add something that is not already on the ten pages ranking above you?</li>
+</ul>
+
+<p>That last set of ideas is what Google calls E-E-A-T: experience, expertise, authoritativeness and trust. It is not a score you can optimise. It is a description of what Google's systems try to reward. Show your work, name your authors, cite your sources and be accurate. For most small sites, trust is built more by what other people say about you than by anything on your own pages, which is why I wrote a separate guide on <a href="/journal/how-to-build-organic-presence-for-free-a-comprehensive-guide/">building organic presence for free</a> beyond your website.</p>
+
+<h2>How do AI Overviews and AI assistants change the basics?</h2>
+
+<p>Less than people fear, more than people admit.</p>
+
+<p>Google's AI Overviews and AI Mode draw on the same index as classic results. A page that is not indexed cannot be cited. A page that answers a question clearly, in a self-contained paragraph under a clear heading, is easier for any system to quote. So the basics above still do most of the work.</p>
+
+<p>What changes is the click. More questions are answered on the results page, so some informational traffic falls even when your visibility holds. In June 2026 Google began rolling out <a href="https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports" rel="noopener" target="_blank">generative AI performance reports in Search Console</a>, which show impressions in AI Overviews and AI Mode. Access was still expanding when I wrote this, so check whether your property has it.</p>
+
+<p>The other change is that assistants such as ChatGPT and Perplexity decide whether to mention you based on how consistently the wider web describes you, not only on your pages. That is entity work, and it is the next step after the basics. I cover it in <a href="/journal/entities-not-keywords-ai-recognition/">entities, not keywords</a>.</p>
+
+<h2>Quick answers</h2>
+
+<p><strong>How long does basic SEO take to work?</strong><br>New pages on a new site often take several months to settle. Fixes to indexing problems or titles on pages Google already trusts can show up within weeks.</p>
+
+<p><strong>Do I need paid SEO tools to start?</strong><br>No. Search Console, Bing Webmaster Tools, PageSpeed Insights and a careful look at the results page will carry a beginner a long way.</p>
+
+<p><strong>Are backlinks still important?</strong><br>Yes, but earned mentions from relevant, real sites matter far more than volume. Buying links breaks Google's spam policies and is not worth the risk.</p>
+
+<p><strong>Should I write content with AI?</strong><br>Google does not penalise content for how it was made. It penalises content made mainly to manipulate rankings. If AI helps you draft, add the experience, checking and judgement only you can provide.</p>
+
+<p>If you do one thing this week, set up Search Console properly and read the Pages report. Fix what is not indexed before you write another word. That single habit puts you ahead of most of the sites you are competing with.</p>
     </div>
 
     <footer class="post__footer">
@@ -199,14 +259,14 @@
         </div>
       </aside>
 
-      <div class="share" data-share data-title="Basic SEO Techniques: Your Ultimate Guide to Getting Started" data-url="https://woldezzy.xyz/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/">
+      <div class="share" data-share data-title="Basic SEO Techniques for Beginners: What to Do First, and Why It Works" data-url="https://woldezzy.xyz/journal/basic-seo-techniques-your-ultimate-guide-to-getting-started/">
         <p class="eyebrow">Share</p>
         <ul class="share__list">
           <li><button type="button" class="share__btn" data-share-native hidden>Share…</button></li>
           <li><a class="share__btn" data-share-network="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fbasic-seo-techniques-your-ultimate-guide-to-getting-started%2F" rel="noopener" target="_blank">LinkedIn</a></li>
-          <li><a class="share__btn" data-share-network="x" href="https://x.com/intent/post?text=Basic%20SEO%20Techniques%3A%20Your%20Ultimate%20Guide%20to%20Getting%20Started&url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fbasic-seo-techniques-your-ultimate-guide-to-getting-started%2F&via=woldezzy" rel="noopener" target="_blank">X</a></li>
-          <li><a class="share__btn" data-share-network="whatsapp" href="https://wa.me/?text=Basic%20SEO%20Techniques%3A%20Your%20Ultimate%20Guide%20to%20Getting%20Started%20https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fbasic-seo-techniques-your-ultimate-guide-to-getting-started%2F" rel="noopener" target="_blank">WhatsApp</a></li>
-          <li><a class="share__btn" data-share-network="email" href="mailto:?subject=Basic%20SEO%20Techniques%3A%20Your%20Ultimate%20Guide%20to%20Getting%20Started&body=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fbasic-seo-techniques-your-ultimate-guide-to-getting-started%2F">Email</a></li>
+          <li><a class="share__btn" data-share-network="x" href="https://x.com/intent/post?text=Basic%20SEO%20Techniques%20for%20Beginners%3A%20What%20to%20Do%20First%2C%20and%20Why%20It%20Works&url=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fbasic-seo-techniques-your-ultimate-guide-to-getting-started%2F&via=woldezzy" rel="noopener" target="_blank">X</a></li>
+          <li><a class="share__btn" data-share-network="whatsapp" href="https://wa.me/?text=Basic%20SEO%20Techniques%20for%20Beginners%3A%20What%20to%20Do%20First%2C%20and%20Why%20It%20Works%20https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fbasic-seo-techniques-your-ultimate-guide-to-getting-started%2F" rel="noopener" target="_blank">WhatsApp</a></li>
+          <li><a class="share__btn" data-share-network="email" href="mailto:?subject=Basic%20SEO%20Techniques%20for%20Beginners%3A%20What%20to%20Do%20First%2C%20and%20Why%20It%20Works&body=https%3A%2F%2Fwoldezzy.xyz%2Fjournal%2Fbasic-seo-techniques-your-ultimate-guide-to-getting-started%2F">Email</a></li>
           <li><button type="button" class="share__btn" data-share-copy>Copy link</button></li>
         </ul>
         <p class="share__status" role="status" aria-live="polite"></p>
@@ -230,7 +290,7 @@
             <source type="image/webp" srcset="/public/images/covers/how-to-build-organic-presence-for-free-a-comprehensive-guide-960.webp">
             <img src="/public/images/covers/how-to-build-organic-presence-for-free-a-comprehensive-guide.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
           </picture></div>
-          <h3 class="post-card__title">How to Build Organic Presence for Free: A Comprehensive Guide</h3>
+          <h3 class="post-card__title">How to Build an Organic Presence for Free: The Channels That Still Work for Small Businesses</h3>
         </a>
         <a href="/journal/learn-how-to-scale-your-business-with-seo/" class="post-card">
           <span class="post-card__date"><time datetime="2023-09-18">18 Sept 2023</time> · SEO</span>
@@ -248,7 +308,7 @@
             <source type="image/webp" srcset="/public/images/covers/is-google-going-too-far-with-serp-features-and-stealing-clicks-960.webp">
             <img src="/public/images/covers/is-google-going-too-far-with-serp-features-and-stealing-clicks.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
           </picture></div>
-          <h3 class="post-card__title">"Is Google going too far with SERP features and stealing clicks?"</h3>
+          <h3 class="post-card__title">Is Google Stealing Clicks? AI Overviews, AI Mode and Zero-Click Search in 2026</h3>
         </a>
       </div>
     </div>

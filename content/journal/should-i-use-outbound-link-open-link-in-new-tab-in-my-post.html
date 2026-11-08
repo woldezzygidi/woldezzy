@@ -1,0 +1,102 @@
+<!--meta
+{
+  "title": "Should Links Open in a New Tab? UX, Accessibility and SEO in 2026",
+  "seoTitle": "Should links open in a new tab? UX, accessibility, SEO",
+  "date": "2018-06-16",
+  "modified": "2026-11-08",
+  "categories": ["SEO"],
+  "tags": ["external links", "target blank", "accessibility", "UX", "rel attributes", "noopener"],
+  "metaDesc": "Should links open in a new tab? Usually not. What accessibility guidance says, why it has no SEO effect, and the few cases where a new tab helps the reader."
+}
+-->
+<p>No, not by default. Links in your posts, internal or external, should open in the same tab. Opening a new tab has no effect on your SEO, it takes a decision away from the reader, and it causes real problems for some users. There are a handful of cases where a new tab helps, and I list them below. Outside those, leave the reader in charge.</p>
+
+<p>I first wrote about this in 2018, when a lot of bloggers forced every external link into a new tab to keep people "on the site" and protect their bounce rate. My answer then was that you own your blog but you do not own your reader's browser. That part has held up. What has changed is that the accessibility guidance is clearer, the security reason for a special rel attribute has mostly gone away, and Google has given us more ways to describe outbound links. So here is the current version.</p>
+
+<h2>Does opening links in a new tab help SEO?</h2>
+
+<p>No. Google does not use <code>target="_blank"</code> as a ranking signal, in either direction. A link that opens in a new tab passes the same signals as one that opens in the same tab. Nothing about the target attribute tells Google anything about your page's quality.</p>
+
+<p>The old argument was indirect: keep your page open in the background and the visitor will come back to it, so your bounce rate falls and that somehow helps rankings. Two problems. First, Google has said for years that it does not use Google Analytics data such as bounce rate in ranking. Second, that bounce rate no longer exists in the form people were gaming. GA4 counts a session as engaged after 10 seconds by default, so a reader who spends a minute on your post and then clicks out has already counted as engaged. I cover that change in <a href="/journal/how-to-reduce-bounce-rate-on-your-website/">how to reduce bounce rate</a>.</p>
+
+<p>If you want people to stay, give them a reason to. Forcing a tab open behind their back is not a reason.</p>
+
+<h2>What does accessibility guidance say about new tabs?</h2>
+
+<p>The Web Content Accessibility Guidelines (WCAG) do not ban new tabs. They ask you to warn people. The relevant W3C technique is <a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G201">G201: Giving users advanced warning when opening a new window</a>, listed against success criterion 3.2.5 Change on Request and the link purpose criteria.</p>
+
+<p>The reasoning in G201 is worth reading in full. Unexpected new windows can disorient people with visual impairments and some people with cognitive disabilities. A screen reader user may not realise the context has changed. The back button stops working, because the new tab has no history. Someone who is magnifying the screen may not see the new tab appear at all. A warning lets them decide for themselves whether to leave the page.</p>
+
+<p>So if you do open a link in a new tab, say so in the link. Either in the text ("pricing table (opens in a new tab)") or with an icon that has a text alternative a screen reader will announce. A small arrow icon with no label does not count.</p>
+
+<p>Accessibility is also where the strongest everyday argument sits. Every browser already lets the reader open a link in a new tab: middle-click, Ctrl or Cmd plus click, long-press on mobile. Those who want a new tab can have one. Those who do not want one cannot easily undo yours. Same-tab is the only choice that serves both groups.</p>
+
+<h2>What about mobile and low-end devices?</h2>
+
+<p>In 2018 I made a point about low-end phones that struggled to multitask. Phones have improved, but the core problem has not gone away. On mobile, a new tab is close to invisible. The reader taps a link, the page changes, and the back button either does nothing or closes the tab and returns them somewhere they did not expect. Tab switchers on phones are buried behind an icon many people never use. I still see readers with dozens of forgotten tabs open because sites kept spawning them.</p>
+
+<p>The Nielsen Norman Group reached the same view in its 2020 review, <a href="https://www.nngroup.com/alertbox/open_new_windows.html">Opening Links in New Browser Windows and Tabs</a>: open links in the same tab by default, and avoid new tabs in most mobile use.</p>
+
+<h2>When should a link open in a new tab?</h2>
+
+<p>NN/g's guidance and my own experience line up on a short list. A new tab is justified when closing the current page would cost the reader something:</p>
+
+<ul>
+<li><strong>The reader is in the middle of a form or task.</strong> A "what does this mean?" link next to a field in a checkout, application or sign-up form. Navigating away could lose what they have typed.</li>
+<li><strong>Help or reference material used alongside the task.</strong> Documentation the reader needs to look at while they configure something on the original page.</li>
+<li><strong>PDFs and other documents on desktop</strong>, when the reader will read or print the file and then return. Label the link with the file type and size either way.</li>
+<li><strong>Logged-in sessions or editors</strong>, where leaving the page would end the session or discard unsaved work. Previewing a page while editing it is the classic case.</li>
+</ul>
+
+<p>Notice what is not on the list: "it is an external link". Whether a link points to your site or someone else's says nothing about whether the reader wants to leave. A link to a source in a blog post is a normal link. Let it behave like one.</p>
+
+<h2>Do I still need rel="noopener" on target="_blank" links?</h2>
+
+<p>For modern browsers, no. The reason <code>rel="noopener"</code> existed was a security issue called reverse tabnabbing. A page opened with <code>target="_blank"</code> could use <code>window.opener</code> to redirect the original tab, for example to a fake login page. Adding noopener cut that link.</p>
+
+<p>The HTML standard changed so that <code>target="_blank"</code> now implies noopener by default. According to <a href="https://caniuse.com/mdn-html_elements_a_implicit_noopener">Can I Use</a>, that has been the behaviour since Chrome 88, Edge 88, Firefox 79 and Safari 12.1. Leaving the attribute in does no harm, and many CMSs add it automatically, so I would not go and strip it out. Just do not treat it as an SEO attribute. It has nothing to do with search.</p>
+
+<p><code>rel="noreferrer"</code> is different and has a cost. It hides the referrer from the site you link to, so your visit shows up in their analytics as direct traffic rather than a referral from you. If you want other sites to see that you send them visitors, which is how many link relationships start, do not add noreferrer unless you have a privacy reason to. It is one of the small things that feeds the attribution mess I wrote about in <a href="/journal/the-dark-funnel-why-your-traffic-charts-started-lying-to-you/">the dark funnel</a>.</p>
+
+<h2>Which rel attributes matter for SEO: nofollow, sponsored or ugc?</h2>
+
+<p>These are the attributes that do talk to Google. In September 2019 Google added two new values alongside nofollow, and from March 2020 it began treating all three as hints rather than strict instructions. Google's <a href="https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links">guidance on qualifying outbound links</a> sets them out:</p>
+
+<ul>
+<li><strong><code>rel="sponsored"</code></strong> for links that are paid for: adverts, sponsorships, affiliate links and anything given in exchange for compensation.</li>
+<li><strong><code>rel="ugc"</code></strong> for links inside user-generated content, such as comments and forum posts.</li>
+<li><strong><code>rel="nofollow"</code></strong> for other cases where you do not want to vouch for the page or pass ranking signals to it.</li>
+</ul>
+
+<p>You can combine them, for example <code>rel="ugc nofollow"</code>. Nofollow remains an acceptable fallback for paid links. Leaving paid links unqualified is the mistake that gets sites into trouble with link spam policies.</p>
+
+<p>For ordinary editorial links, the ones you add because a source is useful to your reader, use no rel attribute at all. Linking out to good sources is normal behaviour on the web. Sites that refuse to link anywhere, or nofollow every external link out of fear, look less like a real publication, not more. Citing primary sources also helps readers check what you say, and it is the kind of corroboration that helps search engines and AI systems understand who you are and what you cover. I go into that side in <a href="/journal/entities-not-keywords-ai-recognition/">entities, not keywords</a>.</p>
+
+<h2>How to set your link policy</h2>
+
+<p>If you run a blog or a content team, write this down once so people stop debating it per post:</p>
+
+<ol>
+<li><strong>Default every link to the same tab.</strong> Check your CMS or theme settings, because some themes force external links into new tabs site-wide. Turn that off.</li>
+<li><strong>Allow new tabs only for the cases above:</strong> mid-task help, PDFs on desktop, editors and logged-in tools.</li>
+<li><strong>When you do use a new tab, label it</strong> in text or with an icon that has an accessible name.</li>
+<li><strong>Mark paid and affiliate links</strong> with <code>rel="sponsored"</code>, and comment links with <code>rel="ugc"</code>. Most comment systems handle the second one for you.</li>
+<li><strong>Leave editorial links plain.</strong> No nofollow, no noreferrer by default.</li>
+<li><strong>Keep readers with good internal links</strong>, placed where they are useful, rather than by trapping them. Related reading at the point a question comes up does more than any tab trick.</li>
+</ol>
+
+<h2>Quick answers</h2>
+
+<p><strong>Do external links hurt my SEO?</strong><br>
+No. Linking to useful, relevant sources is normal and does not leak rankings in any way you need to worry about. Qualify paid links, and avoid linking to spam.</p>
+
+<p><strong>Does target="_blank" affect rankings?</strong><br>
+No. Google ignores it for ranking purposes.</p>
+
+<p><strong>Is it an accessibility failure to open a link in a new tab?</strong><br>
+Not automatically. Doing it without warning goes against WCAG technique G201 and can fail the AAA criterion 3.2.5. Labelling the link is the fix.</p>
+
+<p><strong>Should I add rel="noopener" manually?</strong><br>
+Modern browsers apply it automatically to target="_blank" links. Adding it is harmless, and it protects anyone on a very old browser.</p>
+
+<p>The 2018 version of this post ended with "they are aware of the back button". That is still the short answer. Trust your readers to come back, and give them something worth coming back to.</p>

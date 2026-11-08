@@ -64,6 +64,9 @@ if (existsSync(NATIVE_DIR)) {
     if (!m) continue;
     const meta = JSON.parse(m[1]);
     if (meta.draft && !process.argv.includes('--drafts')) continue;
+    const slug = f.replace(/\.html$/, '');
+    // A native file with the same slug as a WordPress post replaces it (rewrites keep their URL).
+    for (let i = posts.length - 1; i >= 0; i--) if (posts[i].slug === slug && !posts[i].native) posts.splice(i, 1);
     posts.push({
       slug: f.replace(/\.html$/, ''),
       title: meta.title,
@@ -186,7 +189,11 @@ function clean(html, slug) {
     [/\bskyrocket(s|ed|ing)?\b/gi, (m, t) => ({'':'jump',s:'jumps',ed:'jumped',ing:'jumping'})[t||'']],
   ];
   for (const [re, rep] of AI) h = h.replace(re, rep);
-  h = h.replace(/\bTwitter\b(?![^<]*<\/a>)/g, 'X (formerly Twitter)').replace(/X \(formerly Twitter\)([^.]*?)X \(formerly Twitter\)/g, 'X (formerly Twitter)$1X');
+  // "X (Twitter)", "X/Twitter", "Twitter (X)" already name both: collapse to "X". Bare "Twitter" becomes "X (formerly Twitter)" once per post, "X" after.
+  h = h.replace(/\bX\s*\(\s*Twitter\s*\)|\bX\s*\/\s*Twitter\b|\bTwitter\s*\(\s*X\s*\)|\bTwitter\s*\/\s*X\b/g, 'X');
+  let firstX = !/\bX \(formerly Twitter\)/.test(h);
+  h = h.replace(/\bTwitter\b(?![^<]*<\/a>)/g, () => (firstX ? ((firstX = false), 'X (formerly Twitter)') : 'X'));
+  h = h.replace(/\b([Aa]) X\b/g, '$1n X');
 
   /* Per-post editorial fixes. Dated statistics are anchored to their year rather than
      presented as current; a handful of sentences that the generic rules left awkward are rewritten. */
@@ -195,6 +202,7 @@ function clean(html, slug) {
       ['<p>I will see you there.</p>', '<p>That post is now live: <a href="/journal/fault-lines-ai-search-platforms-llms-txt/">The Fault Lines: where AI search platforms disagree, and what llms.txt actually does</a>.</p>'],
     ],
     'social-media-marketing-building-an-engaged-online-community': [
+      ['Carousels and Reels, but carousels often grab more engagement this year.', 'Carousels and Reels. Carousels have tended to win on engagement in recent benchmarks, while Reels win on reach to non-followers.'],
       ['Engagement is down across many platforms this year.', 'Engagement fell across most platforms in 2024, and the trend has not reversed.'],
       ['One trusted report says Instagram engagement fell', 'Rival IQ\u2019s 2024 benchmark report put Instagram engagement down'],
       ['Rival IQ\u2019s 2024 median was 0.43%, which many still use as a target.', 'Rival IQ\u2019s 2024 median was 0.43%. Treat it as a floor, not a target.'],
@@ -213,6 +221,8 @@ function clean(html, slug) {
       ['That bait-and-switch didn\u2019t just kill conversions, it dented the brand\u2019s', 'That bait-and-switch killed conversions and dented the brand\u2019s'],
     ],
     'governance-privacy-and-risk-in-ai-marketing-what-digital-managers-must-know': [
+      ['<li>In Europe, the <strong>EU AI Act</strong> sets strict rules depending on the risk level of an AI system.</li>', '<li>In Europe, the <strong>EU AI Act</strong> sets rules by risk level, and the dates have moved. Bans on prohibited practices and the AI literacy duty have applied since 2 February 2025. The transparency duties in Article 50, which cover telling people they are dealing with an AI system and labelling AI-generated or manipulated content, apply from 2 August 2026, with a grace period to 2 December 2026 for watermarking on generative systems already on the market. The Digital Omnibus on AI, in force since July 2026, pushed the high-risk obligations for stand-alone systems to 2 December 2027. For most marketing teams, Article 50 is the one that bites first: AI chat on your site, synthetic images and AI-voiced ads all need to be disclosed.</li>'],
+      ['<li>In the UK, the <strong>ICO</strong> (Information Commissioner’s Office) expects businesses to explain how AI decisions affect users.</li>', '<li>In the UK, the <strong>Data (Use and Access) Act 2025</strong> changed the rules from 5 February 2026. Significant automated decisions are allowed on more legal bases than before, but only with safeguards: people must be told, be able to contest the decision and get a human to look at it. Statistical cookies no longer need consent if they only measure how your service is used, though users must still get a simple way to opt out, and third-party analytics that share data for other purposes still need consent. Maximum fines under the electronic marketing rules rose to £17.5 million or 4% of global turnover. The <strong>ICO</strong> (Information Commissioner’s Office) still expects you to explain how AI decisions affect people.</li>'],
       ['A global survey in 2024 showed that about 70 out of every 100 companies', 'McKinsey\u2019s 2024 State of AI survey found that about 70 out of every 100 companies'],
       ['Research found that nearly 6 in 10 Google searches end without a click', 'SparkToro\u2019s 2024 study found that nearly 6 in 10 Google searches end without a click'],
       ['Don\u2019t expect them to be perfect, treat them as raw material.', 'Do not expect them to be perfect. Treat them as raw material.'],
@@ -372,7 +382,7 @@ for (const p of posts) {
     'why-you-should-move-to-https-today': 'Written in 2017, when HTTPS was still a choice. It is now a baseline. The reasoning is kept for the record.',
     'should-i-use-outbound-link-open-link-in-new-tab-in-my-post': 'Written in 2018. The accessibility argument against forcing new tabs has strengthened since; the SEO argument is unchanged.',
   };
-  const note = NOTES[p.slug] ? `<aside class="note" role="note"><p><strong>Editor\u2019s note, 2026.</strong> ${NOTES[p.slug]}</p></aside>\n` : '';
+  const note = NOTES[p.slug] && !p.native ? `<aside class="note" role="note"><p><strong>Editor\u2019s note, 2026.</strong> ${NOTES[p.slug]}</p></aside>\n` : '';
 
   const fragment = `<!--meta
 ${JSON.stringify(meta, null, 2)}
@@ -387,7 +397,7 @@ ${JSON.stringify(meta, null, 2)}
           <li><span aria-current="page" class="crumbs__current">${p.title}</span></li>
         </ol>
       </nav>
-      <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">${cat}</span> <time datetime="${p.date}">${fmtDate(p.date)}</time> · ${readMins(n)} min read${tier === 'archive' ? ' · Archive' : ''}</p>
+      <p class="eyebrow page-hero__eyebrow"><span class="eyebrow__index">${cat}</span> <time datetime="${p.date}">${fmtDate(p.date)}</time>${p.native && p.modified && p.modified > p.date ? ` · Updated <time datetime="${p.modified}">${fmtDate(p.modified)}</time>` : ''} · ${readMins(n)} min read${tier === 'archive' ? ' · Archive' : ''}</p>
       <h1 class="page-hero__title post__title" itemprop="headline">${p.title}</h1>
       <p class="post__byline-top">By <a href="/about/" rel="author" itemprop="author">'Wole Oduwole</a></p>
     </div>
