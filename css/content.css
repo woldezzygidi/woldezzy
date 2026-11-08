@@ -488,3 +488,12 @@ textarea.cform__input { resize: vertical; line-height: var(--lh-relaxed); }
   background-position: right 16px center;
   padding-right: 44px;
 }
+
+/* Results list (Work, Hire) ----------------------------------------------- */
+.results { list-style: none; margin: var(--s-7) 0 0; padding: 0; display: grid; gap: var(--s-6); }
+.result { display: grid; gap: var(--s-2); padding-top: var(--s-5); border-top: 1px solid var(--rule); }
+.result__num { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--t-2xl); letter-spacing: var(--tracking-tight); color: var(--accent); line-height: 1.05; font-variant-numeric: tabular-nums; }
+.result__what { color: var(--fg-mute); line-height: var(--lh-relaxed); max-width: 52ch; }
+.result__what strong { color: var(--fg); font-weight: var(--w-strong); }
+.results__note { margin-top: var(--s-7); color: var(--fg-mute); max-width: 68ch; line-height: var(--lh-relaxed); }
+@media (min-width: 900px) { .results { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-7) var(--s-8); } }
