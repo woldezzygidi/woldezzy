@@ -44,7 +44,25 @@ for (const f of readdirSync(join(ROOT, 'js')).filter((f) => f.endsWith('.js'))) 
   write(name, buf);
   ASSETS['/js/' + f] = '/' + name;
 }
-const rewriteAssets = (html) => Object.entries(ASSETS).reduce((h, [from, to]) => h.replaceAll(`"${from}"`, `"${to}"`), html);
+const rewriteAssetsOnly = (html) => Object.entries(ASSETS).reduce((h, [from, to]) => h.replaceAll(`"${from}"`, `"${to}"`), html);
+
+/* Schema dates. Google's structured data reports want a full ISO 8601 datetime with a time zone
+   ("Invalid datetime value for dateModified" otherwise). Inside JSON-LD only:
+   YYYY-MM-DD becomes YYYY-MM-DDT09:00:00+00:00 (or +01:00 during British Summer Time),
+   and partial dates (YYYY or YYYY-MM) are dropped rather than published invalid. */
+const bstOffset = (d) => {
+  const y = +d.slice(0, 4);
+  const lastSun = (m) => { const t = new Date(Date.UTC(y, m + 1, 0)); t.setUTCDate(t.getUTCDate() - t.getUTCDay()); return t; };
+  const t = new Date(d + 'T09:00:00Z');
+  return t >= lastSun(2) && t < lastSun(9) ? '+01:00' : '+00:00';
+};
+const fixSchemaDates = (html) => html.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (m, a, json, b) => {
+  let j = json.replace(/("date(?:Published|Modified|Created)"\s*:\s*")(\d{4}-\d{2}-\d{2})(")/g, (_, k, d, q) => `${k}${d}T09:00:00${bstOffset(d)}${q}`);
+  j = j.replace(/,\s*"date(?:Published|Modified|Created)"\s*:\s*"\d{4}(?:-\d{2})?"/g, '');
+  j = j.replace(/"date(?:Published|Modified|Created)"\s*:\s*"\d{4}(?:-\d{2})?"\s*,\s*/g, '');
+  return a + j + b;
+});
+const rewriteAssets = (html) => fixSchemaDates(rewriteAssetsOnly(html));
 
 /* ──────── 2. Shell ──────── */
 const shell = read('_partials/shell.html');
