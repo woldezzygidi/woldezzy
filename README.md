@@ -5,7 +5,7 @@ Zero-framework static site. HTML/CSS/vanilla JS. One build script, one font fami
 ## Build
 
 ```sh
-npm install          # sharp only (image processing)
+npm run setup        # sharp for the image scripts only; the site build needs no packages
 node build.mjs       # → dist/
 ```
 

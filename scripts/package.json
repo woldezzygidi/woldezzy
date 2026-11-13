@@ -1,0 +1,9 @@
+{
+  "name": "woldezzy-tools",
+  "private": true,
+  "type": "module",
+  "description": "Local image and cover tooling. Not used by the Vercel build.",
+  "devDependencies": {
+    "sharp": "^0.34.0"
+  }
+}

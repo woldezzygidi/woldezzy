@@ -8,12 +8,10 @@
     "images": "node scripts/images.mjs",
     "tiles": "node scripts/tiles.mjs",
     "serve": "python3 -m http.server 4173 --directory dist",
-    "check": "node scripts/check.mjs"
-  },
-  "devDependencies": {
-    "sharp": "^0.34.0"
+    "check": "node scripts/check.mjs",
+    "setup": "npm --prefix scripts install --no-audit --no-fund"
   },
   "engines": {
-    "node": ">=22"
+    "node": "24.x"
   }
 }
