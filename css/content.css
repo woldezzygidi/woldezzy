@@ -60,13 +60,13 @@
 .prose p + p { margin-top: var(--s-5); }
 .prose strong { color: var(--fg); font-weight: 500; }
 .prose em { color: var(--fg); }
-.prose a {
+.prose a:not(.btn) {
   color: var(--fg);
   border-bottom: 1px solid var(--rule-strong);
   transition: border-color var(--t-fast) var(--ease),
               color var(--t-fast) var(--ease);
 }
-.prose a:hover {
+.prose a:not(.btn):hover {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
