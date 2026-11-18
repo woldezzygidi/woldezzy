@@ -208,3 +208,57 @@ html:not([data-theme]) .proof__item:hover img { filter: invert(1) brightness(1.4
 .crumbs__current { display: inline-block; max-width: 28ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: bottom; }
 .crumbs li + li::before { content: "/"; margin-inline-end: var(--s-2); color: var(--fg-dim); }
 .crumbs [aria-current] { color: var(--fg); }
+
+/* Quick facts under the hero lede: reply time, area, price */
+.quickfacts {
+  display: grid;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
+  max-width: 62rem;
+}
+@media (min-width: 720px) {
+  .quickfacts { grid-template-columns: repeat(3, 1fr); gap: var(--s-5); }
+}
+.quickfacts__item {
+  border-top: 1px solid var(--rule-strong);
+  padding-top: var(--s-3);
+}
+.quickfacts dt {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: var(--w-label);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+.quickfacts dd {
+  margin: var(--s-1) 0 0;
+  color: var(--fg);
+  font-size: var(--t-base);
+  line-height: var(--lh-normal);
+}
+.byline {
+  margin-top: var(--s-5);
+  font-size: var(--t-sm);
+  color: var(--fg-mute);
+}
+.byline a { color: var(--fg); }
+
+/* Sticky quote bar, phones only */
+.quickbar { display: none; }
+@media (max-width: 719px) {
+  .quickbar {
+    display: flex;
+    gap: var(--s-3);
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 30; /* below cookie banner (40), header (50) and drawer (49) */
+    padding: var(--s-3) 16px calc(var(--s-3) + env(safe-area-inset-bottom));
+    background: var(--bg-elev);
+    border-top: 1px solid var(--rule-strong);
+  }
+  .quickbar .btn { flex: 1; justify-content: center; }
+  .quickbar .btn--ghost { flex: 0 0 auto; }
+  body:has(.quickbar) { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+  .nav-open .quickbar { display: none; }
+}
