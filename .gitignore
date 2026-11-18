@@ -4,3 +4,5 @@ source-images/
 .vercel/
 .DS_Store
 *.log
+.wrangler/
+.dev.vars
