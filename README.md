@@ -52,8 +52,9 @@ scripts/                   images.mjs · tiles.mjs · manifest
 
 Every page: exactly one `<h1>`, no heading skips, valid JSON-LD, all images with width/height + alt, no horizontal scroll, skip-link, single `<main>`.
 
-## Hosting: Cloudflare Pages
+## Hosting: Cloudflare Workers (static assets)
 
-- Build command: `node build.mjs`  ·  Output directory: `dist`  ·  Node: 24 (from `.node-version`)
-- Headers and redirects live in `vercel.json` (single source); the build writes `dist/_headers` and `dist/_redirects` for Cloudflare.
-- Contact form: `functions/api/contact.js` (Pages Function). Set `RESEND_API_KEY` as a secret, and optionally `CONTACT_TO`, `CONTACT_FROM`, under Settings > Variables and Secrets.
+- `wrangler.jsonc`: Worker `woldezzy`, assets from `./dist`, `/api/*` handled by `worker/index.js`.
+- Workers Builds settings: build command `node build.mjs`, deploy command `npx wrangler deploy`, Node 24 (from `.node-version`).
+- Headers and redirects live in `vercel.json` (single source); the build writes `dist/_headers` and `dist/_redirects`, which Workers static assets apply.
+- Contact form: `worker/contact.js`. Set `RESEND_API_KEY` as a secret, and optionally `CONTACT_TO`, `CONTACT_FROM`, under the Worker's Settings > Variables and Secrets.

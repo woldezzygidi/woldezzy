@@ -1,5 +1,5 @@
-// Contact form endpoint. Cloudflare Pages Function. Sends via Resend when RESEND_API_KEY is set.
-// Env (Pages > Settings > Variables and Secrets): RESEND_API_KEY (secret, required to send),
+// Contact form endpoint, served by the Worker in worker/index.js. Sends via Resend when RESEND_API_KEY is set.
+// Env (Worker > Settings > Variables and Secrets): RESEND_API_KEY (secret, required to send),
 // CONTACT_TO (default wole@woldezzy.xyz), CONTACT_FROM (a sender verified on Resend).
 
 const MAX = { name: 120, email: 200, message: 4000 };
