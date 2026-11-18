@@ -9,7 +9,7 @@ npm run setup        # sharp for the image scripts only; the site build needs no
 node build.mjs       # → dist/
 ```
 
-`dist/` is the deployable artefact. Point any static host at it (Cloudflare Pages, Netlify, Vercel static, GitHub Pages). `_headers` and `_redirects` are Netlify/Cloudflare-format; translate to `vercel.json` if deploying there.
+`dist/` is the deployable artefact, served by a Cloudflare Worker with static assets (see `wrangler.jsonc`). Every push to `main` builds and deploys automatically.
 
 ## Images (one-time, after domain allowlist)
 
@@ -56,5 +56,5 @@ Every page: exactly one `<h1>`, no heading skips, valid JSON-LD, all images with
 
 - `wrangler.jsonc`: Worker `woldezzy`, assets from `./dist`, `/api/*` handled by `worker/index.js`.
 - Workers Builds settings: build command `node build.mjs`, deploy command `npx wrangler deploy`, Node 24 (from `.node-version`).
-- Headers and redirects live in `vercel.json` (single source); the build writes `dist/_headers` and `dist/_redirects`, which Workers static assets apply.
+- Headers and redirects live in `vercel.json` (kept as the single source; the file name is historical). The build writes `dist/_headers` and `dist/_redirects`, which Workers static assets apply.
 - Contact form: `worker/contact.js`. Set `RESEND_API_KEY` as a secret, and optionally `CONTACT_TO`, `CONTACT_FROM`, under the Worker's Settings > Variables and Secrets.

@@ -153,7 +153,7 @@ ${urls.map((u) => `  <url><loc>${u.loc}</loc><lastmod>${today}</lastmod><priorit
 write('sitemap.xml', sitemap);
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 
-/* ──────── 5b. Cloudflare Pages: _headers and _redirects, generated from vercel.json ────────
+/* ──────── 5b. Cloudflare: _headers and _redirects, generated from vercel.json ────────
    vercel.json stays the single source of truth for headers and redirects; Cloudflare Pages reads
    these two plain-text files from the output directory. */
 {
