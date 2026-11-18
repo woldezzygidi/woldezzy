@@ -51,3 +51,9 @@ scripts/                   images.mjs · tiles.mjs · manifest
 | /research/ | 632ms | 0.000 | 88ms | 104KB |
 
 Every page: exactly one `<h1>`, no heading skips, valid JSON-LD, all images with width/height + alt, no horizontal scroll, skip-link, single `<main>`.
+
+## Hosting: Cloudflare Pages
+
+- Build command: `node build.mjs`  ·  Output directory: `dist`  ·  Node: 24 (from `.node-version`)
+- Headers and redirects live in `vercel.json` (single source); the build writes `dist/_headers` and `dist/_redirects` for Cloudflare.
+- Contact form: `functions/api/contact.js` (Pages Function). Set `RESEND_API_KEY` as a secret, and optionally `CONTACT_TO`, `CONTACT_FROM`, under Settings > Variables and Secrets.

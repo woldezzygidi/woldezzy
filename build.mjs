@@ -153,6 +153,33 @@ ${urls.map((u) => `  <url><loc>${u.loc}</loc><lastmod>${today}</lastmod><priorit
 write('sitemap.xml', sitemap);
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 
+/* ──────── 5b. Cloudflare Pages: _headers and _redirects, generated from vercel.json ────────
+   vercel.json stays the single source of truth for headers and redirects; Cloudflare Pages reads
+   these two plain-text files from the output directory. */
+{
+  const vc = JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8'));
+  const toGlob = (src) => src.replace(/\(\.\*\)/g, '*').replace(/:[a-z]+\*/gi, '*');
+  const H = [];
+  // Cloudflare applies every matching block in order and joins repeated headers. So: skip the .html
+  // rule (Pages already sends max-age=0, must-revalidate for HTML), put nested paths after their
+  // parent, and detach (!) a header the parent already set before setting it again.
+  const blocks = (vc.headers || []).filter((h) => h.source !== '/(.*)\\.html').map((h) => ({ path: toGlob(h.source), headers: h.headers }));
+  blocks.sort((a, b) => a.path.replace(/\*$/, '').length - b.path.replace(/\*$/, '').length);
+  blocks.forEach((b, i) => {
+    H.push(b.path);
+    const prefix = b.path.replace(/\*$/, '');
+    for (const x of b.headers) {
+      const shadowed = blocks.slice(0, i).some((p) => p.path.endsWith('*') && prefix.startsWith(p.path.slice(0, -1)) && p.headers.some((y) => y.key.toLowerCase() === x.key.toLowerCase()));
+      if (shadowed) H.push(`  ! ${x.key}`);
+      H.push(`  ${x.key}: ${x.value}`);
+    }
+    H.push('');
+  });
+  write('_headers', H.join('\n'));
+  const R = (vc.redirects || []).map((r) => `${toGlob(r.source)} ${r.destination} ${r.permanent === false ? 302 : 301}`);
+  write('_redirects', R.join('\n') + '\n');
+}
+
 /* ──────── 6. RSS feed for the journal ──────── */
 const postsPath = join(ROOT, 'scripts', 'posts.json');
 if (existsSync(postsPath)) {
