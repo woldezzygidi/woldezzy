@@ -7,10 +7,132 @@
   "priority": "0.8",
   "schema": {
     "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "url": "https://woldezzy.xyz/contact/",
-    "mainEntity": { "@id": "https://woldezzy.xyz/#person" },
-    "inLanguage": "en-GB"
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "url": "https://woldezzy.xyz/contact/",
+        "mainEntity": {
+          "@id": "https://woldezzy.xyz/#person"
+        },
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://woldezzy.xyz/#person",
+        "name": "'Wole Oduwole",
+        "alternateName": [
+          "Adewole Oduwole",
+          "Wole Oduwole",
+          "Woldezzy"
+        ],
+        "url": "https://woldezzy.xyz/about/",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://woldezzy.xyz/public/images/wole-oduwole-seogidi-960.jpg",
+          "width": 768,
+          "height": 1024
+        },
+        "jobTitle": "SEO Professional",
+        "description": "SEO professional, growth marketer and founder. Over twelve years across search, growth and product marketing for tech companies in Africa and the UK. Founder and CMO of SEOGidi; founder of SERPGidi.",
+        "nationality": {
+          "@type": "Country",
+          "name": "Nigeria"
+        },
+        "homeLocation": [
+          {
+            "@type": "Place",
+            "name": "West Midlands, England",
+            "address": {
+              "@type": "PostalAddress",
+              "addressRegion": "West Midlands",
+              "addressCountry": "GB"
+            }
+          }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/woldezzy/",
+          "https://x.com/woldezzy",
+          "https://www.instagram.com/woldezzy",
+          "https://www.facebook.com/woldezzy",
+          "https://orcid.org/0009-0001-9302-3329",
+          "https://medium.com/@woldezzy",
+          "https://www.crunchbase.com/person/wole-oduwole",
+          "https://www.f6s.com/member/woldezzy",
+          "https://www.wikidata.org/wiki/Q142071288",
+          "https://seogidi.com/author/woldezzy/",
+          "https://seogidi.com"
+        ],
+        "knowsAbout": [
+          {
+            "@type": "Thing",
+            "name": "Search engine optimization",
+            "sameAs": "https://en.wikipedia.org/wiki/Search_engine_optimization"
+          },
+          {
+            "@type": "Thing",
+            "name": "Growth marketing"
+          },
+          {
+            "@type": "Thing",
+            "name": "Product marketing",
+            "sameAs": "https://en.wikipedia.org/wiki/Product_marketing"
+          },
+          {
+            "@type": "Thing",
+            "name": "Local search engine optimisation"
+          },
+          {
+            "@type": "Thing",
+            "name": "Technical SEO"
+          },
+          {
+            "@type": "Thing",
+            "name": "Digital marketing",
+            "sameAs": "https://en.wikipedia.org/wiki/Digital_marketing"
+          },
+          {
+            "@type": "Thing",
+            "name": "Generative engine optimization"
+          },
+          {
+            "@type": "Thing",
+            "name": "Answer engine optimization"
+          },
+          {
+            "@type": "Thing",
+            "name": "International SEO"
+          },
+          {
+            "@type": "Thing",
+            "name": "Digital PR"
+          },
+          {
+            "@type": "Thing",
+            "name": "Supply chain digital transformation"
+          }
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "SEOGidi",
+          "url": "https://seogidi.com",
+          "founder": {
+            "@id": "https://woldezzy.xyz/#person"
+          }
+        },
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "propertyID": "ORCID",
+            "value": "0009-0001-9302-3329"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "Wikidata",
+            "value": "Q142071288"
+          }
+        ]
+      }
+    ]
   }
 }
 -->
